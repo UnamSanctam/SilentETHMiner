@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/main/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.0 - Based on Lime Miner v0.3
+# SilentETHMiner v1.0.1 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -39,6 +39,8 @@ So the requirements are as follow:
 
 ## Changes
 
+# v1.0.1 (20/03/2021)
+* Added support for proxy mining
 # v1.0 (20/03/2021)
 * Inital release
 
