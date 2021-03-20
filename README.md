@@ -30,7 +30,7 @@ Pre-Compiled: https://github.com/UnamSanctam/SilentETHMiner/releases
 
 ## Requirements
 
-When mining with the Ethash algorithm you need to have enough GPU memory left to store the DAG. So for example mining Ethereum requires you have have at least a minimum GPU memory of 4.14 GB since that is the size of the DAG as of writing this.
+When mining with the Ethash algorithm you need to have enough GPU memory left to store the DAG. So for example, mining Ethereum requires you to have at least a minimum GPU memory of 4.14 GB available since that is the size of the DAG as of writing this. Due to this, GPUs that have less available memory than the required DAG are not able to mine at all.
 The other thing required is a recent enough CUDA or OpenCL compatible driver for your GPU.
 
 So the requirements are as follow:
