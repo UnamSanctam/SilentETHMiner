@@ -24,7 +24,7 @@
 
 Pre-Compiled: https://github.com/UnamSanctam/SilentETHMiner/releases
 
-## Other Miners
+## My Other Miners
 
 [Silent XMR (Monero) Miner](https://github.com/UnamSanctam/SilentXMRMiner)
 
