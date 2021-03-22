@@ -1,5 +1,5 @@
 
-<img src="https://github.com/UnamSanctam/SilentETHMiner/blob/main/SilentETHMiner.png?raw=true">
+<img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
 # SilentETHMiner v1.0.1 - Based on Lime Miner v0.3
 
