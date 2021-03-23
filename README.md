@@ -42,7 +42,6 @@ So the requirements are as follow:
 # v1.0.2 (23/03/2021)
 * Better support for running XMR miner and ETH miner simultaniously
 * Changed encryption
-*
 # v1.0.1 (20/03/2021)
 * Added support for proxy mining
 # v1.0 (20/03/2021)
