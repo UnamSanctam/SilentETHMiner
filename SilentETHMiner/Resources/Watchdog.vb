@@ -11,6 +11,7 @@ Imports System.Collections.Generic
 Imports System.Drawing
 Imports System.Windows.Forms
 Imports System.Net
+Imports System.IO
 Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
 Imports System.Threading
@@ -94,19 +95,19 @@ Public Class Watchdog
     End Function
 
     Public Shared Function AES_Decryptor(ByVal input As Byte()) As Byte()
-        Dim AES As New RijndaelManaged
-        Dim Hash_ As New MD5CryptoServiceProvider
-        Try
-            Dim hash(31) As Byte
-            Dim temp As Byte() = Hash_.ComputeHash(System.Text.Encoding.ASCII.GetBytes("#KEY"))
-            Array.Copy(temp, 0, hash, 0, 16)
-            Array.Copy(temp, 0, hash, 15, 16)
-            AES.Key = hash
-            AES.Mode = CipherMode.ECB
-            Dim DESDecrypter As ICryptoTransform = AES.CreateDecryptor
-            Dim Buffer As Byte() = input
-            Return DESDecrypter.TransformFinalBlock(Buffer, 0, Buffer.Length)
-        Catch ex As Exception
-        End Try
+        Dim initVectorBytes As Byte() = Encoding.ASCII.GetBytes("#IV")
+        Dim saltValueBytes As Byte() = Encoding.ASCII.GetBytes("#SALT")
+        Dim k1 As New Rfc2898DeriveBytes("#KEY", saltValueBytes, 100)
+        Dim symmetricKey As New RijndaelManaged
+        symmetricKey.KeySize = 256
+        symmetricKey.Mode = CipherMode.CBC
+        Dim decryptor As ICryptoTransform = symmetricKey.CreateDecryptor(k1.GetBytes(16), initVectorBytes)
+        Using mStream As New MemoryStream()
+            Using cStream As New CryptoStream(mStream, decryptor, CryptoStreamMode.Write)
+                cStream.Write(input, 0, input.Length)
+                cStream.Close()
+            End Using
+            Return mStream.ToArray()
+        End Using
     End Function
 End Class

