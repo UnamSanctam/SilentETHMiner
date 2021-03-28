@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.0.2 - Based on Lime Miner v0.3
+# SilentETHMiner v1.1 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -39,6 +39,12 @@ So the requirements are as follow:
 
 ## Changes
 
+# v1.1 (28/03/2021)
+* Improved miner
+* Added compatability for RTX 3000 series cards among others
+* Updated Watchdog
+* Improved injector workflow reliability
+* Changed encryption since the code was detected
 # v1.0.2 (23/03/2021)
 * Better support for running XMR miner and ETH miner simultaniously
 * Changed encryption
@@ -73,4 +79,4 @@ XMR: 8BbApiMBHsPVKkLEP4rVbST6CnSb3LW2gXygngCi5MGiBuwAFh6bFEzT3UTufiCehFK7fNvAjs5
 
 BTC: bc1qu9rvkx7tjw9u003chtwfuf6s42fp3lmcfttk7f
 
-ETH: 0x756b84fe97fB9880B02BDcd33cA58147E56d33a8
+ETH: 0x36f89Aa53789802c79c03d96673f2ca8eBd08438
