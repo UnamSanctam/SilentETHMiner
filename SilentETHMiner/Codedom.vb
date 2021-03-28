@@ -11,7 +11,7 @@ Public Class Codedom
         providerOptions.Add("CompilerVersion", "v4.0")
         Dim CodeProvider As New VBCodeProvider(providerOptions)
         Dim Parameters As New CompilerParameters
-        Dim OP As String = " /target:winexe /nowarn"
+        Dim OP As String = " /target:winexe /platform:x64 /nowarn"
 
         If ICOPath IsNot Nothing Then
             IO.File.Copy(ICOPath, Environment.GetFolderPath(35) + "\icon.ico", True) 'codedom cant read spaces
@@ -67,7 +67,7 @@ Public Class Codedom
         providerOptions.Add("CompilerVersion", "v4.0")
         Dim CodeProvider As New VBCodeProvider(providerOptions)
         Dim Parameters As New CompilerParameters
-        Dim OP As String = " /target:winexe /nowarn"
+        Dim OP As String = " /target:winexe /platform:x64 /nowarn"
 
         With Parameters
             .GenerateExecutable = True

