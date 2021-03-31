@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.1 - Based on Lime Miner v0.3
+# SilentETHMiner v1.2 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -39,6 +39,13 @@ So the requirements are as follow:
 
 ## Changes
 
+# v1.2 (01/04/2021)
+* Updated miner
+* Added timer that reinitalizes GPU and memory every 30 minutes for better longevity during long mining sessions
+* Recoded injector and watchdog from VB to C#
+* Overall improved watchdog and injector
+* Decreased antivirus detections
+* Added built-in function name obfuscation
 # v1.1 (28/03/2021)
 * Improved miner
 * Added compatability for RTX 3000 series cards among others
