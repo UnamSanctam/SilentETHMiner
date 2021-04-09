@@ -24,7 +24,7 @@ Public Class Form1
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Try
-            MephForm1.Text = "Silent ETH Miner Builder 1.3.1"
+            MephForm1.Text = "Silent ETH Miner Builder 1.3.2"
         Catch ex As Exception
         End Try
 

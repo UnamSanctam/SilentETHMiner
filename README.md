@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.3.1 - Based on Lime Miner v0.3
+# SilentETHMiner v1.3.2 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -39,9 +39,11 @@ So the requirements are as follow:
 
 ## Changes
 
-# v1.3.1 (09/04/2021)
+### v1.3.2 (09/04/2021)
+* Fixed crash when some connections are blocked by the government/ISP in places like Turkey or China
+### v1.3.1 (09/04/2021)
 * Fixed minor injection option bug
-# v1.3 (09/04/2021)
+### v1.3 (09/04/2021)
 * Fixed critial bug on some Windows systems
 * Added Task Scheduler startup when miner has administrator privileges
 * Replaced and improved injector
@@ -49,25 +51,25 @@ So the requirements are as follow:
 * Added debug option to display errors for testing
 * Added ability to obfuscate watchdog
 * Fixed miscellaneous bugs
-# v1.2 (01/04/2021)
+### v1.2 (01/04/2021)
 * Updated miner
 * Added timer that reinitalizes GPU and memory every 30 minutes for better longevity during long mining sessions
 * Recoded injector and watchdog from VB to C#
 * Overall improved watchdog and injector
 * Decreased antivirus detections
 * Added built-in function name obfuscation
-# v1.1 (28/03/2021)
+### v1.1 (28/03/2021)
 * Improved miner
 * Added compatability for RTX 3000 series cards among others
 * Updated Watchdog
 * Improved injector workflow reliability
 * Changed encryption since the code was detected
-# v1.0.2 (23/03/2021)
+### v1.0.2 (23/03/2021)
 * Better support for running XMR miner and ETH miner simultaniously
 * Changed encryption
-# v1.0.1 (20/03/2021)
+### v1.0.1 (20/03/2021)
 * Added support for proxy mining
-# v1.0 (20/03/2021)
+### v1.0 (20/03/2021)
 * Inital release
 
 ## Author
