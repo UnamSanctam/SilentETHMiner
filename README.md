@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.2 - Based on Lime Miner v0.3
+# SilentETHMiner v1.3 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -39,6 +39,15 @@ So the requirements are as follow:
 
 ## Changes
 
+
+# v1.3 (09/04/2021)
+* Fixed critial bug on some Windows systems
+* Added Task Scheduler startup when miner has administrator privileges
+* Replaced and improved injector
+* Added advanced options form
+* Added debug option to display errors for testing
+* Added ability to obfuscate watchdog
+* Fixed miscellaneous bugs
 # v1.2 (01/04/2021)
 * Updated miner
 * Added timer that reinitalizes GPU and memory every 30 minutes for better longevity during long mining sessions
