@@ -140,7 +140,8 @@ Partial Class Form1
         Me.Label13.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label13.ForeColor = System.Drawing.Color.Teal
-        Me.Label13.Location = New System.Drawing.Point(178, 38)
+        Me.Label13.Location = New System.Drawing.Point(267, 58)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(18, 20)
         Me.Label13.TabIndex = 48
@@ -154,7 +155,8 @@ Partial Class Form1
         Me.helpLabelPassword.Cursor = System.Windows.Forms.Cursors.Help
         Me.helpLabelPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.helpLabelPassword.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelPassword.Location = New System.Drawing.Point(179, 84)
+        Me.helpLabelPassword.Location = New System.Drawing.Point(268, 129)
+        Me.helpLabelPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.helpLabelPassword.Name = "helpLabelPassword"
         Me.helpLabelPassword.Size = New System.Drawing.Size(18, 20)
         Me.helpLabelPassword.TabIndex = 39
@@ -168,7 +170,8 @@ Partial Class Form1
         Me.Label10.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label10.ForeColor = System.Drawing.Color.Teal
-        Me.Label10.Location = New System.Drawing.Point(179, 130)
+        Me.Label10.Location = New System.Drawing.Point(268, 200)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(18, 20)
         Me.Label10.TabIndex = 45
@@ -182,7 +185,8 @@ Partial Class Form1
         Me.helpLabelPool.Cursor = System.Windows.Forms.Cursors.Help
         Me.helpLabelPool.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.helpLabelPool.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelPool.Location = New System.Drawing.Point(174, 84)
+        Me.helpLabelPool.Location = New System.Drawing.Point(261, 129)
+        Me.helpLabelPool.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.helpLabelPool.Name = "helpLabelPool"
         Me.helpLabelPool.Size = New System.Drawing.Size(18, 20)
         Me.helpLabelPool.TabIndex = 37
@@ -196,7 +200,8 @@ Partial Class Form1
         Me.helpLabelWallet.Cursor = System.Windows.Forms.Cursors.Help
         Me.helpLabelWallet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.helpLabelWallet.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelWallet.Location = New System.Drawing.Point(174, 130)
+        Me.helpLabelWallet.Location = New System.Drawing.Point(261, 200)
+        Me.helpLabelWallet.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.helpLabelWallet.Name = "helpLabelWallet"
         Me.helpLabelWallet.Size = New System.Drawing.Size(18, 20)
         Me.helpLabelWallet.TabIndex = 38
@@ -211,7 +216,8 @@ Partial Class Form1
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label4.ForeColor = System.Drawing.Color.Teal
-        Me.Label4.Location = New System.Drawing.Point(174, 37)
+        Me.Label4.Location = New System.Drawing.Point(261, 57)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(18, 20)
         Me.Label4.TabIndex = 42
@@ -226,7 +232,8 @@ Partial Class Form1
         Me.Label36.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label36.ForeColor = System.Drawing.Color.Teal
-        Me.Label36.Location = New System.Drawing.Point(135, 114)
+        Me.Label36.Location = New System.Drawing.Point(202, 175)
+        Me.Label36.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(18, 20)
         Me.Label36.TabIndex = 46
@@ -239,7 +246,8 @@ Partial Class Form1
         Me.Label32.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label32.ForeColor = System.Drawing.Color.Teal
-        Me.Label32.Location = New System.Drawing.Point(212, 81)
+        Me.Label32.Location = New System.Drawing.Point(318, 125)
+        Me.Label32.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(18, 20)
         Me.Label32.TabIndex = 40
@@ -253,7 +261,8 @@ Partial Class Form1
         Me.Label31.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label31.ForeColor = System.Drawing.Color.Teal
-        Me.Label31.Location = New System.Drawing.Point(211, 47)
+        Me.Label31.Location = New System.Drawing.Point(316, 72)
+        Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(18, 20)
         Me.Label31.TabIndex = 39
@@ -266,7 +275,8 @@ Partial Class Form1
         Me.helpLabelInstall.Cursor = System.Windows.Forms.Cursors.Help
         Me.helpLabelInstall.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.helpLabelInstall.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelInstall.Location = New System.Drawing.Point(101, 16)
+        Me.helpLabelInstall.Location = New System.Drawing.Point(152, 25)
+        Me.helpLabelInstall.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.helpLabelInstall.Name = "helpLabelInstall"
         Me.helpLabelInstall.Size = New System.Drawing.Size(18, 20)
         Me.helpLabelInstall.TabIndex = 38
@@ -280,7 +290,8 @@ Partial Class Form1
         Me.Label35.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label35.ForeColor = System.Drawing.Color.Teal
-        Me.Label35.Location = New System.Drawing.Point(101, 16)
+        Me.Label35.Location = New System.Drawing.Point(152, 25)
+        Me.Label35.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(18, 20)
         Me.Label35.TabIndex = 39
@@ -294,7 +305,8 @@ Partial Class Form1
         Me.Label26.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label26.ForeColor = System.Drawing.Color.Teal
-        Me.Label26.Location = New System.Drawing.Point(176, 51)
+        Me.Label26.Location = New System.Drawing.Point(264, 78)
+        Me.Label26.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(18, 20)
         Me.Label26.TabIndex = 57
@@ -308,7 +320,8 @@ Partial Class Form1
         Me.Label25.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label25.ForeColor = System.Drawing.Color.Teal
-        Me.Label25.Location = New System.Drawing.Point(405, 14)
+        Me.Label25.Location = New System.Drawing.Point(608, 22)
+        Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(18, 20)
         Me.Label25.TabIndex = 54
@@ -321,7 +334,8 @@ Partial Class Form1
         Me.Label15.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label15.ForeColor = System.Drawing.Color.Teal
-        Me.Label15.Location = New System.Drawing.Point(175, 17)
+        Me.Label15.Location = New System.Drawing.Point(262, 26)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(18, 20)
         Me.Label15.TabIndex = 39
@@ -335,7 +349,8 @@ Partial Class Form1
         Me.Label28.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label28.ForeColor = System.Drawing.Color.Teal
-        Me.Label28.Location = New System.Drawing.Point(178, 13)
+        Me.Label28.Location = New System.Drawing.Point(267, 20)
+        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(18, 20)
         Me.Label28.TabIndex = 58
@@ -352,14 +367,13 @@ Partial Class Form1
         Me.MephForm1.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.MephForm1.ForeColor = System.Drawing.Color.Gray
         Me.MephForm1.Location = New System.Drawing.Point(0, 0)
-        Me.MephForm1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.MephForm1.MaximumSize = New System.Drawing.Size(535, 272)
-        Me.MephForm1.MinimumSize = New System.Drawing.Size(535, 272)
+        Me.MephForm1.MaximumSize = New System.Drawing.Size(802, 418)
+        Me.MephForm1.MinimumSize = New System.Drawing.Size(802, 418)
         Me.MephForm1.Name = "MephForm1"
-        Me.MephForm1.Size = New System.Drawing.Size(535, 272)
+        Me.MephForm1.Size = New System.Drawing.Size(802, 418)
         Me.MephForm1.SubHeader = "By Unam Sanctam, Credit to NYAN-x-CAT"
         Me.MephForm1.TabIndex = 0
-        Me.MephForm1.Text = "Silent ETH Miner Builder 1.3.1"
+        Me.MephForm1.Text = "Silent ETH Miner Builder 1.3.3"
         '
         'MephTabcontrol2
         '
@@ -371,11 +385,12 @@ Partial Class Form1
         Me.MephTabcontrol2.Controls.Add(Me.TabPage6)
         Me.MephTabcontrol2.Controls.Add(Me.TabPage5)
         Me.MephTabcontrol2.ItemSize = New System.Drawing.Size(32, 85)
-        Me.MephTabcontrol2.Location = New System.Drawing.Point(12, 65)
+        Me.MephTabcontrol2.Location = New System.Drawing.Point(18, 100)
+        Me.MephTabcontrol2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MephTabcontrol2.Multiline = True
         Me.MephTabcontrol2.Name = "MephTabcontrol2"
         Me.MephTabcontrol2.SelectedIndex = 0
-        Me.MephTabcontrol2.Size = New System.Drawing.Size(511, 197)
+        Me.MephTabcontrol2.Size = New System.Drawing.Size(766, 303)
         Me.MephTabcontrol2.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.MephTabcontrol2.TabIndex = 17
         '
@@ -385,8 +400,9 @@ Partial Class Form1
         Me.TabPage1.Controls.Add(Me.MephGroupBox2)
         Me.TabPage1.Controls.Add(Me.MephGroupBox1)
         Me.TabPage1.Location = New System.Drawing.Point(89, 4)
+        Me.TabPage1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(418, 189)
+        Me.TabPage1.Size = New System.Drawing.Size(673, 295)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Main"
         '
@@ -404,17 +420,17 @@ Partial Class Form1
         Me.MephGroupBox2.Controls.Add(Me.Label12)
         Me.MephGroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.MephGroupBox2.Header_Line = SilentETHMiner.MephGroupBox.HeaderLine.Enabled
-        Me.MephGroupBox2.Location = New System.Drawing.Point(213, 3)
+        Me.MephGroupBox2.Location = New System.Drawing.Point(320, 5)
+        Me.MephGroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MephGroupBox2.Name = "MephGroupBox2"
-        Me.MephGroupBox2.Size = New System.Drawing.Size(202, 183)
+        Me.MephGroupBox2.Size = New System.Drawing.Size(303, 282)
         Me.MephGroupBox2.TabIndex = 50
         Me.MephGroupBox2.Text = "Optional Settings"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(10, 35)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label14.Location = New System.Drawing.Point(15, 54)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(132, 25)
         Me.Label14.TabIndex = 47
@@ -424,12 +440,11 @@ Partial Class Form1
         '
         Me.txtPoolPassowrd.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtPoolPassowrd.ForeColor = System.Drawing.Color.Silver
-        Me.txtPoolPassowrd.Location = New System.Drawing.Point(13, 101)
-        Me.txtPoolPassowrd.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPoolPassowrd.Location = New System.Drawing.Point(20, 155)
         Me.txtPoolPassowrd.MaxLength = 32767
         Me.txtPoolPassowrd.MultiLine = False
         Me.txtPoolPassowrd.Name = "txtPoolPassowrd"
-        Me.txtPoolPassowrd.Size = New System.Drawing.Size(179, 24)
+        Me.txtPoolPassowrd.Size = New System.Drawing.Size(268, 24)
         Me.txtPoolPassowrd.TabIndex = 12
         Me.txtPoolPassowrd.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPoolPassowrd.UseSystemPasswordChar = False
@@ -438,8 +453,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 82)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label7.Location = New System.Drawing.Point(15, 126)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(95, 25)
         Me.Label7.TabIndex = 13
@@ -449,12 +463,11 @@ Partial Class Form1
         '
         Me.txtPoolWorker.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtPoolWorker.ForeColor = System.Drawing.Color.Silver
-        Me.txtPoolWorker.Location = New System.Drawing.Point(13, 54)
-        Me.txtPoolWorker.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPoolWorker.Location = New System.Drawing.Point(20, 83)
         Me.txtPoolWorker.MaxLength = 32767
         Me.txtPoolWorker.MultiLine = False
         Me.txtPoolWorker.Name = "txtPoolWorker"
-        Me.txtPoolWorker.Size = New System.Drawing.Size(179, 24)
+        Me.txtPoolWorker.Size = New System.Drawing.Size(268, 24)
         Me.txtPoolWorker.TabIndex = 46
         Me.txtPoolWorker.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPoolWorker.UseSystemPasswordChar = False
@@ -464,12 +477,11 @@ Partial Class Form1
         '
         Me.txtPoolData.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtPoolData.ForeColor = System.Drawing.Color.Silver
-        Me.txtPoolData.Location = New System.Drawing.Point(13, 147)
-        Me.txtPoolData.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPoolData.Location = New System.Drawing.Point(20, 226)
         Me.txtPoolData.MaxLength = 32767
         Me.txtPoolData.MultiLine = False
         Me.txtPoolData.Name = "txtPoolData"
-        Me.txtPoolData.Size = New System.Drawing.Size(179, 24)
+        Me.txtPoolData.Size = New System.Drawing.Size(268, 24)
         Me.txtPoolData.TabIndex = 43
         Me.txtPoolData.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPoolData.UseSystemPasswordChar = False
@@ -478,8 +490,7 @@ Partial Class Form1
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(11, 127)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label12.Location = New System.Drawing.Point(16, 195)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(100, 25)
         Me.Label12.TabIndex = 44
@@ -499,9 +510,10 @@ Partial Class Form1
         Me.MephGroupBox1.Controls.Add(Me.Label3)
         Me.MephGroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.MephGroupBox1.Header_Line = SilentETHMiner.MephGroupBox.HeaderLine.Enabled
-        Me.MephGroupBox1.Location = New System.Drawing.Point(5, 3)
+        Me.MephGroupBox1.Location = New System.Drawing.Point(8, 5)
+        Me.MephGroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MephGroupBox1.Name = "MephGroupBox1"
-        Me.MephGroupBox1.Size = New System.Drawing.Size(202, 183)
+        Me.MephGroupBox1.Size = New System.Drawing.Size(303, 282)
         Me.MephGroupBox1.TabIndex = 49
         Me.MephGroupBox1.Text = "Required Settings"
         '
@@ -509,12 +521,11 @@ Partial Class Form1
         '
         Me.txtPoolURL.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtPoolURL.ForeColor = System.Drawing.Color.Silver
-        Me.txtPoolURL.Location = New System.Drawing.Point(8, 101)
-        Me.txtPoolURL.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPoolURL.Location = New System.Drawing.Point(12, 155)
         Me.txtPoolURL.MaxLength = 32767
         Me.txtPoolURL.MultiLine = False
         Me.txtPoolURL.Name = "txtPoolURL"
-        Me.txtPoolURL.Size = New System.Drawing.Size(179, 24)
+        Me.txtPoolURL.Size = New System.Drawing.Size(268, 24)
         Me.txtPoolURL.TabIndex = 14
         Me.txtPoolURL.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPoolURL.UseSystemPasswordChar = False
@@ -523,8 +534,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 128)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Location = New System.Drawing.Point(9, 197)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(141, 25)
         Me.Label6.TabIndex = 11
@@ -534,12 +544,11 @@ Partial Class Form1
         '
         Me.txtPoolUsername.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtPoolUsername.ForeColor = System.Drawing.Color.Silver
-        Me.txtPoolUsername.Location = New System.Drawing.Point(9, 147)
-        Me.txtPoolUsername.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPoolUsername.Location = New System.Drawing.Point(14, 226)
         Me.txtPoolUsername.MaxLength = 32767
         Me.txtPoolUsername.MultiLine = False
         Me.txtPoolUsername.Name = "txtPoolUsername"
-        Me.txtPoolUsername.Size = New System.Drawing.Size(179, 24)
+        Me.txtPoolUsername.Size = New System.Drawing.Size(268, 24)
         Me.txtPoolUsername.TabIndex = 10
         Me.txtPoolUsername.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPoolUsername.UseSystemPasswordChar = False
@@ -548,8 +557,7 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 82)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Location = New System.Drawing.Point(9, 126)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(53, 25)
         Me.Label8.TabIndex = 15
@@ -566,18 +574,16 @@ Partial Class Form1
         Me.txtPoolScheme.ItemHeight = 16
         Me.txtPoolScheme.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.txtPoolScheme.Items.AddRange(New Object() {"stratum (Standard)", "stratums (SSL/TLS)", "stratumss (SSL/TLS 1.2)", "http (getwork, proxy)"})
-        Me.txtPoolScheme.Location = New System.Drawing.Point(8, 56)
-        Me.txtPoolScheme.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPoolScheme.Location = New System.Drawing.Point(12, 86)
         Me.txtPoolScheme.Name = "txtPoolScheme"
-        Me.txtPoolScheme.Size = New System.Drawing.Size(179, 22)
+        Me.txtPoolScheme.Size = New System.Drawing.Size(266, 22)
         Me.txtPoolScheme.StartIndex = 0
         Me.txtPoolScheme.TabIndex = 40
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(5, 36)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(8, 55)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(184, 25)
         Me.Label3.TabIndex = 41
@@ -598,8 +604,9 @@ Partial Class Form1
         Me.TabPage2.Controls.Add(Me.Label1)
         Me.TabPage2.Controls.Add(Me.txtInstallPathMain)
         Me.TabPage2.Location = New System.Drawing.Point(89, 4)
+        Me.TabPage2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(418, 189)
+        Me.TabPage2.Size = New System.Drawing.Size(673, 295)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Install"
         '
@@ -607,8 +614,7 @@ Partial Class Form1
         '
         Me.Label37.AutoSize = True
         Me.Label37.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label37.Location = New System.Drawing.Point(9, 111)
-        Me.Label37.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label37.Location = New System.Drawing.Point(14, 171)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(102, 25)
         Me.Label37.TabIndex = 45
@@ -619,8 +625,7 @@ Partial Class Form1
         Me.toggleWatchdog.BackColor = System.Drawing.Color.Transparent
         Me.toggleWatchdog.Checked = True
         Me.toggleWatchdog.ForeColor = System.Drawing.Color.Black
-        Me.toggleWatchdog.Location = New System.Drawing.Point(81, 109)
-        Me.toggleWatchdog.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.toggleWatchdog.Location = New System.Drawing.Point(122, 168)
         Me.toggleWatchdog.Name = "toggleWatchdog"
         Me.toggleWatchdog.Size = New System.Drawing.Size(50, 24)
         Me.toggleWatchdog.TabIndex = 44
@@ -633,10 +638,9 @@ Partial Class Form1
         Me.chkInstall.Checked = False
         Me.chkInstall.Cursor = System.Windows.Forms.Cursors.Hand
         Me.chkInstall.ForeColor = System.Drawing.Color.Black
-        Me.chkInstall.Location = New System.Drawing.Point(14, 12)
-        Me.chkInstall.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkInstall.Location = New System.Drawing.Point(21, 18)
         Me.chkInstall.Name = "chkInstall"
-        Me.chkInstall.Size = New System.Drawing.Size(111, 24)
+        Me.chkInstall.Size = New System.Drawing.Size(166, 24)
         Me.chkInstall.TabIndex = 21
         Me.chkInstall.Text = "Disabled"
         '
@@ -645,12 +649,11 @@ Partial Class Form1
         Me.txtInstallFileName.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtInstallFileName.Enabled = False
         Me.txtInstallFileName.ForeColor = System.Drawing.Color.Silver
-        Me.txtInstallFileName.Location = New System.Drawing.Point(80, 77)
-        Me.txtInstallFileName.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtInstallFileName.Location = New System.Drawing.Point(120, 118)
         Me.txtInstallFileName.MaxLength = 32767
         Me.txtInstallFileName.MultiLine = False
         Me.txtInstallFileName.Name = "txtInstallFileName"
-        Me.txtInstallFileName.Size = New System.Drawing.Size(127, 24)
+        Me.txtInstallFileName.Size = New System.Drawing.Size(190, 24)
         Me.txtInstallFileName.TabIndex = 8
         Me.txtInstallFileName.Text = "Services.exe"
         Me.txtInstallFileName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -660,8 +663,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(8, 45)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(12, 69)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 25)
         Me.Label2.TabIndex = 19
@@ -670,8 +672,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 78)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(12, 120)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(92, 25)
         Me.Label1.TabIndex = 9
@@ -689,10 +690,9 @@ Partial Class Form1
         Me.txtInstallPathMain.ItemHeight = 16
         Me.txtInstallPathMain.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.txtInstallPathMain.Items.AddRange(New Object() {"Temp", "AppData", "UserProfile"})
-        Me.txtInstallPathMain.Location = New System.Drawing.Point(80, 44)
-        Me.txtInstallPathMain.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtInstallPathMain.Location = New System.Drawing.Point(120, 68)
         Me.txtInstallPathMain.Name = "txtInstallPathMain"
-        Me.txtInstallPathMain.Size = New System.Drawing.Size(127, 22)
+        Me.txtInstallPathMain.Size = New System.Drawing.Size(188, 22)
         Me.txtInstallPathMain.StartIndex = 0
         Me.txtInstallPathMain.TabIndex = 18
         '
@@ -715,15 +715,17 @@ Partial Class Form1
         Me.TabPage3.Controls.Add(Me.num_Assembly1)
         Me.TabPage3.Controls.Add(Me.txtTrademark)
         Me.TabPage3.Location = New System.Drawing.Point(89, 4)
+        Me.TabPage3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(418, 189)
+        Me.TabPage3.Size = New System.Drawing.Size(673, 295)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Assembly"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(11, 160)
+        Me.Label9.Location = New System.Drawing.Point(16, 246)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(79, 25)
         Me.Label9.TabIndex = 22
@@ -736,10 +738,9 @@ Partial Class Form1
         Me.chkAssembly.Checked = False
         Me.chkAssembly.Cursor = System.Windows.Forms.Cursors.Hand
         Me.chkAssembly.ForeColor = System.Drawing.Color.Black
-        Me.chkAssembly.Location = New System.Drawing.Point(14, 12)
-        Me.chkAssembly.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkAssembly.Location = New System.Drawing.Point(21, 18)
         Me.chkAssembly.Name = "chkAssembly"
-        Me.chkAssembly.Size = New System.Drawing.Size(111, 24)
+        Me.chkAssembly.Size = New System.Drawing.Size(166, 24)
         Me.chkAssembly.TabIndex = 21
         Me.chkAssembly.Text = "Disabled"
         '
@@ -748,10 +749,9 @@ Partial Class Form1
         Me.btn_assemblyRandom.BackColor = System.Drawing.Color.Transparent
         Me.btn_assemblyRandom.Enabled = False
         Me.btn_assemblyRandom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.btn_assemblyRandom.Location = New System.Drawing.Point(324, 156)
-        Me.btn_assemblyRandom.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_assemblyRandom.Location = New System.Drawing.Point(486, 240)
         Me.btn_assemblyRandom.Name = "btn_assemblyRandom"
-        Me.btn_assemblyRandom.Size = New System.Drawing.Size(81, 25)
+        Me.btn_assemblyRandom.Size = New System.Drawing.Size(122, 38)
         Me.btn_assemblyRandom.TabIndex = 5
         Me.btn_assemblyRandom.Text = "Randomize"
         '
@@ -760,12 +760,11 @@ Partial Class Form1
         Me.txtTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtTitle.Enabled = False
         Me.txtTitle.ForeColor = System.Drawing.Color.Silver
-        Me.txtTitle.Location = New System.Drawing.Point(14, 47)
-        Me.txtTitle.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtTitle.Location = New System.Drawing.Point(21, 72)
         Me.txtTitle.MaxLength = 32767
         Me.txtTitle.MultiLine = False
         Me.txtTitle.Name = "txtTitle"
-        Me.txtTitle.Size = New System.Drawing.Size(176, 24)
+        Me.txtTitle.Size = New System.Drawing.Size(264, 24)
         Me.txtTitle.TabIndex = 0
         Me.txtTitle.Text = "Title..."
         Me.txtTitle.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -777,10 +776,9 @@ Partial Class Form1
         Me.btn_assemblyClone.BackColor = System.Drawing.Color.Transparent
         Me.btn_assemblyClone.Enabled = False
         Me.btn_assemblyClone.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.btn_assemblyClone.Location = New System.Drawing.Point(230, 156)
-        Me.btn_assemblyClone.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_assemblyClone.Location = New System.Drawing.Point(345, 240)
         Me.btn_assemblyClone.Name = "btn_assemblyClone"
-        Me.btn_assemblyClone.Size = New System.Drawing.Size(80, 25)
+        Me.btn_assemblyClone.Size = New System.Drawing.Size(120, 38)
         Me.btn_assemblyClone.TabIndex = 6
         Me.btn_assemblyClone.Text = "Clone File"
         '
@@ -789,12 +787,11 @@ Partial Class Form1
         Me.txtProduct.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtProduct.Enabled = False
         Me.txtProduct.ForeColor = System.Drawing.Color.Silver
-        Me.txtProduct.Location = New System.Drawing.Point(230, 47)
-        Me.txtProduct.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtProduct.Location = New System.Drawing.Point(345, 72)
         Me.txtProduct.MaxLength = 32767
         Me.txtProduct.MultiLine = False
         Me.txtProduct.Name = "txtProduct"
-        Me.txtProduct.Size = New System.Drawing.Size(176, 24)
+        Me.txtProduct.Size = New System.Drawing.Size(264, 24)
         Me.txtProduct.TabIndex = 0
         Me.txtProduct.Text = "Product..."
         Me.txtProduct.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -806,12 +803,11 @@ Partial Class Form1
         Me.num_Assembly4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.num_Assembly4.Enabled = False
         Me.num_Assembly4.ForeColor = System.Drawing.Color.Silver
-        Me.num_Assembly4.Location = New System.Drawing.Point(167, 157)
-        Me.num_Assembly4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.num_Assembly4.Location = New System.Drawing.Point(250, 242)
         Me.num_Assembly4.MaxLength = 32767
         Me.num_Assembly4.MultiLine = False
         Me.num_Assembly4.Name = "num_Assembly4"
-        Me.num_Assembly4.Size = New System.Drawing.Size(23, 24)
+        Me.num_Assembly4.Size = New System.Drawing.Size(34, 24)
         Me.num_Assembly4.TabIndex = 1
         Me.num_Assembly4.Text = "0"
         Me.num_Assembly4.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -823,12 +819,11 @@ Partial Class Form1
         Me.txtDescription.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtDescription.Enabled = False
         Me.txtDescription.ForeColor = System.Drawing.Color.Silver
-        Me.txtDescription.Location = New System.Drawing.Point(14, 83)
-        Me.txtDescription.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDescription.Location = New System.Drawing.Point(21, 128)
         Me.txtDescription.MaxLength = 32767
         Me.txtDescription.MultiLine = False
         Me.txtDescription.Name = "txtDescription"
-        Me.txtDescription.Size = New System.Drawing.Size(176, 24)
+        Me.txtDescription.Size = New System.Drawing.Size(264, 24)
         Me.txtDescription.TabIndex = 0
         Me.txtDescription.Text = "Description..."
         Me.txtDescription.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -840,12 +835,11 @@ Partial Class Form1
         Me.num_Assembly3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.num_Assembly3.Enabled = False
         Me.num_Assembly3.ForeColor = System.Drawing.Color.Silver
-        Me.num_Assembly3.Location = New System.Drawing.Point(140, 157)
-        Me.num_Assembly3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.num_Assembly3.Location = New System.Drawing.Point(210, 242)
         Me.num_Assembly3.MaxLength = 32767
         Me.num_Assembly3.MultiLine = False
         Me.num_Assembly3.Name = "num_Assembly3"
-        Me.num_Assembly3.Size = New System.Drawing.Size(23, 24)
+        Me.num_Assembly3.Size = New System.Drawing.Size(34, 24)
         Me.num_Assembly3.TabIndex = 2
         Me.num_Assembly3.Text = "0"
         Me.num_Assembly3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -857,12 +851,11 @@ Partial Class Form1
         Me.txtCopyright.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtCopyright.Enabled = False
         Me.txtCopyright.ForeColor = System.Drawing.Color.Silver
-        Me.txtCopyright.Location = New System.Drawing.Point(230, 83)
-        Me.txtCopyright.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtCopyright.Location = New System.Drawing.Point(345, 128)
         Me.txtCopyright.MaxLength = 32767
         Me.txtCopyright.MultiLine = False
         Me.txtCopyright.Name = "txtCopyright"
-        Me.txtCopyright.Size = New System.Drawing.Size(176, 24)
+        Me.txtCopyright.Size = New System.Drawing.Size(264, 24)
         Me.txtCopyright.TabIndex = 0
         Me.txtCopyright.Text = "Copyright..."
         Me.txtCopyright.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -874,12 +867,11 @@ Partial Class Form1
         Me.num_Assembly2.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.num_Assembly2.Enabled = False
         Me.num_Assembly2.ForeColor = System.Drawing.Color.Silver
-        Me.num_Assembly2.Location = New System.Drawing.Point(113, 157)
-        Me.num_Assembly2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.num_Assembly2.Location = New System.Drawing.Point(170, 242)
         Me.num_Assembly2.MaxLength = 32767
         Me.num_Assembly2.MultiLine = False
         Me.num_Assembly2.Name = "num_Assembly2"
-        Me.num_Assembly2.Size = New System.Drawing.Size(23, 24)
+        Me.num_Assembly2.Size = New System.Drawing.Size(34, 24)
         Me.num_Assembly2.TabIndex = 3
         Me.num_Assembly2.Text = "0"
         Me.num_Assembly2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -891,12 +883,11 @@ Partial Class Form1
         Me.txtCompany.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtCompany.Enabled = False
         Me.txtCompany.ForeColor = System.Drawing.Color.Silver
-        Me.txtCompany.Location = New System.Drawing.Point(14, 119)
-        Me.txtCompany.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtCompany.Location = New System.Drawing.Point(21, 183)
         Me.txtCompany.MaxLength = 32767
         Me.txtCompany.MultiLine = False
         Me.txtCompany.Name = "txtCompany"
-        Me.txtCompany.Size = New System.Drawing.Size(176, 24)
+        Me.txtCompany.Size = New System.Drawing.Size(264, 24)
         Me.txtCompany.TabIndex = 0
         Me.txtCompany.Text = "Company..."
         Me.txtCompany.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -908,12 +899,11 @@ Partial Class Form1
         Me.num_Assembly1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.num_Assembly1.Enabled = False
         Me.num_Assembly1.ForeColor = System.Drawing.Color.Silver
-        Me.num_Assembly1.Location = New System.Drawing.Point(87, 157)
-        Me.num_Assembly1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.num_Assembly1.Location = New System.Drawing.Point(130, 242)
         Me.num_Assembly1.MaxLength = 32767
         Me.num_Assembly1.MultiLine = False
         Me.num_Assembly1.Name = "num_Assembly1"
-        Me.num_Assembly1.Size = New System.Drawing.Size(23, 24)
+        Me.num_Assembly1.Size = New System.Drawing.Size(34, 24)
         Me.num_Assembly1.TabIndex = 4
         Me.num_Assembly1.Text = "0"
         Me.num_Assembly1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -925,12 +915,11 @@ Partial Class Form1
         Me.txtTrademark.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtTrademark.Enabled = False
         Me.txtTrademark.ForeColor = System.Drawing.Color.Silver
-        Me.txtTrademark.Location = New System.Drawing.Point(230, 119)
-        Me.txtTrademark.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtTrademark.Location = New System.Drawing.Point(345, 183)
         Me.txtTrademark.MaxLength = 32767
         Me.txtTrademark.MultiLine = False
         Me.txtTrademark.Name = "txtTrademark"
-        Me.txtTrademark.Size = New System.Drawing.Size(176, 24)
+        Me.txtTrademark.Size = New System.Drawing.Size(264, 24)
         Me.txtTrademark.TabIndex = 0
         Me.txtTrademark.Text = "Trademark..."
         Me.txtTrademark.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -945,8 +934,9 @@ Partial Class Form1
         Me.TabPage4.Controls.Add(Me.btnBrowseIcon)
         Me.TabPage4.Controls.Add(Me.txtIconPath)
         Me.TabPage4.Location = New System.Drawing.Point(89, 4)
+        Me.TabPage4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(418, 189)
+        Me.TabPage4.Size = New System.Drawing.Size(673, 295)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Icon"
         '
@@ -957,10 +947,9 @@ Partial Class Form1
         Me.chkIcon.Checked = False
         Me.chkIcon.Cursor = System.Windows.Forms.Cursors.Hand
         Me.chkIcon.ForeColor = System.Drawing.Color.Black
-        Me.chkIcon.Location = New System.Drawing.Point(14, 12)
-        Me.chkIcon.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkIcon.Location = New System.Drawing.Point(21, 18)
         Me.chkIcon.Name = "chkIcon"
-        Me.chkIcon.Size = New System.Drawing.Size(111, 24)
+        Me.chkIcon.Size = New System.Drawing.Size(166, 24)
         Me.chkIcon.TabIndex = 21
         Me.chkIcon.Text = "Disabled"
         '
@@ -969,10 +958,9 @@ Partial Class Form1
         Me.picIcon.ErrorImage = Nothing
         Me.picIcon.Image = Global.SilentETHMiner.My.Resources.Resources.Ethereum
         Me.picIcon.InitialImage = Nothing
-        Me.picIcon.Location = New System.Drawing.Point(160, 81)
-        Me.picIcon.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.picIcon.Location = New System.Drawing.Point(240, 125)
         Me.picIcon.Name = "picIcon"
-        Me.picIcon.Size = New System.Drawing.Size(96, 96)
+        Me.picIcon.Size = New System.Drawing.Size(144, 148)
         Me.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picIcon.TabIndex = 11
         Me.picIcon.TabStop = False
@@ -982,10 +970,9 @@ Partial Class Form1
         Me.btnBrowseIcon.BackColor = System.Drawing.Color.Transparent
         Me.btnBrowseIcon.Enabled = False
         Me.btnBrowseIcon.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.btnBrowseIcon.Location = New System.Drawing.Point(14, 48)
-        Me.btnBrowseIcon.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnBrowseIcon.Location = New System.Drawing.Point(21, 74)
         Me.btnBrowseIcon.Name = "btnBrowseIcon"
-        Me.btnBrowseIcon.Size = New System.Drawing.Size(69, 25)
+        Me.btnBrowseIcon.Size = New System.Drawing.Size(104, 38)
         Me.btnBrowseIcon.TabIndex = 9
         Me.btnBrowseIcon.Text = "Browse"
         '
@@ -993,12 +980,11 @@ Partial Class Form1
         '
         Me.txtIconPath.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtIconPath.ForeColor = System.Drawing.Color.Silver
-        Me.txtIconPath.Location = New System.Drawing.Point(87, 49)
-        Me.txtIconPath.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtIconPath.Location = New System.Drawing.Point(130, 75)
         Me.txtIconPath.MaxLength = 32767
         Me.txtIconPath.MultiLine = False
         Me.txtIconPath.Name = "txtIconPath"
-        Me.txtIconPath.Size = New System.Drawing.Size(302, 24)
+        Me.txtIconPath.Size = New System.Drawing.Size(453, 24)
         Me.txtIconPath.TabIndex = 10
         Me.txtIconPath.Text = "Path to icon..."
         Me.txtIconPath.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -1022,9 +1008,10 @@ Partial Class Form1
         Me.TabPage6.Controls.Add(Me.Label11)
         Me.TabPage6.Controls.Add(Me.toggleEnableIdle)
         Me.TabPage6.Location = New System.Drawing.Point(89, 4)
+        Me.TabPage6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
-        Me.TabPage6.Size = New System.Drawing.Size(418, 189)
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TabPage6.Size = New System.Drawing.Size(673, 295)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Mining"
         '
@@ -1032,17 +1019,17 @@ Partial Class Form1
         '
         Me.MephButton1.BackColor = System.Drawing.Color.Transparent
         Me.MephButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.MephButton1.Location = New System.Drawing.Point(265, 150)
+        Me.MephButton1.Location = New System.Drawing.Point(398, 231)
+        Me.MephButton1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MephButton1.Name = "MephButton1"
-        Me.MephButton1.Size = New System.Drawing.Size(145, 23)
+        Me.MephButton1.Size = New System.Drawing.Size(218, 35)
         Me.MephButton1.TabIndex = 60
         Me.MephButton1.Text = "Advanced Options"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 131)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Location = New System.Drawing.Point(15, 202)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(100, 25)
         Me.Label5.TabIndex = 59
@@ -1058,11 +1045,10 @@ Partial Class Form1
         Me.txtInjection.FormattingEnabled = True
         Me.txtInjection.ItemHeight = 16
         Me.txtInjection.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.txtInjection.Items.AddRange(New Object() {"explorer.exe (%WINDIR%)", "nslookup.exe (%WINDIR%/System32)", "cmd.exe (%WINDIR%/System32)", "notepad.exe (%WINDIR%/System32)"})
-        Me.txtInjection.Location = New System.Drawing.Point(13, 150)
-        Me.txtInjection.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtInjection.Items.AddRange(New Object() {"explorer.exe (%WINDIR%)", "nslookup.exe (%WINDIR%/System32)", "cmd.exe (%WINDIR%/System32)", "notepad.exe (%WINDIR%/System32)", "svchost.exe (%WINDIR%/System32)", "conhost.exe (%WINDIR%/System32)"})
+        Me.txtInjection.Location = New System.Drawing.Point(20, 231)
         Me.txtInjection.Name = "txtInjection"
-        Me.txtInjection.Size = New System.Drawing.Size(240, 22)
+        Me.txtInjection.Size = New System.Drawing.Size(358, 22)
         Me.txtInjection.StartIndex = 0
         Me.txtInjection.TabIndex = 58
         '
@@ -1070,8 +1056,7 @@ Partial Class Form1
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label27.Location = New System.Drawing.Point(10, 45)
-        Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label27.Location = New System.Drawing.Point(15, 69)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(73, 25)
         Me.Label27.TabIndex = 56
@@ -1082,8 +1067,7 @@ Partial Class Form1
         Me.toggleEnableStealth.BackColor = System.Drawing.Color.Transparent
         Me.toggleEnableStealth.Checked = False
         Me.toggleEnableStealth.ForeColor = System.Drawing.Color.Black
-        Me.toggleEnableStealth.Location = New System.Drawing.Point(124, 45)
-        Me.toggleEnableStealth.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.toggleEnableStealth.Location = New System.Drawing.Point(186, 69)
         Me.toggleEnableStealth.Name = "toggleEnableStealth"
         Me.toggleEnableStealth.Size = New System.Drawing.Size(50, 24)
         Me.toggleEnableStealth.TabIndex = 55
@@ -1093,8 +1077,7 @@ Partial Class Form1
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label24.Location = New System.Drawing.Point(356, 12)
-        Me.Label24.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label24.Location = New System.Drawing.Point(534, 18)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(80, 25)
         Me.Label24.TabIndex = 53
@@ -1104,8 +1087,7 @@ Partial Class Form1
         '
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label23.Location = New System.Drawing.Point(264, 12)
-        Me.Label23.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label23.Location = New System.Drawing.Point(396, 18)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(90, 25)
         Me.Label23.TabIndex = 52
@@ -1117,11 +1099,12 @@ Partial Class Form1
         Me.txtIdleWait.Enabled = False
         Me.txtIdleWait.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIdleWait.ForeColor = System.Drawing.Color.Silver
-        Me.txtIdleWait.Location = New System.Drawing.Point(330, 10)
+        Me.txtIdleWait.Location = New System.Drawing.Point(495, 15)
+        Me.txtIdleWait.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtIdleWait.MaxLength = 32767
         Me.txtIdleWait.MultiLine = False
         Me.txtIdleWait.Name = "txtIdleWait"
-        Me.txtIdleWait.Size = New System.Drawing.Size(24, 24)
+        Me.txtIdleWait.Size = New System.Drawing.Size(36, 24)
         Me.txtIdleWait.TabIndex = 51
         Me.txtIdleWait.Text = "5"
         Me.txtIdleWait.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -1131,8 +1114,7 @@ Partial Class Form1
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(10, 14)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label11.Location = New System.Drawing.Point(15, 22)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(112, 25)
         Me.Label11.TabIndex = 30
@@ -1143,8 +1125,7 @@ Partial Class Form1
         Me.toggleEnableIdle.BackColor = System.Drawing.Color.Transparent
         Me.toggleEnableIdle.Checked = False
         Me.toggleEnableIdle.ForeColor = System.Drawing.Color.Black
-        Me.toggleEnableIdle.Location = New System.Drawing.Point(123, 12)
-        Me.toggleEnableIdle.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.toggleEnableIdle.Location = New System.Drawing.Point(184, 18)
         Me.toggleEnableIdle.Name = "toggleEnableIdle"
         Me.toggleEnableIdle.Size = New System.Drawing.Size(50, 24)
         Me.toggleEnableIdle.TabIndex = 29
@@ -1162,8 +1143,9 @@ Partial Class Form1
         Me.TabPage5.Controls.Add(Me.txtLog)
         Me.TabPage5.Controls.Add(Me.btnBuild)
         Me.TabPage5.Location = New System.Drawing.Point(89, 4)
+        Me.TabPage5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(418, 189)
+        Me.TabPage5.Size = New System.Drawing.Size(673, 295)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Build"
         '
@@ -1171,8 +1153,7 @@ Partial Class Form1
         '
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label29.Location = New System.Drawing.Point(121, 11)
-        Me.Label29.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label29.Location = New System.Drawing.Point(182, 17)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(82, 25)
         Me.Label29.TabIndex = 57
@@ -1182,8 +1163,7 @@ Partial Class Form1
         '
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label30.Location = New System.Drawing.Point(10, 11)
-        Me.Label30.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label30.Location = New System.Drawing.Point(15, 17)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(106, 25)
         Me.Label30.TabIndex = 56
@@ -1194,11 +1174,12 @@ Partial Class Form1
         Me.txtStartDelay.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtStartDelay.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtStartDelay.ForeColor = System.Drawing.Color.Silver
-        Me.txtStartDelay.Location = New System.Drawing.Point(85, 9)
+        Me.txtStartDelay.Location = New System.Drawing.Point(128, 14)
+        Me.txtStartDelay.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtStartDelay.MaxLength = 32767
         Me.txtStartDelay.MultiLine = False
         Me.txtStartDelay.Name = "txtStartDelay"
-        Me.txtStartDelay.Size = New System.Drawing.Size(34, 24)
+        Me.txtStartDelay.Size = New System.Drawing.Size(51, 24)
         Me.txtStartDelay.TabIndex = 55
         Me.txtStartDelay.Text = "30"
         Me.txtStartDelay.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -1209,8 +1190,7 @@ Partial Class Form1
         '
         Me.labelHackforums.AutoSize = True
         Me.labelHackforums.LinkColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.labelHackforums.Location = New System.Drawing.Point(57, 167)
-        Me.labelHackforums.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelHackforums.Location = New System.Drawing.Point(86, 257)
         Me.labelHackforums.Name = "labelHackforums"
         Me.labelHackforums.Size = New System.Drawing.Size(112, 25)
         Me.labelHackforums.TabIndex = 22
@@ -1221,8 +1201,7 @@ Partial Class Form1
         '
         Me.labelGitHub.AutoSize = True
         Me.labelGitHub.LinkColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.labelGitHub.Location = New System.Drawing.Point(8, 167)
-        Me.labelGitHub.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelGitHub.Location = New System.Drawing.Point(12, 257)
         Me.labelGitHub.Name = "labelGitHub"
         Me.labelGitHub.Size = New System.Drawing.Size(71, 25)
         Me.labelGitHub.TabIndex = 21
@@ -1234,12 +1213,11 @@ Partial Class Form1
         Me.txtLog.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtLog.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLog.ForeColor = System.Drawing.Color.Silver
-        Me.txtLog.Location = New System.Drawing.Point(10, 41)
-        Me.txtLog.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtLog.Location = New System.Drawing.Point(15, 63)
         Me.txtLog.MaxLength = 32767
         Me.txtLog.MultiLine = True
         Me.txtLog.Name = "txtLog"
-        Me.txtLog.Size = New System.Drawing.Size(399, 119)
+        Me.txtLog.Size = New System.Drawing.Size(598, 183)
         Me.txtLog.TabIndex = 18
         Me.txtLog.Text = "Output..."
         Me.txtLog.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
@@ -1250,24 +1228,22 @@ Partial Class Form1
         '
         Me.btnBuild.BackColor = System.Drawing.Color.Transparent
         Me.btnBuild.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.btnBuild.Location = New System.Drawing.Point(309, 9)
-        Me.btnBuild.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnBuild.Location = New System.Drawing.Point(464, 14)
         Me.btnBuild.Name = "btnBuild"
-        Me.btnBuild.Size = New System.Drawing.Size(99, 25)
+        Me.btnBuild.Size = New System.Drawing.Size(148, 38)
         Me.btnBuild.TabIndex = 17
         Me.btnBuild.Text = "Build"
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 272)
+        Me.ClientSize = New System.Drawing.Size(802, 418)
         Me.Controls.Add(Me.MephForm1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.MaximumSize = New System.Drawing.Size(535, 272)
-        Me.MinimumSize = New System.Drawing.Size(535, 272)
+        Me.MaximumSize = New System.Drawing.Size(802, 418)
+        Me.MinimumSize = New System.Drawing.Size(802, 418)
         Me.Name = "Form1"
         Me.Opacity = 0.95R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
