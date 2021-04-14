@@ -28,6 +28,10 @@ Pre-Compiled: https://github.com/UnamSanctam/SilentETHMiner/releases
 
 [Silent XMR (Monero) Miner](https://github.com/UnamSanctam/SilentXMRMiner)
 
+## Wiki
+
+You can find the new wiki [here](https://github.com/UnamSanctam/SilentETHMiner/wiki) or at the top of the page.
+
 ## Requirements
 
 When mining with the Ethash algorithm you need to have enough GPU memory left to store the DAG. So for example, mining Ethereum requires you to have at least a minimum GPU memory of 4.14 GB available since that is the size of the DAG as of writing this. Due to this, GPUs that have less available memory than the required DAG are not able to mine at all.
