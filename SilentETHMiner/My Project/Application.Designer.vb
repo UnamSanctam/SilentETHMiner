@@ -28,6 +28,8 @@ Namespace My
             Me.EnableVisualStyles = true
             Me.SaveMySettingsOnExit = true
             Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+			Me.ChangeCulture("en-US")
+            Me.ChangeUICulture("en-US")
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
