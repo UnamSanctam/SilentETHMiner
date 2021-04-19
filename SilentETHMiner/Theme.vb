@@ -213,11 +213,15 @@ Public Class MephTheme : Inherits ContainerControl
     End Sub
     Protected Overrides Sub OnCreateControl()
         MyBase.OnCreateControl()
-        Me.ParentForm.FormBorderStyle = FormBorderStyle.None
-        Me.ParentForm.TransparencyKey = Color.Fuchsia
-        Dock = DockStyle.Fill
+        ParentForm.FormBorderStyle = FormBorderStyle.None
+        ParentForm.TransparencyKey = Color.Fuchsia
+        ParentForm.Dock = DockStyle.Fill
+        ParentForm.Anchor = AnchorStyles.None
+        ParentForm.Font = New Font(Font.Name, 8.25F * 100.0F / CreateGraphics().DpiY, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont)
+        ParentForm.AutoScaleMode = AutoScaleMode.None
         Anchor = AnchorStyles.None
         Font = New Font(Font.Name, 8.25F * 100.0F / CreateGraphics().DpiY, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont)
+        AutoScaleMode = AutoScaleMode.None
     End Sub
 End Class
 Public Class MephButton : Inherits Control
