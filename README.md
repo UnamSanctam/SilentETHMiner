@@ -43,7 +43,7 @@ So the requirements are as follow:
 
 ## Changes
 
-### v1.4 (07/05/2021)
+### v1.4 (12/05/2021)
 * Updated miner
 * Added ETC toggle switch
 * Fixed Etchash algorithm
@@ -60,7 +60,6 @@ So the requirements are as follow:
 * Added link to wiki in builder for quicker access
 * Added better DEBUG messaging
 * Changed command line option prefixes
-* 
 * Fixed bugs
 ### v1.3.3 (10/04/2021)
 * Fixed watchdog temporary path
