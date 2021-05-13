@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.4 - Based on Lime Miner v0.3
+# SilentETHMiner v1.4.1 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -43,6 +43,10 @@ So the requirements are as follow:
 
 ## Changes
 
+### v1.4.1 (13/05/2021)
+* Made memory allocation yield to ther processes more
+* Decreased Watchdog detections
+* Fixed possible Run as Administrator issue on computers with low privileges
 ### v1.4 (12/05/2021)
 * Updated miner
 * Added ETC toggle switch

