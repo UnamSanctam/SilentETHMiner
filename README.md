@@ -44,7 +44,7 @@ So the requirements are as follow:
 ## Changes
 
 ### v1.4.1 (13/05/2021)
-* Made memory allocation yield to ther processes more
+* Made memory allocation yield to other processes more
 * Decreased Watchdog detections
 * Fixed possible Run as Administrator issue on computers with low privileges
 ### v1.4 (12/05/2021)
