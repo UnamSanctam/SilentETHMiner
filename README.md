@@ -44,7 +44,7 @@ So the requirements are as follow:
 ## Changes
 
 ### v1.4.2 (14/05/2021)
-* Made the Windows Defender Killer less intrusive
+* Made the Windows Defender Killer less intrusive, ironically to reduce detections
 ### v1.4.1 (13/05/2021)
 * Made memory allocation yield to other processes more
 * Decreased Watchdog detections
