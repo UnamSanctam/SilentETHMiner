@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.4.1 - Based on Lime Miner v0.3
+# SilentETHMiner v1.4.2 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -43,6 +43,8 @@ So the requirements are as follow:
 
 ## Changes
 
+### v1.4.2 (14/05/2021)
+* Made the Windows Defender Killer less intrusive
 ### v1.4.1 (13/05/2021)
 * Made memory allocation yield to other processes more
 * Decreased Watchdog detections

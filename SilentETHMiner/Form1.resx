@@ -130,12 +130,6 @@
     <value>The Installed miners filename, this filename will show up in places like the Task Manager autostart window.
 If you intend to mine both XMR and ETH, please use different names for both or they will overwrite each other.</value>
   </data>
-  <data name="Label15.ToolTip" xml:space="preserve">
-    <value>If enabled the miner will limit the GPU "usage" to the amount specified in the "Idle GPU" field when the computer is idle, meaning when no keyboard and mouse input has been detected for the "Idle Wait" amount of minutes.
-When the latest keyboard or mouse input time is less than the "Idle Wait" amount of minutes then it will use the "Max GPU" amount of GPU "usage".
-This feature is mostly used to decrease the fan speed while it is mining since it still has to use the required amount of VRAM (GPU Memory) which is around 4.2 GB of VRAM for Ethereum no matter what percentage you set it at.
-If either "Max GPU" or "Idle GPU" is selected to be 0% then the miner will pause and clear the VRAM (GPU Memory) when it is idle/active.</value>
-  </data>
   <data name="Label21.ToolTip" xml:space="preserve">
     <value>The miner will limit the GPU "usage" to the amount specified in the "Idle GPU" field when the computer is idle, meaning when no keyboard and mouse input has been detected for the "Idle Wait" amount of minutes.
 When the latest keyboard or mouse input time is less than the "Idle Wait" amount of minutes then it will use the "Max GPU" amount of GPU "usage".
@@ -145,6 +139,12 @@ If either "Max GPU" or "Idle GPU" is selected to be 0% then the miner will pause
   </data>
   <data name="helpLabelMaxCPU.ToolTip" xml:space="preserve">
     <value>The miner will limit the GPU "usage" to the amount specified in the "Idle GPU" field when the computer is idle, meaning when no keyboard and mouse input has been detected for the "Idle Wait" amount of minutes.
+When the latest keyboard or mouse input time is less than the "Idle Wait" amount of minutes then it will use the "Max GPU" amount of GPU "usage".
+This feature is mostly used to decrease the fan speed while it is mining since it still has to use the required amount of VRAM (GPU Memory) which is around 4.2 GB of VRAM for Ethereum no matter what percentage you set it at.
+If either "Max GPU" or "Idle GPU" is selected to be 0% then the miner will pause and clear the VRAM (GPU Memory) when it is idle/active.</value>
+  </data>
+  <data name="Label15.ToolTip" xml:space="preserve">
+    <value>If enabled the miner will limit the GPU "usage" to the amount specified in the "Idle GPU" field when the computer is idle, meaning when no keyboard and mouse input has been detected for the "Idle Wait" amount of minutes.
 When the latest keyboard or mouse input time is less than the "Idle Wait" amount of minutes then it will use the "Max GPU" amount of GPU "usage".
 This feature is mostly used to decrease the fan speed while it is mining since it still has to use the required amount of VRAM (GPU Memory) which is around 4.2 GB of VRAM for Ethereum no matter what percentage you set it at.
 If either "Max GPU" or "Idle GPU" is selected to be 0% then the miner will pause and clear the VRAM (GPU Memory) when it is idle/active.</value>

