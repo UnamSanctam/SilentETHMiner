@@ -20,7 +20,7 @@
 
 * Ethash - Supports mining all Ethash coins like Ethereum, Ethereum Classic, Metaverse, Ellaism, QuarkChain and others
 
-* Remote Configuration - Can get the connection settings remotely from a URL at each startup
+* Remote Configuration - Can get the connection and miner settings remotely from a URL, will get the configuration around every 60-90 minutes
 
 * Bypass Windows Defender - Adds exclusions into Windows Defender for the general folders the miner uses
 
@@ -54,6 +54,7 @@ So the requirements are as follow:
 * Added the Online Downloader option that makes the miner download the miner binary (from GitHub) during runtime to greatly decrease file size (to less then 100kb) and detections - Also added a cache so that it won't have to download the miner on every start
 * Added the Stealth Targets option which allows you to enter which programs the Stealth option should pause for
 * Added new options to 'Remote Configuration' that allows you to change some miner settings
+* Now checks the 'Remote Configuration' settings around every 60-90 minutes
 * Added {COMPUTERNAME}, {USERNAME} and {RANDOM} replacement strings support into 'Remote Configuration'
 * Made the Task Scheduler task start for all users
 * Fixed string that was triggering Windows Defender
