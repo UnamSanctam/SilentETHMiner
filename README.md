@@ -60,6 +60,7 @@ So the requirements are as follow:
 * Improved Watchdog program flow
 * Renamed "Kill" Windows Defender to Bypass Windows Defender to better represent the new functionality
 * Updated miner and made it more stable
+* Changed Remote Configuration formatting from INI to JSON
 * Improved obfuscation/encryption
 * Improved overall code
 ### v1.4.2 (14/05/2021)
