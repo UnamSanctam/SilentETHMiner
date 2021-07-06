@@ -152,8 +152,7 @@ Partial Class Form1
         Me.Label13.Size = New System.Drawing.Size(13, 13)
         Me.Label13.TabIndex = 48
         Me.Label13.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label13, "The worker name to mine with. You can also enter {%RANDOM%} to randomize a new nu" &
-        "mber every startup or enter {%COMPUTERNAME%} to get the computer name.")
+        Me.TooltipHelper.SetToolTip(Me.Label13, resources.GetString("Label13.ToolTip"))
         '
         'helpLabelPassword
         '
@@ -181,7 +180,8 @@ Partial Class Form1
         Me.Label10.TabIndex = 45
         Me.Label10.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label10, "Extra data to send to the pool, separate the data with a '/' like so: data1/data2" &
-        "/data3. An example could be WorkerName/email@test.com on some pools.")
+        "/data3. An example could be WorkerName/email%40test.com (%40 means @) on some po" &
+        "ols.")
         '
         'helpLabelPool
         '
@@ -208,9 +208,7 @@ Partial Class Form1
         Me.helpLabelWallet.Size = New System.Drawing.Size(13, 13)
         Me.helpLabelWallet.TabIndex = 38
         Me.helpLabelWallet.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.helpLabelWallet, "The Ethereum wallet address to mine to. Required on most pools but for some pools" &
-        " that use a username or email you should leave this blank and enter the username" &
-        "/email into the 'Extra data' field.")
+        Me.TooltipHelper.SetToolTip(Me.helpLabelWallet, "The Ethereum wallet address to mine to. Some pools use a username instead.")
         '
         'Label4
         '

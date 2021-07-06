@@ -131,6 +131,7 @@ After you have obfuscated the file press OK on the message box that appears to m
   </data>
   <data name="Label12.ToolTip" xml:space="preserve">
     <value>The programs that the "Stealth" option should check for. Separate the programs with a comma (,) just like the default entry.
+Windows does have a 8191 character limit in the command line arguments so any big collections of programs should probably be entered with the "Remote Configuration" feature.
 Default: Taskmgr.exe,ProcessHacker.exe,perfmon.exe,procexp.exe,procexp64.exe</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
