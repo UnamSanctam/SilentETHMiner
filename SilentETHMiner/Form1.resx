@@ -123,10 +123,6 @@
   <metadata name="TooltipHelper.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>343, 17</value>
   </metadata>
-  <data name="Label13.ToolTip" xml:space="preserve">
-    <value>The worker name to mine with. You can also enter {RANDOM} to randomize a new number, enter {USERNAME} to get the username or enter {COMPUTERNAME} to get the computer name. 
-On some pools like nanopool if you want to enter extra things like password/email you should leave this blank and enter the workername/email into the 'Extra data' field. </value>
-  </data>
   <data name="Label36.ToolTip" xml:space="preserve">
     <value>Starts a separate program that monitors the miner to see if it's still running and located in the installed path. If it's not running or missing it will start and copy the miner back to the install location.</value>
   </data>

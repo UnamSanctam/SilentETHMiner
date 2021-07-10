@@ -169,9 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -206,9 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Watchdog.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Mandark.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Loader.cs" />

