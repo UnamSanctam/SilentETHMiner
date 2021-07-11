@@ -46,7 +46,7 @@ public partial class RProgram
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = "cmd",
-                        Arguments = RGetString("#TASKSCH") + "\"" + Path.GetFileNameWithoutExtension(rplp) + "\"" + " /tr " + "'" + "\"" + (rplp) + "\"" + "' /RU \"SYSTEM\" & exit",
+                        Arguments = RGetString("#TASKSCH") + "\"" + Path.GetFileNameWithoutExtension(rplp) + "\"" + " /tr " + "'" + "\"" + (rplp) + "\"" + "' & exit",
                         WindowStyle = ProcessWindowStyle.Hidden,
                         CreateNoWindow = true
                     });
