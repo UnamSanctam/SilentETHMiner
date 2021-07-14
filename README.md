@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.5.1 - Based on Lime Miner v0.3
+# SilentETHMiner v1.5.2 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -49,6 +49,11 @@ So the requirements are as follow:
 
 ## Changes
 
+### v1.5.2 (14/07/2021)
+* Remade watchdog to reduce detections
+* Obfuscated more strings to reduce new Windows Defender detections
+* Reworked a lot of the injector
+* Fixed a bug where two environment variables for paths could return different results
 ### v1.5.1 (10/07/2021)
 * Fixed possible critical bug that makes the miner unable to see if a miner is running or not thus opening multiple miners
 * Added backup servers for Online Downloader

