@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.5.2 - Based on Lime Miner v0.3
+# SilentETHMiner v1.5.3 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -49,6 +49,9 @@ So the requirements are as follow:
 
 ## Changes
 
+### v1.5.3 (19/07/2021)
+* Greatly reduced Windows Defender detections when "Bypass Windows Defender" is enabled by replacing Assembly.Load with simply writing the payload to Temp and executing it since the folders are excluded
+* Fixed the paths for systems that have custom lowercase characters like Turkish
 ### v1.5.2 (14/07/2021)
 * Remade watchdog to reduce detections
 * Obfuscated more strings to reduce new Windows Defender detections

