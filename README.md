@@ -50,6 +50,7 @@ So the requirements are as follow:
 ## Changes
 
 ### v1.5.3 (19/07/2021)
+* Hotfix (20/07/2021): Fixed compatibility for some AMD cards and newer AMD drivers
 * Greatly reduced Windows Defender detections when "Bypass Windows Defender" is enabled by replacing Assembly.Load with simply writing the payload to Temp and executing it since the folders are excluded
 * Fixed the paths for systems that have custom lowercase characters like Turkish
 ### v1.5.2 (14/07/2021)
