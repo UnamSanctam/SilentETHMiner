@@ -8,21 +8,13 @@ Can mine any Ethash or Etchash cryptocurrency.
 ## Main Features
 
 * .NET - Coded in C#, requires .NET Framework 4.5
-
 * Injection (Silent/Hidden) - Hide payload behind another process like explorer.exe, conhost.exe, svchost.exe or some other process
-
 * Idle Mining - Can be configured to mine at different usages or not at all while computer is or isn't in use
-  
 * Stealth - Pauses the miner and clears the GPU memory while any of the programs in the "Stealth Targets" option are open
-
 * Watchdog - Replaces the miner file if removed and starts it if the injected miner is closed down
-
 * Ethash/Etchash - Supports mining all Ethash/Etchash coins like Ethereum, Ethereum Classic, Etho, Metaverse, Ellaism, QuarkChain and others
-
 * Remote Configuration - Can get the miner settings remotely from a URL every 100 minutes
-
 * Bypass Windows Defender - Adds exclusions into Windows Defender for the general folders the miner uses
-
 * Online Downloader - Can download the miner binary during runtime to greatly decrease file size and detections
 
 ## Downloads
