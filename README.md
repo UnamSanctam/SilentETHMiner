@@ -1,14 +1,15 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.5.4 - Based on Lime Miner v0.3
+# SilentETHMiner v1.6.0 - Based on Lime Miner v0.3
 
 Can mine any Ethash or Etchash cryptocurrency.
 
 ## Main Features
 
-* .NET - Coded in C#, requires .NET Framework 4.5
-* Injection (Silent/Hidden) - Hide payload behind another process like explorer.exe, conhost.exe, svchost.exe or some other process
+* Native & .NET - Miner installer and watchdog coded in C#, Shellcode loader/injector coded in C, miner requires .NET Framework 4.5
+* Shellcode - All .NET C# parts are converted into Shellcode and injected using a native C loader, can be disabled
+* Injection (Silent/Hidden) - Hide payload behind another process like explorer.exe, conhost.exe, svchost.exe or other processes
 * Idle Mining - Can be configured to mine at different usages or not at all while computer is or isn't in use
 * Stealth - Pauses the miner and clears the GPU memory while any of the programs in the "Stealth Targets" option are open
 * Watchdog - Replaces the miner file if removed and starts it if the injected miner is closed down
@@ -40,12 +41,16 @@ So the requirements are as follow:
 
 ## Changelog
 
-### v1.5.4 (28/07/2021)
-* Fixed the GPU detection for systems that have custom lowercase characters like Turkish, seems like I failed the "Turkey Test" again
-### v1.5.3 (19/07/2021)
-* Hotfix (20/07/2021): Fixed compatibility for some AMD cards and newer AMD drivers
-* Greatly reduced Windows Defender detections when "Bypass Windows Defender" is enabled by replacing Assembly.Load with simply writing the payload to Temp and executing it since the folders are excluded
-* Fixed the paths for systems that have custom lowercase characters like Turkish
+### v1.6.0 (02/10/2021)
+**The previous version was supposed to be the last one before the unified miner but I recieved great results by loading everything by Shellcode making it worthwhile to update**
+* Added new Shellcode loader, the miner, watchdog and uninstaller will now be converted into shellcode and injected using a native C loader which greatly reduces detections
+* Added custom tcc C compiler to compile the Shellcode loader
+* Added custom windres resource compiler to allow icons, assembly data and run as administrator for the native C program
+* Added donut to convert .NET programs into Shellcode
+* Added option to disable Shellcode loader
+* Remade and optimized much of the miner and watchdog code
+* Removed old C# loader
+* Renamed Install to Startup due to confusion
 
 [You can view the full Changelog here](CHANGELOG.md)
 

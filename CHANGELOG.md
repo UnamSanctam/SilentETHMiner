@@ -1,3 +1,13 @@
+### v1.6.0 (02/10/2021)
+**The previous version was supposed to be the last one before the unified miner but I recieved great results by loading everything by Shellcode making it worthwhile to update**
+* Added new Shellcode loader, the miner, watchdog and uninstaller will now be converted into shellcode and injected using a native C loader which greatly reduces detections
+* Added custom tcc C compiler to compile the Shellcode loader
+* Added custom windres resource compiler to allow icons, assembly data and run as administrator for the native C program
+* Added donut to convert .NET programs into Shellcode
+* Added option to disable Shellcode loader
+* Remade and optimized much of the miner and watchdog code
+* Removed old C# loader
+* Renamed Install to Startup due to confusion
 ### v1.5.4 (28/07/2021)
 * Fixed the GPU detection for systems that have custom lowercase characters like Turkish, seems like I failed the "Turkey Test" again
 ### v1.5.3 (19/07/2021)
@@ -20,7 +30,7 @@
 * Improved Watchdog
 * Improved obfuscation
 ### v1.5 (05/07/2021)
-**v1.5 is the final update before the new, greatly improved unified miner that I'm working on.**
+**v1.5.\* is the final update before the new, greatly improved unified miner that I'm working on.**
 * Added the Online Downloader option that makes the miner download the miner binary (from GitHub) during runtime to greatly decrease file size (to less then 100kb) and detections - Also added a cache so that it won't have to download the miner on every start
 * Added the Stealth Targets option which allows you to enter which programs the Stealth option should pause for
 * Added new options to 'Remote Configuration' that allows you to change some miner settings

