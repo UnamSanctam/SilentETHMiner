@@ -3,6 +3,8 @@
 
 # SilentETHMiner v1.6.1 - Based on Lime Miner v0.3
 
+# The new unified Silent Crypto Miner is now released https://github.com/UnamSanctam/SilentCryptoMiner
+
 Can mine any Ethash or Etchash cryptocurrency.
 
 ## Main Features
